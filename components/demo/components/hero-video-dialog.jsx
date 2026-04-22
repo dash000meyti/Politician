@@ -1,4 +1,4 @@
-import { HeroVideoDialog } from "@/components/ui/hero-video-dialog"
+import { HeroVideoDialog } from "@/components/ui"
 
 export function HeroVideoDialogDemo() {
   return (

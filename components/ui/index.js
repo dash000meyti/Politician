@@ -1,5 +1,6 @@
 export * from './marquee'
 export * from './terminal'
 export * from './hero-video-dialog'
+export * from './bento-grid'
 
 export * from './button'

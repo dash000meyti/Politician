@@ -2,7 +2,7 @@ import {
   AnimatedSpan,
   Terminal,
   TypingAnimation,
-} from "@/components/ui/terminal"
+} from "@/components/ui"
 
 export function TerminalDemo() {
   return (

@@ -6,6 +6,7 @@ import {
   TerminalDemoFit,
   HeroVideoDialogDemo,
   HeroVideoDialogDemoTopInBottomOut,
+  BentoDemo,
 } from '@/components/demo'
 
 export default function Home() {
@@ -78,10 +79,22 @@ export default function Home() {
       <div className='w-full h-1 bg-gray-400 my-4' />
 
       <h3>
-        Hero Video Dialog demo
+        Hero Video Dialog demo top in bottom out
       </h3>
       <HeroVideoDialogDemoTopInBottomOut />
 
+      <div className='w-full h-1 bg-gray-400 my-4' />
+
+      <h2>
+        Bento Grid
+      </h2>
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+        Bento Grid demo
+      </h3>
+      <BentoDemo />
     </>
   )
 }
