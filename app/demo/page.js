@@ -4,6 +4,8 @@ import {
   MarqueeDemoVertical,
   TerminalDemo,
   TerminalDemoFit,
+  HeroVideoDialogDemo,
+  HeroVideoDialogDemoTopInBottomOut,
 } from '@/components/demo'
 
 export default function Home() {
@@ -61,6 +63,24 @@ export default function Home() {
       <TerminalDemoFit />
 
       <div className='w-full h-1 bg-gray-400 my-4' />
+
+      <h2>
+        Hero Video Dialog
+      </h2>
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+        Hero Video Dialog demo
+      </h3>
+      <HeroVideoDialogDemo />
+
+      <div className='w-full h-1 bg-gray-400 my-4' />
+
+      <h3>
+        Hero Video Dialog demo
+      </h3>
+      <HeroVideoDialogDemoTopInBottomOut />
 
     </>
   )

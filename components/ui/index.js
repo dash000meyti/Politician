@@ -1,5 +1,5 @@
 export * from './marquee'
 export * from './terminal'
-
+export * from './hero-video-dialog'
 
 export * from './button'
