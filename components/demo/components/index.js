@@ -1,1 +1,2 @@
-export {MarqueeDemo,Marquee3D,MarqueeDemoVertical} from './marquee'
+export * from './marquee'
+export * from './terminal'
