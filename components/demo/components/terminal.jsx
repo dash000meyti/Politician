@@ -4,6 +4,19 @@ import {
   TypingAnimation,
 } from "@/components/ui"
 
+export function TerminalStart() {
+  return (
+    <Terminal>
+      <TypingAnimation>Line1 : TypingAnimation in Terminal</TypingAnimation>
+      <TypingAnimation>Line2 : TypingAnimation in Terminal</TypingAnimation>
+      <TypingAnimation>Line3 : TypingAnimation in Terminal</TypingAnimation>
+      <AnimatedSpan>✔ Line4 : AnimatedSpan next TypingAnimation in Terminal.</AnimatedSpan>
+      <AnimatedSpan>✔ Line5 : AnimatedSpan next TypingAnimation in Terminal.</AnimatedSpan>
+      <AnimatedSpan>✔ Line6 : AnimatedSpan next TypingAnimation in Terminal.</AnimatedSpan>
+    </Terminal>
+  )
+}
+
 export function TerminalDemo() {
   return (
     <Terminal>
@@ -57,22 +70,6 @@ export function TerminalDemo() {
       <TypingAnimation className="text-muted-foreground">
         You may now add components.
       </TypingAnimation>
-    </Terminal>
-  )
-}
-
-export function TerminalDemoFit() {
-  return (
-    <Terminal>
-      <TypingAnimation delay={0}>$ ls</TypingAnimation>
-      <AnimatedSpan delay={800} className="text-blue-500">
-        Documents Downloads Pictures
-      </AnimatedSpan>
-      <TypingAnimation delay={1600}>$ cd Documents</TypingAnimation>
-      <TypingAnimation delay={2400}>$ pwd</TypingAnimation>
-      <AnimatedSpan delay={3200} className="text-green-500">
-        /home/user/Documents
-      </AnimatedSpan>
     </Terminal>
   )
 }

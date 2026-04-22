@@ -2,11 +2,15 @@ import {
   MarqueeDemo,
   Marquee3D,
   MarqueeDemoVertical,
+  TerminalStart,
   TerminalDemo,
-  TerminalDemoFit,
+  HeroVideoDialogStart,
   HeroVideoDialogDemo,
   HeroVideoDialogDemoTopInBottomOut,
+  BentoStart,
   BentoDemo,
+  AnimatedListStart,
+  AnimatedListDemo,
 } from '@/components/demo'
 
 export default function Home() {
@@ -52,22 +56,29 @@ export default function Home() {
       <div className='w-full h-1 bg-gray-200 my-4' />
 
       <h3>
-        Terminal demo
+        Start
       </h3>
-      <TerminalDemo />
+      <TerminalStart />
 
       <div className='w-full h-1 bg-gray-200 my-4' />
 
       <h3>
         Terminal demo
       </h3>
-      <TerminalDemoFit />
+      <TerminalDemo />
 
       <div className='w-full h-1 bg-gray-400 my-4' />
 
       <h2>
         Hero Video Dialog
       </h2>
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+        Start
+      </h3>
+      <HeroVideoDialogStart />
 
       <div className='w-full h-1 bg-gray-200 my-4' />
 
@@ -92,9 +103,40 @@ export default function Home() {
       <div className='w-full h-1 bg-gray-200 my-4' />
 
       <h3>
+        Start
+      </h3>
+      <BentoStart />
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
         Bento Grid demo
       </h3>
       <BentoDemo />
+
+      <div className='w-full h-1 bg-gray-400 my-4' />
+
+      <h2>
+        Animated List
+      </h2>
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+        Start
+      </h3>
+      <AnimatedListStart />
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+        Animated List demo
+      </h3>
+      <AnimatedListDemo />
+
+
+
+
     </>
   )
 }

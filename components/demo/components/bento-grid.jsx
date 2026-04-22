@@ -67,6 +67,14 @@ const features = [
   },
 ]
 
+export function BentoStart() {
+  return (
+    <BentoGrid>
+      <BentoCard Icon={FileTextIcon} />
+    </BentoGrid>
+  )
+}
+
 export function BentoDemo() {
   return (
     <BentoGrid className="lg:grid-rows-3">
