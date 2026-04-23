@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { Marquee } from "@/components/ui"
+import { Marquee } from "@/components/ui/magic"
 
 const reviews = [
   {

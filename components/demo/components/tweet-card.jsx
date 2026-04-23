@@ -1,4 +1,4 @@
-import { TweetCard } from "@/components/ui"
+import { TweetCard } from "@/components/ui/magic"
 
 export function TweetDemo() {
   return (

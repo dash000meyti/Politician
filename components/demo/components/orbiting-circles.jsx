@@ -1,4 +1,4 @@
-import { OrbitingCircles } from "@/components/ui"
+import { OrbitingCircles } from "@/components/ui/magic"
 
 const Icons = {
   gitHub: () => (

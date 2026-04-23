@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { AnimatedList } from "@/components/ui"
+import { AnimatedList } from "@/components/ui/magic"
 
 let notifications = [
   {

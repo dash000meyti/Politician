@@ -6,7 +6,7 @@ import {
   InputIcon,
 } from "@radix-ui/react-icons"
 
-import { BentoCard, BentoGrid } from "@/components/ui"
+import { BentoCard, BentoGrid } from "@/components/ui/magic"
 
 const features = [
   {

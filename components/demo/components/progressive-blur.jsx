@@ -24,7 +24,7 @@
 
 
 
-import { ProgressiveBlur } from "@/components/ui/"
+import { ProgressiveBlur } from "@/components/ui/magic"
 
 export function ProgressiveBlurStart() {
   return (

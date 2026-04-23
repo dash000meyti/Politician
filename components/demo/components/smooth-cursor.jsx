@@ -1,4 +1,4 @@
-import { SmoothCursor } from "@/components/ui"
+import { SmoothCursor } from "@/components/ui/magic"
 
 export function SmoothCursorDemo() {
   return (

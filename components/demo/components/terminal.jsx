@@ -2,7 +2,7 @@ import {
   AnimatedSpan,
   Terminal,
   TypingAnimation,
-} from "@/components/ui"
+} from "@/components/ui/magic"
 
 export function TerminalStart() {
   return (

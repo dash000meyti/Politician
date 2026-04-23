@@ -1,4 +1,4 @@
-import { AvatarCircles } from "@/components/ui"
+import { AvatarCircles } from "@/components/ui/magic"
 
 const avatars = [
   {

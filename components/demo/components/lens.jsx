@@ -1,6 +1,6 @@
 "use client"
 
-import { Lens } from "@/components/ui"
+import { Lens } from "@/components/ui/magic"
 
 export function LensStart() {
   return (

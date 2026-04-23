@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react"
 
-import { Pointer } from "@/components/ui"
+import { Pointer } from "@/components/ui/magic"
 
 export function PointerStart() {
   return (

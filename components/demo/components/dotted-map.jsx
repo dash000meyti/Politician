@@ -1,5 +1,5 @@
 import * as React from "react"
-import { DottedMap } from "@/components/ui"
+import { DottedMap } from "@/components/ui/magic"
 
 const markers = [
   {

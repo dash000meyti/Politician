@@ -2,7 +2,7 @@
 
 import React from "react"
 
-import { Dock, DockIcon } from "@/components/ui"
+import { Dock, DockIcon } from "@/components/ui/magic"
 
 const Icons = {
   gitHub: (props) => (
