@@ -22,6 +22,10 @@ import {
   AvatarDemoGroupCount,
   AvatarDemoGroupIcon,
   AvatarDemoSizes,
+  BadgeDemo,
+  BadgeDemoIcon,
+  BadgeDemoColors,
+
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -45,98 +49,113 @@ export default function DemoComponentsPage() {
       <AccordionStart />
       <Spacing />
 
-      <h3>Accordion demo</h3>
+      <h3>Accordiondemo</h3>
       <AccordionDemo />
       <Spacing />
 
-      <h3>Accordion demo multiple disabled</h3>
+      <h3>AccordionDemoMultipleDisabled</h3>
       <AccordionDemoMultipleDisabled />
       <Spacing />
 
-      <h3>Accordion Demo Rtl</h3>
+      <h3>AccordionDemoRtl</h3>
       <AccordionDemoRtl />
       <Spacing dark />
 
       <h2>Alert</h2>
       <Spacing />
 
-      <h3>Alert Demo</h3>
+      <h3>AlertDemo</h3>
       <AlertDemo />
       <Spacing />
 
-      <h3>Alert Demo Destructive</h3>
+      <h3>AlertDemoDestructive</h3>
       <AlertDemoDestructive />
       <Spacing />
 
-      <h3>Alert Demo Action</h3>
+      <h3>AlertDemoAction</h3>
       <AlertDemoAction />
       <Spacing />
 
-      <h3>Alert Demo Custom Colors</h3>
+      <h3>AlertDemoCustomColors</h3>
       <AlertDemoCustomColors />
       <Spacing dark />
 
       <h2>Alert Dialog</h2>
       <Spacing />
 
-      <h3>Alert Dialog Demo</h3>
+      <h3>AlertDialogDemo</h3>
       <AlertDialogDemo />
       <Spacing />
 
-      <h3>Alert Dialog Demo Small</h3>
+      <h3>AlertDialogDemoSmall</h3>
       <AlertDialogDemoSmall />
       <Spacing />
 
-      <h3>Alert Dialog Demo Media</h3>
+      <h3>AlertDialogDemoMedia</h3>
       <AlertDialogDemoMedia />
       <Spacing />
 
-      <h3>Alert Dialog Demo Small Media</h3>
+      <h3>AlertDialogDemoSmallMedia</h3>
       <AlertDialogDemoSmallMedia />
       <Spacing />
 
-      <h3>Alert Dialog Demo Destructive</h3>
+      <h3>AlertDialogDemoDestructive</h3>
       <AlertDialogDemoDestructive />
       <Spacing dark />
 
       <h2>Aspect Ratio</h2>
       <Spacing />
 
-      <h3>Aspect Ratio Demo</h3>
+      <h3>AspectRatioDemo</h3>
       <AspectRatioDemo />
       <Spacing dark />
 
       <h2>Avatar</h2>
       <Spacing />
 
-      <h3>Avatar Demo</h3>
+      <h3>AvatarDemo</h3>
       <AvatarDemo />
       <Spacing />
 
-      <h3>Avatar Demo Badge</h3>
+      <h3>AvatarDemoBadge</h3>
       <AvatarDemoBadge />
       <Spacing />
 
-      <h3>Avatar Demo Icon</h3>
+      <h3>AvatarDemoBadgeIcon</h3>
       <AvatarDemoBadgeIcon />
       <Spacing />
 
-      <h3>Avatar Demo Group</h3>
+      <h3>AvatarDemoGroup</h3>
       <AvatarDemoGroup />
       <Spacing />
 
-      <h3>Avatar Demo Group Count</h3>
+      <h3>AvatarDemoGroupCount</h3>
       <AvatarDemoGroupCount />
       <Spacing />
 
-      <h3>Avatar Demo Icon</h3>
+      <h3>AvatarDemoGroupIcon</h3>
       <AvatarDemoGroupIcon />
       <Spacing />
 
-      <h3>Avatar Demo Sizes</h3>
+      <h3>AvatarDemoSizes</h3>
       <AvatarDemoSizes />
       <Spacing dark />
 
+
+      <h2>Badge</h2>
+      <Spacing />
+
+      <h3>BadgeDemo</h3>
+      <BadgeDemo />
+      <Spacing />
+
+      <h3>BadgeDemoIcon</h3>
+      <BadgeDemoIcon />
+      <Spacing />
+
+      <h3>BadgeDemoColors</h3>
+      <BadgeDemoColors />
+      <Spacing dark />
 
 
 

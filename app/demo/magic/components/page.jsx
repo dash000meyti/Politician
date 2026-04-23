@@ -50,158 +50,158 @@ export default function DemoMagicComponentsPage() {
       <h2>Marquee</h2>
       <Spacing />
 
-      <h3>Marquee demo</h3>
+      <h3>MarqueeDemo</h3>
       <MarqueeDemo />
       <Spacing />
 
-      <h3>Marquee vertical</h3>
+      <h3>MarqueeDemoVertical</h3>
       <MarqueeDemoVertical />
       <Spacing />
 
-      <h3>Marquee 3D</h3>
+      <h3>Marquee3D</h3>
       <Marquee3D />
       <Spacing dark/>
 
       <h2>Terminal</h2>
       <Spacing />
 
-      <h3>Start</h3>
+      <h3>TerminalStart</h3>
       <TerminalStart />
       <Spacing />
 
-      <h3>Terminal demo</h3>
+      <h3>TerminalDemo</h3>
       <TerminalDemo />
       <Spacing dark/>
 
       <h2>Hero Video Dialog</h2>
       <Spacing />
 
-      <h3>Start</h3>
+      <h3>HeroVideoDialogStart</h3>
       <HeroVideoDialogStart />
       <Spacing />
 
-      <h3>Hero Video Dialog demo</h3>
+      <h3>HeroVideoDialogDemo</h3>
       <HeroVideoDialogDemo />
       <Spacing dark/>
 
-      <h3>Hero Video Dialog demo top in bottom out</h3>
+      <h3>HeroVideoDialogDemoTopInBottomOut</h3>
       <HeroVideoDialogDemoTopInBottomOut />
       <Spacing dark/>
 
-      <h2>Bento Grid</h2>
+      <h2>Bento</h2>
       <Spacing />
 
-      <h3>Start</h3>
+      <h3>BentoStart</h3>
       <BentoStart />
       <Spacing />
 
-      <h3>Bento Grid demo</h3>
+      <h3>BentoDemo</h3>
       <BentoDemo />
       <Spacing dark/>
 
-      <h2>Animated List</h2>
+      <h2>AnimatedListStart</h2>
       <Spacing />
 
       <h3>Start</h3>
       <AnimatedListStart />
       <Spacing />
 
-      <h3>Animated List demo</h3>
+      <h3>AnimatedListDemo</h3>
       <AnimatedListDemo />
       <Spacing dark/>
 
       <h2>Dock</h2>
       <Spacing />
 
-      <h3>Start</h3>
+      <h3>DockStart</h3>
       <DockStart />
       <Spacing />
 
-      <h3>Animated List demo</h3>
+      <h3>DockDemo</h3>
       <DockDemo />
       <Spacing dark/>
 
       <h2>Tweet Card</h2>
       <Spacing />
 
-      <h3>Tweet demo</h3>
+      <h3>TweetDemo</h3>
       <TweetDemo />
       <Spacing dark/>
 
       <h2>Orbiting Circles</h2>
       <Spacing />
 
-      <h3>Start</h3>
+      <h3>OrbitingCirclesStart</h3>
       <OrbitingCirclesStart />
       <Spacing />
 
-      <h3>Orbiting Circles</h3>
+      <h3>OrbitingCirclesDemo</h3>
       <OrbitingCirclesDemo />
       <Spacing dark/>
 
       <h2>Avatar Circles</h2>
       <Spacing />
 
-      <h3>Start</h3>
+      <h3>AvatarCirclesStart</h3>
       <AvatarCirclesStart />
       <Spacing />
 
-      <h3>Avatar Circles Demo</h3>
+      <h3>AvatarCirclesDemo</h3>
       <AvatarCirclesDemo />
       <Spacing dark/>
 
       <h2>Lens</h2>
       <Spacing />
 
-      <h3>Start</h3>
+      <h3>LensStart</h3>
       <LensStart />
       <Spacing />
 
-      <h3>Lens Demo</h3>
+      <h3>LensDemo</h3>
       <LensDemo />
       <Spacing />
 
-      <h3>Lens Demo Static</h3>
+      <h3>LensDemoStatic</h3>
       <LensDemoStatic />
       <Spacing dark/>
 
       <h2>Pointer</h2>
       <Spacing />
 
-      <h3>Start</h3>
+      <h3>PointerStart</h3>
       <PointerStart />
       <Spacing />
 
-      <h3>Pointer Demo</h3>
+      <h3>PointerDemo</h3>
       <PointerDemo />
       <Spacing dark/>
 
       <h2>Smooth Curso</h2>
       <Spacing />
 
-      <h3>Smooth Cursor Demo // coment</h3>
+      <h3>SmoothCursorDemo // coment</h3>
       {/* <SmoothCursorDemo /> */}
       <Spacing dark/>
 
       <h2>Progressive Blur</h2>
       <Spacing />
 
-      <h3>Start</h3>
+      <h3>ProgressiveBlurStart</h3>
       <ProgressiveBlurStart />
       <Spacing dark/>
 
       <h2>Dotted Map</h2>
       <Spacing />
 
-      <h3>Start</h3>
+      <h3>DottedMapStart</h3>
       <DottedMapStart />
       <Spacing />
 
-      <h3>Dotted Map Demo</h3>
+      <h3>DottedMapDemo</h3>
       <DottedMapDemo />
       <Spacing />
 
-      <h3>Dotted Map Demo Pulse</h3>
+      <h3>DottedMapDemoPulse</h3>
       <DottedMapDemoPulse />
 
     </div>

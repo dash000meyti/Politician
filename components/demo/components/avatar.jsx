@@ -7,7 +7,7 @@ import {
   AvatarBadge,
   AvatarGroup,
   AvatarGroupCount,
-} from "@/components/ui/avatar"
+} from "@/components/ui"
 
 export function AvatarDemo() {
   return (
