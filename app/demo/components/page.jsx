@@ -14,6 +14,7 @@ import {
   AlertDialogDemoMedia,
   AlertDialogDemoSmallMedia,
   AlertDialogDemoDestructive,
+  AspectRatioDemo,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -90,6 +91,13 @@ export default function DemoComponentsPage() {
       <h3>Alert Dialog Demo Destructive</h3>
       <AlertDialogDemoDestructive />
       <Spacing dark />
+
+      <h2>Aspect Ratio</h2>
+      <Spacing />
+
+      <h3>Aspect Ratio Demo</h3>
+      <AspectRatioDemo />
+      <Spacing dark/>
 
 
 
