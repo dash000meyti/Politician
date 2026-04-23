@@ -18,6 +18,9 @@ import {
   OrbitingCirclesDemo,
   AvatarCirclesStart,
   AvatarCirclesDemo,
+  LensStart,
+  LensDemo,
+  LensDemoStatic,
 } from '@/components/demo'
 
 export default function Home() {
@@ -197,22 +200,49 @@ export default function Home() {
       <div className='w-full h-1 bg-gray-400 my-4' />
 
       <h2>
-      Avatar Circles
+        Avatar Circles
       </h2>
 
       <div className='w-full h-1 bg-gray-200 my-4' />
 
       <h3>
-      Start
+        Start
       </h3>
       <AvatarCirclesStart />
 
       <div className='w-full h-1 bg-gray-200 my-4' />
 
       <h3>
-      Avatar Circles Demo
+        Avatar Circles Demo
       </h3>
       <AvatarCirclesDemo />
+
+      <div className='w-full h-1 bg-gray-400 my-4' />
+
+      <h2>
+      Lens
+      </h2>
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+        Start
+      </h3>
+      <LensStart />
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+      Lens Demo
+      </h3>
+      <LensDemo />
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+      Lens Demo Static
+      </h3>
+      <LensDemoStatic />
 
 
 
