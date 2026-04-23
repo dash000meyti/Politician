@@ -23,6 +23,7 @@ import {
   LensDemoStatic,
   PointerStart,
   PointerDemo,
+  SmoothCursorDemo,
 } from '@/components/demo'
 
 export default function Home() {
@@ -265,6 +266,19 @@ export default function Home() {
         Pointer Demo
       </h3>
       <PointerDemo />
+
+      <div className='w-full h-1 bg-gray-400 my-4' />
+
+      <h2>
+        Smooth Curso
+      </h2>
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+      Smooth Cursor Demo // coment
+      </h3>
+      {/* <SmoothCursorDemo /> */}
 
 
 

@@ -9,5 +9,6 @@ export * from './orbiting-circles'
 export * from './avatar-circles'
 export * from './lens'
 export * from './pointer'
+export * from './smooth-cursor'
 
 export * from './button'
