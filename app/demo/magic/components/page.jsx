@@ -33,8 +33,9 @@ import {
   DottedMapDemoPulse,
 } from '@/components/demo'
 
-export function Spacing(value = 'bg-gray-200') {
-  return <div className={`w-full h-1 ${value} my-4`} />
+export function Spacing({ dark = false } = {}) {
+  const bgClass = dark ? "bg-gray-400" : "bg-gray-100"
+  return <div className={`w-full h-1 ${bgClass} my-4`} />
 }
 
 export default function DemoMagicComponentsPage() {
@@ -44,7 +45,7 @@ export default function DemoMagicComponentsPage() {
       <Link className="text-blue-500" href="/demo/magic">Back</Link>
 
       <h1>Magic Components</h1>
-      <Spacing value='bg-gray-400' />
+      <Spacing dark/>
 
       <h2>Marquee</h2>
       <Spacing />
@@ -59,7 +60,7 @@ export default function DemoMagicComponentsPage() {
 
       <h3>Marquee 3D</h3>
       <Marquee3D />
-      <Spacing value='bg-gray-400' />
+      <Spacing dark/>
 
       <h2>Terminal</h2>
       <Spacing />
@@ -70,7 +71,7 @@ export default function DemoMagicComponentsPage() {
 
       <h3>Terminal demo</h3>
       <TerminalDemo />
-      <Spacing value='bg-gray-400' />
+      <Spacing dark/>
 
       <h2>Hero Video Dialog</h2>
       <Spacing />
@@ -81,11 +82,11 @@ export default function DemoMagicComponentsPage() {
 
       <h3>Hero Video Dialog demo</h3>
       <HeroVideoDialogDemo />
-      <Spacing value='bg-gray-400' />
+      <Spacing dark/>
 
       <h3>Hero Video Dialog demo top in bottom out</h3>
       <HeroVideoDialogDemoTopInBottomOut />
-      <Spacing value='bg-gray-400' />
+      <Spacing dark/>
 
       <h2>Bento Grid</h2>
       <Spacing />
@@ -96,7 +97,7 @@ export default function DemoMagicComponentsPage() {
 
       <h3>Bento Grid demo</h3>
       <BentoDemo />
-      <Spacing value='bg-gray-400' />
+      <Spacing dark/>
 
       <h2>Animated List</h2>
       <Spacing />
@@ -107,7 +108,7 @@ export default function DemoMagicComponentsPage() {
 
       <h3>Animated List demo</h3>
       <AnimatedListDemo />
-      <Spacing value='bg-gray-400' />
+      <Spacing dark/>
 
       <h2>Dock</h2>
       <Spacing />
@@ -118,14 +119,14 @@ export default function DemoMagicComponentsPage() {
 
       <h3>Animated List demo</h3>
       <DockDemo />
-      <Spacing value='bg-gray-400' />
+      <Spacing dark/>
 
       <h2>Tweet Card</h2>
       <Spacing />
 
       <h3>Tweet demo</h3>
       <TweetDemo />
-      <Spacing value='bg-gray-400' />
+      <Spacing dark/>
 
       <h2>Orbiting Circles</h2>
       <Spacing />
@@ -136,7 +137,7 @@ export default function DemoMagicComponentsPage() {
 
       <h3>Orbiting Circles</h3>
       <OrbitingCirclesDemo />
-      <Spacing value='bg-gray-400' />
+      <Spacing dark/>
 
       <h2>Avatar Circles</h2>
       <Spacing />
@@ -147,7 +148,7 @@ export default function DemoMagicComponentsPage() {
 
       <h3>Avatar Circles Demo</h3>
       <AvatarCirclesDemo />
-      <Spacing value='bg-gray-400' />
+      <Spacing dark/>
 
       <h2>Lens</h2>
       <Spacing />
@@ -162,7 +163,7 @@ export default function DemoMagicComponentsPage() {
 
       <h3>Lens Demo Static</h3>
       <LensDemoStatic />
-      <Spacing value='bg-gray-400' />
+      <Spacing dark/>
 
       <h2>Pointer</h2>
       <Spacing />
@@ -173,21 +174,21 @@ export default function DemoMagicComponentsPage() {
 
       <h3>Pointer Demo</h3>
       <PointerDemo />
-      <Spacing value='bg-gray-400' />
+      <Spacing dark/>
 
       <h2>Smooth Curso</h2>
       <Spacing />
 
       <h3>Smooth Cursor Demo // coment</h3>
       {/* <SmoothCursorDemo /> */}
-      <Spacing value='bg-gray-400' />
+      <Spacing dark/>
 
       <h2>Progressive Blur</h2>
       <Spacing />
 
       <h3>Start</h3>
       <ProgressiveBlurStart />
-      <Spacing value='bg-gray-400' />
+      <Spacing dark/>
 
       <h2>Dotted Map</h2>
       <Spacing />

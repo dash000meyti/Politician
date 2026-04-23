@@ -5,10 +5,15 @@ import {
   AccordionDemo,
   AccordionDemoMultipleDisabled,
   AccordionDemoRtl,
-} from "@/components/demo/components/accordion"
+  AlertDemo,
+  AlertDemoDestructive,
+  AlertDemoAction,
+  AlertDemoCustomColors,
+} from "@/components/demo"
 
-export function Spacing(value = 'bg-gray-200') {
-  return <div className={`w-full h-1 ${value} my-4`} />
+export function Spacing({ dark = false } = {}) {
+  const bgClass = dark ? "bg-gray-400" : "bg-gray-100"
+  return <div className={`w-full h-1 ${bgClass} my-4`} />
 }
 
 export default function DemoComponentsPage() {
@@ -18,7 +23,7 @@ export default function DemoComponentsPage() {
       <Link className="text-blue-500" href="/demo">Back</Link>
 
       <h1>Components</h1>
-      <Spacing value='bg-gray-400' />
+      <Spacing dark />
 
       <h2>Accordion</h2>
       <Spacing />
@@ -37,7 +42,28 @@ export default function DemoComponentsPage() {
 
       <h3>Accordion Demo Rtl</h3>
       <AccordionDemoRtl />
+      <Spacing dark />
+
+      <h2>Alert</h2>
       <Spacing />
+
+      <h3>Alert Demo</h3>
+      <AlertDemo />
+      <Spacing />
+
+      <h3>Alert Demo Destructive</h3>
+      <AlertDemoDestructive />
+      <Spacing />
+
+      <h3>Alert Demo Action</h3>
+      <AlertDemoAction />
+      <Spacing />
+
+      <h3>Alert Demo Custom Colors</h3>
+      <AlertDemoCustomColors />
+      <Spacing />
+
+
 
     </div>
   )
