@@ -26,6 +26,9 @@ import {
   SmoothCursorDemo,
   ProgressiveBlurStart,
   ProgressiveBlurDemo,
+  DottedMapStart,
+  DottedMapDemo,
+  DottedMapDemoPulse,
 } from '@/components/demo'
 
 export default function Home() {
@@ -294,6 +297,33 @@ export default function Home() {
         Start
       </h3>
       <ProgressiveBlurStart />
+
+      <div className='w-full h-1 bg-gray-400 my-4' />
+
+      <h2>
+        Dotted Map
+      </h2>
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+        Start
+      </h3>
+      <DottedMapStart />
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+        Dotted Map Demo
+      </h3>
+      <DottedMapDemo />
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+        Dotted Map Demo Pulse
+      </h3>
+      <DottedMapDemoPulse />
 
 
 
