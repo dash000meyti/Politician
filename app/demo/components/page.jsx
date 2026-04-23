@@ -9,6 +9,11 @@ import {
   AlertDemoDestructive,
   AlertDemoAction,
   AlertDemoCustomColors,
+  AlertDialogDemo,
+  AlertDialogDemoSmall,
+  AlertDialogDemoMedia,
+  AlertDialogDemoSmallMedia,
+  AlertDialogDemoDestructive,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -61,7 +66,34 @@ export default function DemoComponentsPage() {
 
       <h3>Alert Demo Custom Colors</h3>
       <AlertDemoCustomColors />
+      <Spacing dark />
+
+      <h2>Alert Dialog</h2>
       <Spacing />
+
+      <h3>Alert Dialog Demo</h3>
+      <AlertDialogDemo />
+      <Spacing />
+
+      <h3>Alert Dialog Demo Small</h3>
+      <AlertDialogDemoSmall />
+      <Spacing />
+
+      <h3>Alert Dialog Demo Media</h3>
+      <AlertDialogDemoMedia />
+      <Spacing />
+
+      <h3>Alert Dialog Demo Small Media</h3>
+      <AlertDialogDemoSmallMedia />
+      <Spacing />
+
+      <h3>Alert Dialog Demo Destructive</h3>
+      <AlertDialogDemoDestructive />
+      <Spacing dark />
+
+
+
+
 
 
 
