@@ -16,6 +16,8 @@ import {
   TweetDemo,
   OrbitingCirclesStart,
   OrbitingCirclesDemo,
+  AvatarCirclesStart,
+  AvatarCirclesDemo,
 } from '@/components/demo'
 
 export default function Home() {
@@ -188,9 +190,29 @@ export default function Home() {
       <div className='w-full h-1 bg-gray-200 my-4' />
 
       <h3>
-      Orbiting Circles
+        Orbiting Circles
       </h3>
       <OrbitingCirclesDemo />
+
+      <div className='w-full h-1 bg-gray-400 my-4' />
+
+      <h2>
+      Avatar Circles
+      </h2>
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+      Start
+      </h3>
+      <AvatarCirclesStart />
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+      Avatar Circles Demo
+      </h3>
+      <AvatarCirclesDemo />
 
 
 

@@ -6,5 +6,6 @@ export * from './animated-list'
 export * from './dock'
 export * from './tweet-card'
 export * from './orbiting-circles'
+export * from './avatar-circles'
 
 export * from './button'
