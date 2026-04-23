@@ -11,6 +11,8 @@ import {
   BentoDemo,
   AnimatedListStart,
   AnimatedListDemo,
+  DockStart,
+  DockDemo,
 } from '@/components/demo'
 
 export default function Home() {
@@ -133,6 +135,26 @@ export default function Home() {
         Animated List demo
       </h3>
       <AnimatedListDemo />
+
+      <div className='w-full h-1 bg-gray-400 my-4' />
+
+      <h2>
+        Dock
+      </h2>
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+        Start
+      </h3>
+      <DockStart />
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+        Animated List demo
+      </h3>
+      <DockDemo />
 
 
 
