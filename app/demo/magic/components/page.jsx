@@ -40,7 +40,9 @@ export function Spacing(value = 'bg-gray-200') {
 export default function DemoMagicComponentsPage() {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
+
       <Link className="text-blue-500" href="/demo/magic">Back</Link>
+
       <h1>Magic Components</h1>
       <Spacing value='bg-gray-400' />
 
@@ -200,9 +202,6 @@ export default function DemoMagicComponentsPage() {
 
       <h3>Dotted Map Demo Pulse</h3>
       <DottedMapDemoPulse />
-
-
-
 
     </div>
   )
