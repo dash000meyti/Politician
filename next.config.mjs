@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   /* config options here */
-  // images: {
-  //   remotePatterns: [
-  //     { protocol: "https", hostname: "**" },
-  //     { protocol: "http", hostname: "**" },
-  //   ],
-  // },// DEBUG
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "**" },
+      { protocol: "http", hostname: "**" },
+    ],
+  },// DEBUG
 };
 
 export default nextConfig;

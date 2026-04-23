@@ -15,6 +15,13 @@ import {
   AlertDialogDemoSmallMedia,
   AlertDialogDemoDestructive,
   AspectRatioDemo,
+  AvatarDemo,
+  AvatarDemoBadge,
+  AvatarDemoBadgeIcon,
+  AvatarDemoGroup,
+  AvatarDemoGroupCount,
+  AvatarDemoGroupIcon,
+  AvatarDemoSizes,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -97,7 +104,38 @@ export default function DemoComponentsPage() {
 
       <h3>Aspect Ratio Demo</h3>
       <AspectRatioDemo />
-      <Spacing dark/>
+      <Spacing dark />
+
+      <h2>Avatar</h2>
+      <Spacing />
+
+      <h3>Avatar Demo</h3>
+      <AvatarDemo />
+      <Spacing />
+
+      <h3>Avatar Demo Badge</h3>
+      <AvatarDemoBadge />
+      <Spacing />
+
+      <h3>Avatar Demo Icon</h3>
+      <AvatarDemoBadgeIcon />
+      <Spacing />
+
+      <h3>Avatar Demo Group</h3>
+      <AvatarDemoGroup />
+      <Spacing />
+
+      <h3>Avatar Demo Group Count</h3>
+      <AvatarDemoGroupCount />
+      <Spacing />
+
+      <h3>Avatar Demo Icon</h3>
+      <AvatarDemoGroupIcon />
+      <Spacing />
+
+      <h3>Avatar Demo Sizes</h3>
+      <AvatarDemoSizes />
+      <Spacing dark />
 
 
 
