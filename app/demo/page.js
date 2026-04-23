@@ -14,6 +14,8 @@ import {
   DockStart,
   DockDemo,
   TweetDemo,
+  OrbitingCirclesStart,
+  OrbitingCirclesDemo,
 } from '@/components/demo'
 
 export default function Home() {
@@ -160,15 +162,35 @@ export default function Home() {
       <div className='w-full h-1 bg-gray-400 my-4' />
 
       <h2>
-      Tweet Card
+        Tweet Card
       </h2>
 
       <div className='w-full h-1 bg-gray-200 my-4' />
 
       <h3>
-      Tweet demo
+        Tweet demo
       </h3>
       <TweetDemo />
+
+      <div className='w-full h-1 bg-gray-400 my-4' />
+
+      <h2>
+        Orbiting Circles
+      </h2>
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+        Start
+      </h3>
+      <OrbitingCirclesStart />
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+      Orbiting Circles
+      </h3>
+      <OrbitingCirclesDemo />
 
 
 
