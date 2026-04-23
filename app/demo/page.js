@@ -21,6 +21,8 @@ import {
   LensStart,
   LensDemo,
   LensDemoStatic,
+  PointerStart,
+  PointerDemo,
 } from '@/components/demo'
 
 export default function Home() {
@@ -220,7 +222,7 @@ export default function Home() {
       <div className='w-full h-1 bg-gray-400 my-4' />
 
       <h2>
-      Lens
+        Lens
       </h2>
 
       <div className='w-full h-1 bg-gray-200 my-4' />
@@ -233,16 +235,36 @@ export default function Home() {
       <div className='w-full h-1 bg-gray-200 my-4' />
 
       <h3>
-      Lens Demo
+        Lens Demo
       </h3>
       <LensDemo />
 
       <div className='w-full h-1 bg-gray-200 my-4' />
 
       <h3>
-      Lens Demo Static
+        Lens Demo Static
       </h3>
       <LensDemoStatic />
+
+      <div className='w-full h-1 bg-gray-400 my-4' />
+
+      <h2>
+        Pointer
+      </h2>
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+        Start
+      </h3>
+      <PointerStart />
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+        Pointer Demo
+      </h3>
+      <PointerDemo />
 
 
 
