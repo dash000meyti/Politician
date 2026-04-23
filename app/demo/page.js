@@ -13,6 +13,7 @@ import {
   AnimatedListDemo,
   DockStart,
   DockDemo,
+  TweetDemo,
 } from '@/components/demo'
 
 export default function Home() {
@@ -155,6 +156,19 @@ export default function Home() {
         Animated List demo
       </h3>
       <DockDemo />
+
+      <div className='w-full h-1 bg-gray-400 my-4' />
+
+      <h2>
+      Tweet Card
+      </h2>
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+      Tweet demo
+      </h3>
+      <TweetDemo />
 
 
 
