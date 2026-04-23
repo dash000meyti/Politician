@@ -10,5 +10,6 @@ export * from './avatar-circles'
 export * from './lens'
 export * from './pointer'
 export * from './smooth-cursor'
+export * from './progressive-blur'
 
 export * from './button'

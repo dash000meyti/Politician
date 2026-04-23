@@ -24,6 +24,8 @@ import {
   PointerStart,
   PointerDemo,
   SmoothCursorDemo,
+  ProgressiveBlurStart,
+  ProgressiveBlurDemo,
 } from '@/components/demo'
 
 export default function Home() {
@@ -276,9 +278,22 @@ export default function Home() {
       <div className='w-full h-1 bg-gray-200 my-4' />
 
       <h3>
-      Smooth Cursor Demo // coment
+        Smooth Cursor Demo // coment
       </h3>
       {/* <SmoothCursorDemo /> */}
+
+      <div className='w-full h-1 bg-gray-400 my-4' />
+
+      <h2>
+        Progressive Blur
+      </h2>
+
+      <div className='w-full h-1 bg-gray-200 my-4' />
+
+      <h3>
+        Start
+      </h3>
+      <ProgressiveBlurStart />
 
 
 
