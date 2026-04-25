@@ -8,7 +8,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer"
+} from "@/components/ui"
 
 const DRAWER_SIDES = ["top", "right", "bottom", "left"]
 

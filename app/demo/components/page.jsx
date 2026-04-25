@@ -80,6 +80,8 @@ import {
   DialogDemoFull,
   DialogDemoRtl,
   DrawerDemo,
+  DropdownMenuDemo,
+  DropdownMenuDemoComplex,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -473,13 +475,24 @@ export default function DemoComponentsPage() {
         <DialogDemoRtl />
 
       </div>
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Drawer</h2>
       <Spacing />
 
       <h3>DrawerDemo</h3>
       <DrawerDemo />
+      <Spacing dark />
+
+      <h2>Dropdown Menu</h2>
+      <Spacing />
+
+      <h3>DropdownMenuDemo</h3>
+      <DropdownMenuDemo />
+      <Spacing />
+
+      <h3>DropdownMenuDemoComplex</h3>
+      <DropdownMenuDemoComplex />
       <Spacing dark/>
 
 
