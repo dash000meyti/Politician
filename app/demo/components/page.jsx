@@ -74,6 +74,7 @@ import {
   ContextMenuDemoIcons,
   ContextMenuDemoCheckboxRadio,
   DataTableDemo,
+  DatePickerDemo,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -435,6 +436,13 @@ export default function DemoComponentsPage() {
 
       <h3>DataTableDemo</h3>
       <DataTableDemo/>
+      <Spacing dark/>
+
+      <h2>Date Picker</h2>
+      <Spacing />
+
+      <h3>DatePickerDemo</h3>
+      <DatePickerDemo />
       <Spacing/>
 
 
