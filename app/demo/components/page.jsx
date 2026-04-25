@@ -89,6 +89,9 @@ import {
   InputGroupDemo,
   InputOTPDemo,
   InputOTPDemoSeparator,
+  ItemDemo,
+  ItemDemoAvatar,
+  ItemDemoImage,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -548,12 +551,20 @@ export default function DemoComponentsPage() {
       <InputOTPDemoSeparator />
       <Spacing dark />
 
-      <h2>Input OTP</h2>
+      <h2>Item</h2>
       <Spacing />
 
-      <h3>InputOTPDemo</h3>
-      <InputOTPDemo />
+      <h3>ItemDemo</h3>
+      <ItemDemo />
       <Spacing />
+
+      <h3>ItemDemoAvatar</h3>
+      <ItemDemoAvatar />
+      <Spacing />
+
+      <h3>ItemDemoImage</h3>
+      <ItemDemoImage />
+      <Spacing dark/>
 
 
 
