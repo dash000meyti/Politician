@@ -85,6 +85,8 @@ import {
   EmptyDemo,
   FieldDemo,
   HoverCardDemo,
+  InputDemo,
+  InputGroupDemo,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -517,6 +519,20 @@ export default function DemoComponentsPage() {
 
       <h3>HoverCardDemo</h3>
       <HoverCardDemo />
+      <Spacing dark/>
+
+      <h2>Input</h2>
+      <Spacing />
+
+      <h3>InputDemo</h3>
+      <InputDemo />
+      <Spacing dark/>
+
+      <h2>Input Group</h2>
+      <Spacing />
+
+      <h3>InputGroupDemo</h3>
+      <InputGroupDemo />
       <Spacing dark/>
 
 
