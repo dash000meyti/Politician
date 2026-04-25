@@ -73,6 +73,7 @@ import {
   ContextMenuDemoSubmenu,
   ContextMenuDemoIcons,
   ContextMenuDemoCheckboxRadio,
+  DataTableDemo,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -81,6 +82,7 @@ export function Spacing({ dark = false } = {}) {
 }
 
 export default function DemoComponentsPage() {
+
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
 
@@ -431,6 +433,9 @@ export default function DemoComponentsPage() {
       <ContextMenuDemoCheckboxRadio />
       <Spacing/>
 
+      <h3>DataTableDemo</h3>
+      <DataTableDemo/>
+      <Spacing/>
 
 
 
