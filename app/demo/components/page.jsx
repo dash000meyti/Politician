@@ -82,6 +82,7 @@ import {
   DrawerDemo,
   DropdownMenuDemo,
   DropdownMenuDemoComplex,
+  EmptyDemo,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -494,6 +495,13 @@ export default function DemoComponentsPage() {
       <h3>DropdownMenuDemoComplex</h3>
       <DropdownMenuDemoComplex />
       <Spacing dark/>
+
+      <h2>Empty</h2>
+      <Spacing />
+
+      <h3>EmptyDemo</h3>
+      <EmptyDemo />
+      <Spacing />
 
 
 
