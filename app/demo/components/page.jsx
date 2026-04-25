@@ -98,6 +98,8 @@ import {
   NativeSelectDemo,
   NavigationMenuDemo,
   PaginationDemo,
+  PopoverDemo,
+  ProgressDemo,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -609,6 +611,20 @@ export default function DemoComponentsPage() {
 
       <h3>PaginationDemo</h3>
       <PaginationDemo />
+      <Spacing dark/>
+
+      <h2>Popover</h2>
+      <Spacing />
+
+      <h3>PopoverDemo</h3>
+      <PopoverDemo />
+      <Spacing dark/>
+
+      <h2>Progress</h2>
+      <Spacing />
+
+      <h3>ProgressDemo</h3>
+      <ProgressDemo />
       <Spacing dark/>
 
 
