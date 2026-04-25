@@ -15,6 +15,7 @@ export * from './card'
 export * from './carousel'
 export * from './chart'
 export * from './checkbox'
+export * from './collapsible'
 
 
 
@@ -28,5 +29,6 @@ export * from './input-group'
 export * from './label'
 export * from './separator'
 export * from './textarea'
+export * from './tabs'
 export * from './tooltip'
 

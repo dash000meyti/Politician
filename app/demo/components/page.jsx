@@ -54,6 +54,9 @@ import {
   ChartDemo,
   ChartDemoTooltip,
   CheckboxDemo,
+  CollapsibleDemo,
+  CollapsibleDemoSettings,
+  CollapsibleDemoFileTree,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -323,6 +326,21 @@ export default function DemoComponentsPage() {
       <h3>CheckboxDemo</h3>
       <CheckboxDemo />
       <Spacing dark/>
+
+      <h2>Collapsible</h2>
+      <Spacing />
+
+      <h3>CollapsibleDemo</h3>
+      <CollapsibleDemo />
+      <Spacing/>
+
+      <h3>CollapsibleDemoSettings</h3>
+      <CollapsibleDemoSettings />
+      <Spacing/>
+
+      <h3>CollapsibleDemoFileTree</h3>
+      <CollapsibleDemoFileTree />
+      <Spacing/>
 
 
 
