@@ -106,6 +106,8 @@ import {
   RadioGroupDemoFieldset,
   RadioGroupDemoFull,
   ResizableDemo,
+  ScrollAreaDemo,
+  ScrollAreaDemoHorizontal,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -661,6 +663,17 @@ export default function DemoComponentsPage() {
 
       <h3>ResizableDemo</h3>
       <ResizableDemo />
+      <Spacing dark/>
+
+      <h2>Scroll Area</h2>
+      <Spacing />
+
+      <h3>ScrollAreaDemo</h3>
+      <ScrollAreaDemo />
+      <Spacing />
+
+      <h3>ScrollAreaDemoHorizontal</h3>
+      <ScrollAreaDemoHorizontal />
       <Spacing dark/>
 
 
