@@ -92,6 +92,8 @@ import {
   ItemDemo,
   ItemDemoAvatar,
   ItemDemoImage,
+  KbdDemo,
+  KbdDemoInputGroup,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -564,6 +566,17 @@ export default function DemoComponentsPage() {
 
       <h3>ItemDemoImage</h3>
       <ItemDemoImage />
+      <Spacing dark/>
+
+      <h2>Kbd</h2>
+      <Spacing />
+
+      <h3>KbdDemo</h3>
+      <KbdDemo />
+      <Spacing />
+
+      <h3>KbdDemoInputGroup</h3>
+      <KbdDemoInputGroup />
       <Spacing dark/>
 
 
