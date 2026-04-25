@@ -13,6 +13,7 @@ export * from './calendar'
 export * from './calendar-persian'
 export * from './card'
 export * from './carousel'
+export * from './chart'
 
 
 
