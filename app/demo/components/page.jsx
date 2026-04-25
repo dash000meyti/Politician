@@ -87,6 +87,8 @@ import {
   HoverCardDemo,
   InputDemo,
   InputGroupDemo,
+  InputOTPDemo,
+  InputOTPDemoSeparator,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -498,42 +500,60 @@ export default function DemoComponentsPage() {
 
       <h3>DropdownMenuDemoComplex</h3>
       <DropdownMenuDemoComplex />
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Empty</h2>
       <Spacing />
 
       <h3>EmptyDemo</h3>
       <EmptyDemo />
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Field</h2>
       <Spacing />
 
       <h3>FieldDemo</h3>
       <FieldDemo />
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Hover Card</h2>
       <Spacing />
 
       <h3>HoverCardDemo</h3>
       <HoverCardDemo />
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Input</h2>
       <Spacing />
 
       <h3>InputDemo</h3>
       <InputDemo />
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Input Group</h2>
       <Spacing />
 
       <h3>InputGroupDemo</h3>
       <InputGroupDemo />
-      <Spacing dark/>
+      <Spacing dark />
+
+      <h2>Input OTP</h2>
+      <Spacing />
+
+      <h3>InputOTPDemo</h3>
+      <InputOTPDemo />
+      <Spacing />
+
+      <h3>InputOTPDemoSeparator</h3>
+      <InputOTPDemoSeparator />
+      <Spacing dark />
+
+      <h2>Input OTP</h2>
+      <Spacing />
+
+      <h3>InputOTPDemo</h3>
+      <InputOTPDemo />
+      <Spacing />
 
 
 
