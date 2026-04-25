@@ -57,6 +57,16 @@ import {
   CollapsibleDemo,
   CollapsibleDemoSettings,
   CollapsibleDemoFileTree,
+  ComboboxDemo,
+  ComboboxDemoMultiple,
+  ComboboxDemoClear,
+  ComboboxDemoGroupsAndSeparator,
+  ComboboxDemoCustomItems,
+  ComboboxDemoInvalid,
+  ComboboxDemoDisabled,
+  ComboboxDemoAutoHighlight,
+  ComboboxDemoPopup,
+  ComboxboxDemoInputGroup,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -340,7 +350,54 @@ export default function DemoComponentsPage() {
 
       <h3>CollapsibleDemoFileTree</h3>
       <CollapsibleDemoFileTree />
+      <Spacing dark/>
+
+      <h2>Combobox</h2>
+      <Spacing />
+
+      <h3>ComboboxDemo</h3>
+      <ComboboxDemo />
       <Spacing/>
+
+      <h3>ComboboxDemoMultiple</h3>
+      <ComboboxDemoMultiple />
+      <Spacing/>
+
+      <h3>ComboboxDemoClear</h3>
+      <ComboboxDemoClear />
+      <Spacing/>
+
+      <h3>ComboboxDemoGroupsAndSeparator</h3>
+      <ComboboxDemoGroupsAndSeparator />
+      <Spacing/>
+
+      <h3>ComboboxDemoCustomItems</h3>
+      <ComboboxDemoCustomItems />
+      <Spacing/>
+
+      <h3>ComboboxDemoInvalid</h3>
+      <ComboboxDemoInvalid />
+      <Spacing/>
+
+      <h3>ComboboxDemoDisabled</h3>
+      <ComboboxDemoDisabled />
+      <Spacing/>
+
+      <h3>ComboboxDemoAutoHighlight</h3>
+      <ComboboxDemoAutoHighlight />
+      <Spacing/>
+
+      <h3>ComboboxDemoPopup</h3>
+      <ComboboxDemoPopup />
+      <Spacing/>
+
+      <h3>ComboxboxDemoInputGroup</h3>
+      <ComboxboxDemoInputGroup />
+      <Spacing dark/>
+
+
+
+
 
 
 
