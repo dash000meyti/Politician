@@ -69,6 +69,10 @@ import {
   ComboxboxDemoInputGroup,
   CommandDemo,
   CommandDemoManyItems,
+  ContextMenuDemo,
+  ContextMenuDemoSubmenu,
+  ContextMenuDemoIcons,
+  ContextMenuDemoCheckboxRadio,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -406,6 +410,25 @@ export default function DemoComponentsPage() {
 
       <h3>CommandDemoManyItems</h3>
       <CommandDemoManyItems />
+      <Spacing dark/>
+
+      <h2>Context Menu</h2>
+      <Spacing />
+
+      <h3>ContextMenuDemo</h3>
+      <ContextMenuDemo />
+      <Spacing/>
+
+      <h3>ContextMenuDemoSubmenu</h3>
+      <ContextMenuDemoSubmenu />
+      <Spacing/>
+
+      <h3>ContextMenuDemoIcons</h3>
+      <ContextMenuDemoIcons />
+      <Spacing/>
+
+      <h3>ContextMenuDemoCheckboxRadio</h3>
+      <ContextMenuDemoCheckboxRadio />
       <Spacing/>
 
 

@@ -18,6 +18,7 @@ export * from './checkbox'
 export * from './collapsible'
 export * from './combobox'
 export * from './command'
+export * from './context-menu'
 
 
 
