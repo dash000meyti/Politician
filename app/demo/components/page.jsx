@@ -32,6 +32,11 @@ import {
   ButtonDemoSize,
   ButtonDemoVariant,
   ButtonDemoChild,
+  ButtonGroupDemo,
+  ButtonGroupDemoOrientation,
+  ButtonGroupDemoNested,
+  ButtonGroupDemoSeparator,
+  ButtonGroupDemoSize,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -173,8 +178,8 @@ export default function DemoComponentsPage() {
       <BreadcrumbDemoSeparator />
       <Spacing />
 
-      <h3>BreadcrumbDemoDropdown // coment</h3>
-      {/* <BreadcrumbDemoDropdown /> */}
+      <h3>BreadcrumbDemoDropdown</h3>
+      <BreadcrumbDemoDropdown />
       <Spacing dark />
 
       <h2>Button</h2>
@@ -194,6 +199,29 @@ export default function DemoComponentsPage() {
 
       <h3>ButtonDemoChild</h3>
       <ButtonDemoChild />
+      <Spacing dark />
+
+      <h2>Button Group</h2>
+      <Spacing />
+
+      <h3>ButtonGroupDemo</h3>
+      <ButtonGroupDemo />
+      <Spacing />
+
+      <h3>ButtonGroupDemoOrientation</h3>
+      <ButtonGroupDemoOrientation />
+      <Spacing />
+
+      <h3>ButtonGroupDemoNested</h3>
+      <ButtonGroupDemoNested />
+      <Spacing />
+
+      <h3>ButtonGroupDemoSeparator</h3>
+      <ButtonGroupDemoSeparator />
+      <Spacing />
+
+      <h3>ButtonGroupDemoSize</h3>
+      <ButtonGroupDemoSize />
       <Spacing dark/>
 
 
