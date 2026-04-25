@@ -32,13 +32,14 @@ export * from './input-group'
 export * from './input-otp'
 export * from './item'
 export * from './kbd'
-
-
-
-
-
-
 export * from './label'
+export * from './menubar'
+
+
+
+
+
+
 export * from './popover'
 export * from './select'
 export * from './separator'

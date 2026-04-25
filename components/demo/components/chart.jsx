@@ -30,7 +30,7 @@ const chartConfig = {
 
 export function ChartDemo() {
   return (
-    <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+    <ChartContainer config={chartConfig} className="min-h-[200px] max-w-md w-full mx-auto">
       <BarChart accessibilityLayer data={chartData}>
         <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
         <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
@@ -42,7 +42,7 @@ export function ChartDemo() {
 
 export function ChartDemoTooltip() {
   return (
-    <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+    <ChartContainer config={chartConfig} className="min-h-[200px] max-w-md w-full mx-auto">
       <BarChart accessibilityLayer data={chartData}>
         <CartesianGrid vertical={false} />
         <XAxis

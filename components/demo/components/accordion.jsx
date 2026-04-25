@@ -31,7 +31,8 @@ const items = [
 
 export function AccordionStart() {
   return (
-    <Accordion type="single" collapsible defaultValue="item-1">
+    <Accordion type="single" collapsible defaultValue="item-1"
+      className="max-w-md">
       <AccordionItem value="item-1">
         <AccordionTrigger>Is it accessible?</AccordionTrigger>
         <AccordionContent>
@@ -48,7 +49,7 @@ export function AccordionDemo() {
       type="single"
       collapsible
       defaultValue="item-1"
-      className="max-w-lg"
+      className="max-w-md"
     >
       {items.map((item) => (
         <AccordionItem key={item.value} value={item.value}>
@@ -64,7 +65,7 @@ export function AccordionDemoMultipleDisabled() {
   return (
     <Accordion
       type="multiple"
-      className="max-w-lg"
+      className="max-w-md"
       defaultValue={["notifications"]}
     >
       {items.map((item) => (

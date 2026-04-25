@@ -94,6 +94,7 @@ import {
   ItemDemoImage,
   KbdDemo,
   KbdDemoInputGroup,
+  MenubarDemo,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -114,7 +115,7 @@ export default function DemoComponentsPage() {
       <h2>Accordion</h2>
       <Spacing />
 
-      <h3>start</h3>
+      <h3>AccordionStart</h3>
       <AccordionStart />
       <Spacing />
 
@@ -578,6 +579,13 @@ export default function DemoComponentsPage() {
       <h3>KbdDemoInputGroup</h3>
       <KbdDemoInputGroup />
       <Spacing dark/>
+
+      <h2>Menubar</h2>
+      <Spacing />
+
+      <h3>MenubarDemo</h3>
+      <MenubarDemo />
+      <Spacing />
 
 
 
