@@ -44,6 +44,7 @@ export * from './resizable'
 export * from './scroll-area'
 export * from './select'
 export * from './separator'
+export * from './sheet'
 
 
 

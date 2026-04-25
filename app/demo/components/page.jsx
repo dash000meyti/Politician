@@ -111,6 +111,7 @@ import {
   SelectDemo,
   SeparatorDemo,
   SeparatorDemoVertical,
+  SheetDemo,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -696,6 +697,13 @@ export default function DemoComponentsPage() {
       <h3>SeparatorDemoVertical</h3>
       <SeparatorDemoVertical />
       <Spacing dark/>
+
+      <h2>Sheet</h2>
+      <Spacing />
+
+      <h3>SheetDemo</h3>
+      <SheetDemo />
+      <Spacing />
 
 
 
