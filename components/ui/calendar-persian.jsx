@@ -31,7 +31,7 @@ function CalendarPersian({
       captionLayout={captionLayout}
       formatters={{
         formatMonthDropdown: (date) =>
-          date.toLocaleString("default", { month: "short" }),
+          date.toLocaleString("fa-IR-u-ca-persian", { month: "short" }),
         ...formatters,
       }}
       classNames={{

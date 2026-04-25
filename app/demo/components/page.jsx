@@ -38,7 +38,13 @@ import {
   ButtonGroupDemoSeparator,
   ButtonGroupDemoSize,
   CalendarDemo,
-  CalendarHijri,
+  CalendarDemoHijri,
+  CalendarDemoRange,
+  CalendarDemoPresets,
+  CalendarDemoTime,
+  CalendarDemoBooked,
+  CalendarDemoCustomDays,
+  CalendarDemoWeekNumbers,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -233,8 +239,32 @@ export default function DemoComponentsPage() {
       <CalendarDemo />
       <Spacing />
 
-      <h3>CalendarHijri</h3>
-      <CalendarHijri />
+      <h3>CalendarDemoHijri</h3>
+      <CalendarDemoHijri />
+      <Spacing />
+
+      <h3>CalendarDemoRange</h3>
+      <CalendarDemoRange />
+      <Spacing />
+
+      <h3>CalendarDemoPresets</h3>
+      <CalendarDemoPresets />
+      <Spacing />
+
+      <h3>CalendarDemoTime</h3>
+      <CalendarDemoTime />
+      <Spacing />
+
+      <h3>CalendarDemoBooked</h3>
+      <CalendarDemoBooked />
+      <Spacing />
+
+      <h3>CalendarDemoCustomDays</h3>
+      <CalendarDemoCustomDays />
+      <Spacing />
+
+      <h3>CalendarDemoWeekNumbers</h3>
+      <CalendarDemoWeekNumbers />
       <Spacing />
 
 
