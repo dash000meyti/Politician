@@ -53,6 +53,7 @@ import {
   CarouselDemoOrientation,
   ChartDemo,
   ChartDemoTooltip,
+  CheckboxDemo,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -314,6 +315,13 @@ export default function DemoComponentsPage() {
 
       <h3>ChartDemoTooltip</h3>
       <ChartDemoTooltip />
+      <Spacing dark/>
+
+      <h2>Checkbox</h2>
+      <Spacing />
+
+      <h3>CheckboxDemo</h3>
+      <CheckboxDemo />
       <Spacing dark/>
 
 
