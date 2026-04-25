@@ -17,11 +17,13 @@ export * from './chart'
 export * from './checkbox'
 export * from './collapsible'
 export * from './combobox'
+export * from './command'
 
 
 
 
 
+export * from './dialog'
 export * from './direction'
 export * from './dropdown-menu'
 export * from './field'

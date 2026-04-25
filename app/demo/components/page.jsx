@@ -67,6 +67,8 @@ import {
   ComboboxDemoAutoHighlight,
   ComboboxDemoPopup,
   ComboxboxDemoInputGroup,
+  CommandDemo,
+  CommandDemoManyItems,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -394,6 +396,17 @@ export default function DemoComponentsPage() {
       <h3>ComboxboxDemoInputGroup</h3>
       <ComboxboxDemoInputGroup />
       <Spacing dark/>
+
+      <h2>Command</h2>
+      <Spacing />
+
+      <h3>CommandDemo</h3>
+      <CommandDemo />
+      <Spacing/>
+
+      <h3>CommandDemoManyItems</h3>
+      <CommandDemoManyItems />
+      <Spacing/>
 
 
 
