@@ -27,7 +27,11 @@ import {
   BadgeDemoColors,
   BreadcrumbDemo,
   BreadcrumbDemoSeparator,
-  // BreadcrumbDemoDropdown,
+  BreadcrumbDemoDropdown,
+  ButtonDemo,
+  ButtonDemoSize,
+  ButtonDemoVariant,
+  ButtonDemoChild,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -172,6 +176,25 @@ export default function DemoComponentsPage() {
       <h3>BreadcrumbDemoDropdown // coment</h3>
       {/* <BreadcrumbDemoDropdown /> */}
       <Spacing dark />
+
+      <h2>Button</h2>
+      <Spacing />
+
+      <h3>ButtonDemo</h3>
+      <ButtonDemo />
+      <Spacing />
+
+      <h3>ButtonDemoSize</h3>
+      <ButtonDemoSize />
+      <Spacing />
+
+      <h3>ButtonDemoVariant</h3>
+      <ButtonDemoVariant />
+      <Spacing />
+
+      <h3>ButtonDemoChild</h3>
+      <ButtonDemoChild />
+      <Spacing dark/>
 
 
 
