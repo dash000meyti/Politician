@@ -109,6 +109,8 @@ import {
   ScrollAreaDemo,
   ScrollAreaDemoHorizontal,
   SelectDemo,
+  SeparatorDemo,
+  SeparatorDemoVertical,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -682,6 +684,17 @@ export default function DemoComponentsPage() {
 
       <h3>SelectDemo</h3>
       <SelectDemo />
+      <Spacing dark/>
+
+      <h2>Separator</h2>
+      <Spacing />
+
+      <h3>SeparatorDemo</h3>
+      <SeparatorDemo />
+      <Spacing />
+
+      <h3>SeparatorDemoVertical</h3>
+      <SeparatorDemoVertical />
       <Spacing dark/>
 
 

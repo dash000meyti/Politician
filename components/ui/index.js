@@ -43,6 +43,7 @@ export * from './radio-group'
 export * from './resizable'
 export * from './scroll-area'
 export * from './select'
+export * from './separator'
 
 
 
@@ -50,8 +51,6 @@ export * from './select'
 
 
 export * from './slider'
-export * from './select'
-export * from './separator'
 export * from './textarea'
 export * from './tabs'
 export * from './tooltip'
