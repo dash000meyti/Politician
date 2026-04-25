@@ -79,6 +79,7 @@ import {
   DialogDemoSticky,
   DialogDemoFull,
   DialogDemoRtl,
+  DrawerDemo,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -467,12 +468,19 @@ export default function DemoComponentsPage() {
       <h2>Direction</h2>
       <Spacing />
 
-        <div direction="rtl">
+      <div direction="rtl">
 
-          <DialogDemoRtl />
-          <Spacing />
+        <DialogDemoRtl />
 
-        </div>
+      </div>
+      <Spacing dark/>
+
+      <h2>Drawer</h2>
+      <Spacing />
+
+      <h3>DrawerDemo</h3>
+      <DrawerDemo />
+      <Spacing dark/>
 
 
 

@@ -22,6 +22,7 @@ export * from './context-menu'
 export * from './table'
 export * from './dialog'
 export * from './direction'
+export * from './drawer'
 
 
 
