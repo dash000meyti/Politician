@@ -45,6 +45,9 @@ import {
   CalendarDemoBooked,
   CalendarDemoCustomDays,
   CalendarDemoWeekNumbers,
+  CardDemo,
+  CardDemoSmall,
+  CardDemoImage,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -265,6 +268,21 @@ export default function DemoComponentsPage() {
 
       <h3>CalendarDemoWeekNumbers</h3>
       <CalendarDemoWeekNumbers />
+      <Spacing dark />
+
+      <h2>Card</h2>
+      <Spacing />
+
+      <h3>CardDemo</h3>
+      <CardDemo />
+      <Spacing />
+
+      <h3>CardDemoSmall</h3>
+      <CardDemoSmall />
+      <Spacing />
+
+      <h3>CardDemoImage</h3>
+      <CardDemoImage />
       <Spacing />
 
 
