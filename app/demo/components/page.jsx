@@ -100,6 +100,8 @@ import {
   PaginationDemo,
   PopoverDemo,
   ProgressDemo,
+  RadioGroupDemo,
+  RadioGroupFull,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -625,6 +627,17 @@ export default function DemoComponentsPage() {
 
       <h3>ProgressDemo</h3>
       <ProgressDemo />
+      <Spacing dark/>
+
+      <h2>Radio Group</h2>
+      <Spacing />
+
+      <h3>RadioGroupDemo</h3>
+      <RadioGroupDemo />
+      <Spacing/>
+
+      <h3>RadioGroupFull</h3>
+      <RadioGroupFull />
       <Spacing dark/>
 
 

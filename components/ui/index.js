@@ -39,6 +39,7 @@ export * from './navigation-menu'
 export * from './pagination'
 export * from './popover'
 export * from './progress'
+export * from './radio-group'
 
 
 
