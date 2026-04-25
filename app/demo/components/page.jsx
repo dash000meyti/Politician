@@ -75,6 +75,10 @@ import {
   ContextMenuDemoCheckboxRadio,
   DataTableDemo,
   DatePickerDemo,
+  DialogDemo,
+  DialogDemoSticky,
+  DialogDemoFull,
+  DialogDemoRtl,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -326,7 +330,7 @@ export default function DemoComponentsPage() {
 
       <h3>CarouselDemoOrientation</h3>
       <CarouselDemoOrientation />
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Chart</h2>
       <Spacing />
@@ -337,117 +341,138 @@ export default function DemoComponentsPage() {
 
       <h3>ChartDemoTooltip</h3>
       <ChartDemoTooltip />
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Checkbox</h2>
       <Spacing />
 
       <h3>CheckboxDemo</h3>
       <CheckboxDemo />
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Collapsible</h2>
       <Spacing />
 
       <h3>CollapsibleDemo</h3>
       <CollapsibleDemo />
-      <Spacing/>
+      <Spacing />
 
       <h3>CollapsibleDemoSettings</h3>
       <CollapsibleDemoSettings />
-      <Spacing/>
+      <Spacing />
 
       <h3>CollapsibleDemoFileTree</h3>
       <CollapsibleDemoFileTree />
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Combobox</h2>
       <Spacing />
 
       <h3>ComboboxDemo</h3>
       <ComboboxDemo />
-      <Spacing/>
+      <Spacing />
 
       <h3>ComboboxDemoMultiple</h3>
       <ComboboxDemoMultiple />
-      <Spacing/>
+      <Spacing />
 
       <h3>ComboboxDemoClear</h3>
       <ComboboxDemoClear />
-      <Spacing/>
+      <Spacing />
 
       <h3>ComboboxDemoGroupsAndSeparator</h3>
       <ComboboxDemoGroupsAndSeparator />
-      <Spacing/>
+      <Spacing />
 
       <h3>ComboboxDemoCustomItems</h3>
       <ComboboxDemoCustomItems />
-      <Spacing/>
+      <Spacing />
 
       <h3>ComboboxDemoInvalid</h3>
       <ComboboxDemoInvalid />
-      <Spacing/>
+      <Spacing />
 
       <h3>ComboboxDemoDisabled</h3>
       <ComboboxDemoDisabled />
-      <Spacing/>
+      <Spacing />
 
       <h3>ComboboxDemoAutoHighlight</h3>
       <ComboboxDemoAutoHighlight />
-      <Spacing/>
+      <Spacing />
 
       <h3>ComboboxDemoPopup</h3>
       <ComboboxDemoPopup />
-      <Spacing/>
+      <Spacing />
 
       <h3>ComboxboxDemoInputGroup</h3>
       <ComboxboxDemoInputGroup />
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Command</h2>
       <Spacing />
 
       <h3>CommandDemo</h3>
       <CommandDemo />
-      <Spacing/>
+      <Spacing />
 
       <h3>CommandDemoManyItems</h3>
       <CommandDemoManyItems />
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Context Menu</h2>
       <Spacing />
 
       <h3>ContextMenuDemo</h3>
       <ContextMenuDemo />
-      <Spacing/>
+      <Spacing />
 
       <h3>ContextMenuDemoSubmenu</h3>
       <ContextMenuDemoSubmenu />
-      <Spacing/>
+      <Spacing />
 
       <h3>ContextMenuDemoIcons</h3>
       <ContextMenuDemoIcons />
-      <Spacing/>
+      <Spacing />
 
       <h3>ContextMenuDemoCheckboxRadio</h3>
       <ContextMenuDemoCheckboxRadio />
-      <Spacing/>
+      <Spacing />
 
       <h3>DataTableDemo</h3>
-      <DataTableDemo/>
-      <Spacing dark/>
+      <DataTableDemo />
+      <Spacing dark />
 
       <h2>Date Picker</h2>
       <Spacing />
 
       <h3>DatePickerDemo</h3>
       <DatePickerDemo />
-      <Spacing/>
+      <Spacing dark />
 
+      <h2>Dialog</h2>
+      <Spacing />
 
+      <h3>DialogDemo</h3>
+      <DialogDemo />
+      <Spacing />
 
+      <h3>DialogDemoSticky</h3>
+      <DialogDemoSticky />
+      <Spacing />
 
+      <h3>DialogDemoFull</h3>
+      <DialogDemoFull />
+      <Spacing dark />
+
+      <h2>Direction</h2>
+      <Spacing />
+
+        <div direction="rtl">
+
+          <DialogDemoRtl />
+          <Spacing />
+
+        </div>
 
 
 
