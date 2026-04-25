@@ -101,7 +101,11 @@ import {
   PopoverDemo,
   ProgressDemo,
   RadioGroupDemo,
-  RadioGroupFull,
+  RadioGroupDemoDescription,
+  RadioGroupDemoChoiceCard,
+  RadioGroupDemoFieldset,
+  RadioGroupDemoFull,
+  ResizableDemo,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -636,9 +640,29 @@ export default function DemoComponentsPage() {
       <RadioGroupDemo />
       <Spacing/>
 
-      <h3>RadioGroupFull</h3>
-      <RadioGroupFull />
+      <h3>RadioGroupDemoDescription</h3>
+      <RadioGroupDemoDescription />
+      <Spacing/>
+
+      <h3>RadioGroupDemoChoiceCard</h3>
+      <RadioGroupDemoChoiceCard />
+      <Spacing/>
+
+      <h3>RadioGroupDemoFieldset</h3>
+      <RadioGroupDemoFieldset />
+      <Spacing/>
+
+      <h3>RadioGroupDemoFull</h3>
+      <RadioGroupDemoFull />
       <Spacing dark/>
+
+      <h2>Resizable</h2>
+      <Spacing />
+
+      <h3>ResizableDemo</h3>
+      <ResizableDemo />
+      <Spacing dark/>
+
 
 
 
