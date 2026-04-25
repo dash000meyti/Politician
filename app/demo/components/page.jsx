@@ -37,6 +37,8 @@ import {
   ButtonGroupDemoNested,
   ButtonGroupDemoSeparator,
   ButtonGroupDemoSize,
+  CalendarDemo,
+  CalendarHijri,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -222,7 +224,18 @@ export default function DemoComponentsPage() {
 
       <h3>ButtonGroupDemoSize</h3>
       <ButtonGroupDemoSize />
-      <Spacing dark/>
+      <Spacing dark />
+
+      <h2>Button Calendar</h2>
+      <Spacing />
+
+      <h3>CalendarDemo</h3>
+      <CalendarDemo />
+      <Spacing />
+
+      <h3>CalendarHijri</h3>
+      <CalendarHijri />
+      <Spacing />
 
 
 
