@@ -12,6 +12,7 @@ export * from './button-group'
 export * from './calendar'
 export * from './calendar-persian'
 export * from './card'
+export * from './carousel'
 
 
 

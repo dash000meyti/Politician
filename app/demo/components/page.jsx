@@ -48,6 +48,9 @@ import {
   CardDemo,
   CardDemoSmall,
   CardDemoImage,
+  CarouselDemo,
+  CarouselDemoSize,
+  CarouselDemoOrientation,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -283,6 +286,21 @@ export default function DemoComponentsPage() {
 
       <h3>CardDemoImage</h3>
       <CardDemoImage />
+      <Spacing dark />
+
+      <h2>Carousel</h2>
+      <Spacing />
+
+      <h3>CarouselDemo</h3>
+      <CarouselDemo />
+      <Spacing />
+
+      <h3>CarouselDemoSize</h3>
+      <CarouselDemoSize />
+      <Spacing />
+
+      <h3>CarouselDemoOrientation</h3>
+      <CarouselDemoOrientation />
       <Spacing />
 
 
