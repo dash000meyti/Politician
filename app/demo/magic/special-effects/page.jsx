@@ -6,6 +6,8 @@ import {
   AnimatedBeamDemoMultiple,
   BorderBeamDemo,
   BorderBeamDemoComponent,
+  ShineBorderDemo,
+  ShineBorderDemoMonotone,
 } from '@/components/demo'
 
 export function Spacing({ dark = false } = {}) {
@@ -46,7 +48,18 @@ export default function DemoMagicSpecialEffectsPage() {
 
       <h3>BorderBeamDemoComponent</h3>
       <BorderBeamDemoComponent />
+      <Spacing dark/>
+
+      <h2>Shine Border</h2>
       <Spacing />
+
+      <h3>ShineBorderDemo</h3>
+      <ShineBorderDemo />
+      <Spacing />
+
+      <h3>ShineBorderDemoMonotone</h3>
+      <ShineBorderDemoMonotone />
+      <Spacing dark/>
 
 
 
@@ -55,3 +68,4 @@ export default function DemoMagicSpecialEffectsPage() {
     </div>
   )
 }
+
