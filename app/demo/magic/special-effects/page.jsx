@@ -12,6 +12,7 @@ import {
   MagicCardDemoOrb,
   GlareEffectsDemo,
   GlareEffectsDemoAlerts,
+  MeteorDemo,
 } from '@/components/demo'
 
 export function Spacing({ dark = false } = {}) {
@@ -86,6 +87,13 @@ export default function DemoMagicSpecialEffectsPage() {
       <h3>GlareEffectsDemoAlerts</h3>
       <GlareEffectsDemoAlerts />
       <Spacing dark />
+
+      <h2>Meteor</h2>
+      <Spacing />
+
+      <h3>MeteorDemo</h3>
+      <MeteorDemo />
+      <Spacing />
 
 
 
