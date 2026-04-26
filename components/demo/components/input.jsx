@@ -1,18 +1,18 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui"
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
+} from "@/components/ui"
+import { Input } from "@/components/ui"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui"
 
 export function InputDemo() {
   return (

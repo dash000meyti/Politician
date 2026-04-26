@@ -10,7 +10,7 @@ export function AspectRatioDemo() {
           src="/test.png"
           alt="Photo"
           fill
-          sizes="100vw"
+          sizes="(max-width: 640px) 100vw, 384px"
           className="w-full rounded-lg object-cover"
         />
       </AspectRatio>
