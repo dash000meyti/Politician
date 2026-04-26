@@ -132,6 +132,8 @@ import {
   SwitchDemo,
   SwitchDemoCard,
   SwitchDemoFull,
+  TableDemo,
+  TableDemoActions,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -821,6 +823,17 @@ export default function DemoComponentsPage() {
 
       <h3>SwitchDemoFull</h3>
       <SwitchDemoFull />
+      <Spacing dark/>
+
+      <h2>Table</h2>
+      <Spacing />
+
+      <h3>TableDemo</h3>
+      <TableDemo />
+      <Spacing />
+
+      <h3>TableDemoActions</h3>
+      <TableDemoActions />
       <Spacing dark/>
 
 
