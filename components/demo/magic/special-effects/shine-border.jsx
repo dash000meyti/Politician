@@ -16,7 +16,7 @@ import { ShineBorder } from "@/components/ui/"
 
 export function ShineBorderDemo() {
   return (
-    <Card className="relative w-full max-w-[350px] overflow-hidden">
+    <Card className="relative w-full max-w-sm  overflow-hidden">
       <ShineBorder shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]} />
       <CardHeader>
         <CardTitle>Login</CardTitle>
@@ -48,7 +48,7 @@ export function ShineBorderDemo() {
 export function ShineBorderDemoMonotone() {
   const theme = useTheme()
   return (
-    <Card className="relative w-full max-w-[350px] overflow-hidden">
+    <Card className="relative w-full max-w-sm  overflow-hidden">
       <ShineBorder shineColor={theme.theme === "dark" ? "white" : "black"} />
       <CardHeader>
         <CardTitle>Login</CardTitle>

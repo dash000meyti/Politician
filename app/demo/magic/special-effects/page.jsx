@@ -8,6 +8,8 @@ import {
   BorderBeamDemoComponent,
   ShineBorderDemo,
   ShineBorderDemoMonotone,
+  MagicCardDemo,
+  MagicCardDemoOrb,
 } from '@/components/demo'
 
 export function Spacing({ dark = false } = {}) {
@@ -59,6 +61,17 @@ export default function DemoMagicSpecialEffectsPage() {
 
       <h3>ShineBorderDemoMonotone</h3>
       <ShineBorderDemoMonotone />
+      <Spacing dark/>
+
+      <h2>Magic Card</h2>
+      <Spacing />
+
+      <h3>MagicCardDemo</h3>
+      <MagicCardDemo />
+      <Spacing />
+
+      <h3>MagicCardDemoOrb</h3>
+      <MagicCardDemoOrb />
       <Spacing dark/>
 
 

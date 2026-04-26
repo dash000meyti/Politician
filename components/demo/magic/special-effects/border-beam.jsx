@@ -13,7 +13,7 @@ import { BorderBeam } from "@/components/ui"
 
 export function BorderBeamDemo() {
   return (
-    <Card className="relative w-[350px] overflow-hidden">
+    <Card className="relative max-w-sm w-full overflow-hidden">
       <CardHeader>
         <CardTitle>Login</CardTitle>
         <CardDescription>
