@@ -18,6 +18,7 @@ import {
   ConfettiDemoFireworks,
   ConfettiDemoSide,
   ConfettiDemoEmoji,
+  ParticlesDemo,
 } from '@/components/demo'
 
 export function Spacing({ dark = false } = {}) {
@@ -121,7 +122,14 @@ export default function DemoMagicSpecialEffectsPage() {
 
       <h3>ConfettiDemoEmoji</h3>
       <ConfettiDemoEmoji />
-      <Spacing dark/>
+      <Spacing dark />
+
+      <h2>Particles</h2>
+      <Spacing />
+
+      <h3>ParticlesDemo</h3>
+      <ParticlesDemo />
+      <Spacing />
 
 
 
