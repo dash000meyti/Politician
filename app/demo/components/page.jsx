@@ -113,6 +113,17 @@ import {
   SeparatorDemoVertical,
   SheetDemo,
   SidebarDemo,
+  SkeletonDemo,
+  SkeletonDemoCard,
+  SkeletonDemoText,
+  SkeletonDemoForm,
+  SkeletonDemoTable,
+  SliderDemo,
+  SliderDemoRange,
+  SliderDemoMultiple,
+  SliderDemoVertical,
+  SliderDemoControlled,
+  SliderDemoDisabled,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -713,6 +724,55 @@ export default function DemoComponentsPage() {
       <SidebarDemo />
       <Spacing dark/>
 
+      <h2>Skeleton</h2>
+      <Spacing />
+
+      <h3>SkeletonDemo</h3>
+      <SkeletonDemo />
+      <Spacing />
+
+      <h3>SkeletonDemoCard</h3>
+      <SkeletonDemoCard />
+      <Spacing />
+
+      <h3>SkeletonDemoText</h3>
+      <SkeletonDemoText />
+      <Spacing />
+
+      <h3>SkeletonDemoForm</h3>
+      <SkeletonDemoForm />
+      <Spacing />
+
+      <h3>SkeletonDemoTable</h3>
+      <SkeletonDemoTable />
+      <Spacing dark/>
+
+      <h2>Slider</h2>
+      <Spacing />
+
+      <h3>SliderDemo</h3>
+      <SliderDemo />
+      <Spacing />
+
+      <h3>SliderDemoRange</h3>
+      <SliderDemoRange />
+      <Spacing />
+
+      <h3>SliderDemoMultiple</h3>
+      <SliderDemoMultiple />
+      <Spacing />
+
+      <h3>SliderDemoVertical</h3>
+      <SliderDemoVertical />
+      <Spacing />
+
+      <h3>SliderDemoControlled</h3>
+      <SliderDemoControlled />
+      <Spacing />
+
+      <h3>SliderDemoDisabled</h3>
+      <SliderDemoDisabled />
+      <Spacing dark/>
 
 
 
