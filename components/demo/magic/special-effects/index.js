@@ -1,4 +1,5 @@
 export * from './animated-beam'
+export * from './animated-theme-toggler'
 export * from './border-beam'
 export * from './confetti'
 export * from './glare-hover'

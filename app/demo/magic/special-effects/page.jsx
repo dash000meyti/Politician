@@ -19,6 +19,7 @@ import {
   ConfettiDemoSide,
   ConfettiDemoEmoji,
   ParticlesDemo,
+  AnimatedThemeTogglerDemo,
 } from '@/components/demo'
 
 export function Spacing({ dark = false } = {}) {
@@ -129,7 +130,14 @@ export default function DemoMagicSpecialEffectsPage() {
 
       <h3>ParticlesDemo</h3>
       <ParticlesDemo />
+      <Spacing dark/>
+
+      <h2>Animated Theme Toggler</h2>
       <Spacing />
+
+      <h3>AnimatedThemeTogglerDemo</h3>
+      <AnimatedThemeTogglerDemo />
+      <Spacing dark/>
 
 
 
