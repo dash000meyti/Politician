@@ -10,6 +10,8 @@ import {
   ShineBorderDemoMonotone,
   MagicCardDemo,
   MagicCardDemoOrb,
+  GlareEffectsDemo,
+  GlareEffectsDemoAlerts,
 } from '@/components/demo'
 
 export function Spacing({ dark = false } = {}) {
@@ -24,7 +26,7 @@ export default function DemoMagicSpecialEffectsPage() {
       <Link className="text-blue-500" href="/demo/magic">Back</Link>
 
       <h1>Special Effects</h1>
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Animated Beam</h2>
       <Spacing />
@@ -39,7 +41,7 @@ export default function DemoMagicSpecialEffectsPage() {
 
       <h3>AnimatedBeamDemoMultiple</h3>
       <AnimatedBeamDemoMultiple />
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Border Beam</h2>
       <Spacing />
@@ -50,7 +52,7 @@ export default function DemoMagicSpecialEffectsPage() {
 
       <h3>BorderBeamDemoComponent</h3>
       <BorderBeamDemoComponent />
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Shine Border</h2>
       <Spacing />
@@ -61,7 +63,7 @@ export default function DemoMagicSpecialEffectsPage() {
 
       <h3>ShineBorderDemoMonotone</h3>
       <ShineBorderDemoMonotone />
-      <Spacing dark/>
+      <Spacing dark />
 
       <h2>Magic Card</h2>
       <Spacing />
@@ -72,13 +74,21 @@ export default function DemoMagicSpecialEffectsPage() {
 
       <h3>MagicCardDemoOrb</h3>
       <MagicCardDemoOrb />
-      <Spacing dark/>
+      <Spacing dark />
 
+      <h2>Glare Effects</h2>
+      <Spacing />
 
+      <h3>GlareEffectsDemo</h3>
+      <GlareEffectsDemo />
+      <Spacing />
+
+      <h3>GlareEffectsDemoAlerts</h3>
+      <GlareEffectsDemoAlerts />
+      <Spacing dark />
 
 
 
     </div>
   )
 }
-
