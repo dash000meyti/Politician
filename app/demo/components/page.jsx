@@ -145,6 +145,9 @@ import {
   ToggleGroupDemoSpacing,
   ToggleGroupDemoVertical,
   ToggleGroupDemoCustom,
+  TooltipDemo,
+  TooltipDemoSides,
+  TooltipDemoKeyboard,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -903,6 +906,20 @@ export default function DemoComponentsPage() {
       <ToggleGroupDemoCustom/>
       <Spacing dark/>
 
+      <h2>Tooltip</h2>
+      <Spacing />
+
+      <h3>TooltipDemo</h3>
+      <TooltipDemo/>
+      <Spacing />
+
+      <h3>TooltipDemoSides</h3>
+      <TooltipDemoSides/>
+      <Spacing />
+
+      <h3>TooltipDemoKeyboard</h3>
+      <TooltipDemoKeyboard/>
+      <Spacing />
 
 
 
