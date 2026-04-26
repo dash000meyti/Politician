@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui"
-
+import { Toaster } from "@/components/ui"
 import { DirectionProvider } from '@/components/ui'
 
 const geistSans = Geist({
@@ -29,6 +29,7 @@ export default function RootLayout({ children }) {
         <DirectionProvider>
           <TooltipProvider>
             {children}
+            <Toaster />
           </TooltipProvider>
         </DirectionProvider>
       </body>

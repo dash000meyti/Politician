@@ -124,6 +124,9 @@ import {
   SliderDemoVertical,
   SliderDemoControlled,
   SliderDemoDisabled,
+  SonnerDemo,
+  SonnerDemoTypes,
+  SonnerDemoPosition,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -773,6 +776,21 @@ export default function DemoComponentsPage() {
       <h3>SliderDemoDisabled</h3>
       <SliderDemoDisabled />
       <Spacing dark/>
+
+      <h2>Sonner</h2>
+      <Spacing />
+
+      <h3>SonnerDemo</h3>
+      <SonnerDemo />
+      <Spacing />
+
+      <h3>SonnerDemoTypes</h3>
+      <SonnerDemoTypes />
+      <Spacing />
+
+      <h3>SonnerDemoPosition</h3>
+      <SonnerDemoPosition />
+      <Spacing />
 
 
 
