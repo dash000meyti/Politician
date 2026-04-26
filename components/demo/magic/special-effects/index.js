@@ -1,5 +1,6 @@
 export * from './animated-beam'
 export * from './border-beam'
+export * from './confetti'
 export * from './glare-hover'
 export * from './magic-card'
 export * from './meteors'

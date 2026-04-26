@@ -13,6 +13,11 @@ import {
   GlareEffectsDemo,
   GlareEffectsDemoAlerts,
   MeteorDemo,
+  ConfettiDemo,
+  ConfettiDemoAngle,
+  ConfettiDemoFireworks,
+  ConfettiDemoSide,
+  ConfettiDemoEmoji,
 } from '@/components/demo'
 
 export function Spacing({ dark = false } = {}) {
@@ -93,7 +98,30 @@ export default function DemoMagicSpecialEffectsPage() {
 
       <h3>MeteorDemo</h3>
       <MeteorDemo />
+      <Spacing dark />
+
+      <h2>Meteor</h2>
       <Spacing />
+
+      <h3>ConfettiDemo</h3>
+      <ConfettiDemo />
+      <Spacing />
+
+      <h3>ConfettiDemoAngle</h3>
+      <ConfettiDemoAngle />
+      <Spacing />
+
+      <h3>ConfettiDemoFireworks</h3>
+      <ConfettiDemoFireworks />
+      <Spacing />
+
+      <h3>ConfettiDemoSide</h3>
+      <ConfettiDemoSide />
+      <Spacing />
+
+      <h3>ConfettiDemoEmoji</h3>
+      <ConfettiDemoEmoji />
+      <Spacing dark/>
 
 
 
