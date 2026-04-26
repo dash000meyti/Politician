@@ -134,6 +134,10 @@ import {
   SwitchDemoFull,
   TableDemo,
   TableDemoActions,
+  TabsDemo,
+  TabsDemoLine,
+  TabsDemoVertical,
+  TabsDemoFull,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -835,6 +839,25 @@ export default function DemoComponentsPage() {
       <h3>TableDemoActions</h3>
       <TableDemoActions />
       <Spacing dark/>
+
+      <h2>Tabs</h2>
+      <Spacing />
+
+      <h3>TabsDemo</h3>
+      <TabsDemo />
+      <Spacing />
+
+      <h3>TabsDemoLine</h3>
+      <TabsDemoLine />
+      <Spacing />
+
+      <h3>TabsDemoVertical</h3>
+      <TabsDemoVertical />
+      <Spacing />
+
+      <h3>TabsDemoFull</h3>
+      <TabsDemoFull />
+      <Spacing />
 
 
 
