@@ -7,6 +7,8 @@ export default function DemoMagicPage() {
       <h1>Magic</h1>
       <h2>Components</h2>
       <Link className="text-blue-500" href="/demo/magic/components">Magic Components</Link>
+      <h2>Special Effects</h2>
+      <Link className="text-blue-500" href="/demo/magic/special-effects">Special Effects</Link>
     </div>
   )
 }

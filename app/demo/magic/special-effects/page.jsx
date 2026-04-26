@@ -1,0 +1,57 @@
+import Link from "next/link"
+
+import {
+  AnimatedBeamDemo,
+  AnimatedBeamDemo2,
+  AnimatedBeamDemoMultiple,
+  BorderBeamDemo,
+  BorderBeamDemoComponent,
+} from '@/components/demo'
+
+export function Spacing({ dark = false } = {}) {
+  const bgClass = dark ? "bg-gray-400" : "bg-gray-100"
+  return <div className={`w-full h-1 ${bgClass} my-4`} />
+}
+
+export default function DemoMagicSpecialEffectsPage() {
+  return (
+    <div className="min-h-screen flex flex-col justify-center items-center">
+
+      <Link className="text-blue-500" href="/demo/magic">Back</Link>
+
+      <h1>Special Effects</h1>
+      <Spacing dark/>
+
+      <h2>Animated Beam</h2>
+      <Spacing />
+
+      <h3>AnimatedBeamDemo</h3>
+      <AnimatedBeamDemo />
+      <Spacing />
+
+      <h3>AnimatedBeamDemo2</h3>
+      <AnimatedBeamDemo2 />
+      <Spacing />
+
+      <h3>AnimatedBeamDemoMultiple</h3>
+      <AnimatedBeamDemoMultiple />
+      <Spacing dark/>
+
+      <h2>Border Beam</h2>
+      <Spacing />
+
+      <h3>BorderBeamDemo</h3>
+      <BorderBeamDemo />
+      <Spacing />
+
+      <h3>BorderBeamDemoComponent</h3>
+      <BorderBeamDemoComponent />
+      <Spacing />
+
+
+
+
+
+    </div>
+  )
+}
