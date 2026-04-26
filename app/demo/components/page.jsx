@@ -129,6 +129,9 @@ import {
   SonnerDemoPosition,
   SpinnerDemo,
   SpinnerDemoCustom,
+  SwitchDemo,
+  SwitchDemoCard,
+  SwitchDemoFull,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -803,6 +806,21 @@ export default function DemoComponentsPage() {
 
       <h3>SpinnerDemoCustom</h3>
       <SpinnerDemoCustom />
+      <Spacing dark/>
+
+      <h2>Switch</h2>
+      <Spacing />
+
+      <h3>SwitchDemo</h3>
+      <SwitchDemo />
+      <Spacing />
+
+      <h3>SwitchDemoCard</h3>
+      <SwitchDemoCard />
+      <Spacing />
+
+      <h3>SwitchDemoFull</h3>
+      <SwitchDemoFull />
       <Spacing dark/>
 
 
