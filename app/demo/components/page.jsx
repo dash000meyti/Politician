@@ -138,6 +138,13 @@ import {
   TabsDemoLine,
   TabsDemoVertical,
   TabsDemoFull,
+  TextareaDemo,
+  ToggleDemo,
+  ToggleDemoOutline,
+  ToggleGroupDemo,
+  ToggleGroupDemoSpacing,
+  ToggleGroupDemoVertical,
+  ToggleGroupDemoCustom,
 } from "@/components/demo"
 
 export function Spacing({ dark = false } = {}) {
@@ -857,7 +864,44 @@ export default function DemoComponentsPage() {
 
       <h3>TabsDemoFull</h3>
       <TabsDemoFull />
+      <Spacing dark/>
+
+      <h2>Textarea</h2>
       <Spacing />
+
+      <h3>TextareaDemo</h3>
+      <TextareaDemo/>
+      <Spacing dark/>
+
+      <h2>Toggle</h2>
+      <Spacing />
+
+      <h3>ToggleDemo</h3>
+      <ToggleDemo/>
+      <Spacing />
+
+      <h3>ToggleDemoOutline</h3>
+      <ToggleDemoOutline/>
+      <Spacing dark/>
+
+      <h2>ToggleGroup</h2>
+      <Spacing />
+
+      <h3>ToggleGroupDemo</h3>
+      <ToggleGroupDemo/>
+      <Spacing />
+
+      <h3>ToggleGroupDemoSpacing</h3>
+      <ToggleGroupDemoSpacing/>
+      <Spacing />
+
+      <h3>ToggleGroupDemoVertical</h3>
+      <ToggleGroupDemoVertical/>
+      <Spacing />
+
+      <h3>ToggleGroupDemoCustom</h3>
+      <ToggleGroupDemoCustom/>
+      <Spacing dark/>
 
 
 
