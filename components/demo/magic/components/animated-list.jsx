@@ -74,7 +74,7 @@ const Notification = ({ name, description, icon, color, time }) => {
   )
 }
 
-export function AnimatedListStart() {
+export function AnimatedListDemoStart() {
   return (
     <AnimatedList >
     <p>Item 2</p>

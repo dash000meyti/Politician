@@ -29,7 +29,7 @@ const items = [
   },
 ]
 
-export function AccordionStart() {
+export function AccordionDemoStart() {
   return (
     <Accordion type="single" collapsible defaultValue="item-1"
       className="max-w-md">

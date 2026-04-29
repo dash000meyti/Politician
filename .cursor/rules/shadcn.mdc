@@ -1,0 +1,44 @@
+---
+description: How to add or modify a shadcn component
+globs: components/ui/**, components/demo/components/**, app/demo/components/**
+alwaysApply: false
+---
+
+# Adding a shadcn Component
+
+## Install
+
+```bash
+npx shadcn@latest add <name>
+```
+
+The CLI drops the component at `components/ui/<name>.jsx`. Do **not** move it
+into `components/ui/magic/` — `magic/` is reserved for Magic UI.
+
+## After install
+
+1. Re-export from `components/ui/index.js` (alphabetical):
+   ```js
+   export * from "./<name>"
+   ```
+
+2. Add a demo file `components/demo/components/<name>.jsx` exporting at least
+   `<Name>Demo`. Include `<Name>DemoStart` for a minimal example and any
+   relevant variants (`<Name>Demo<Modifier>`).
+
+3. Re-export from `components/demo/components/index.js`.
+
+4. Add the component to the section list in
+   `app/demo/components/page.jsx` (it's a data-driven page; just append a new
+   entry to the `sections` array with `id`, `name`, `slug`, `file`,
+   `description`, and `variants`).
+
+5. Add the `id` to the `components` items array in
+   `components/showcase/manifest.js` so the global command palette finds it.
+
+## Conventions
+
+- **Don't fork** shadcn primitives — extend via wrappers in your own folder
+  if needed (e.g. `components/forms/`).
+- All variants must be `"use client"`-clean unless they require it.
+- Match shadcn naming exactly — file names, export names, slot data attributes.

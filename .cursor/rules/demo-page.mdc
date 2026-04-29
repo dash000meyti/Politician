@@ -1,0 +1,68 @@
+---
+description: Rules for app/demo/** pages — composing the Showcase UI
+globs: app/demo/**
+alwaysApply: false
+---
+
+# Demo Page Rules
+
+All pages under `app/demo/**` use the showcase library from
+`@/components/showcase`. They MUST NOT use raw `<h2>`/`<h3>` listings.
+
+## Required template
+
+```jsx
+import { ShowcasePage, ShowcaseSection, ShowcaseVariant } from "@/components/showcase"
+import { FooDemo, FooDemoStart } from "@/components/demo"
+
+const crumbs = [
+  { label: "Home", href: "/" },
+  { label: "Demo", href: "/demo" },
+  { label: "Magic UI", href: "/demo/magic" },
+  { label: "Special Effects" },          // current page – no href
+]
+
+export default function Page() {
+  return (
+    <ShowcasePage
+      title="Special Effects"
+      group="magic/special-effects"
+      crumbs={crumbs}
+      description="Short overview of this category."
+    >
+      <ShowcaseSection
+        id="foo"                          // matches anchor + manifest id
+        name="Foo"
+        description="What Foo does."
+        docsUrl="https://magicui.design/docs/components/foo"
+        sourceFile="components/ui/magic/special-effects/foo.jsx"
+      >
+        <ShowcaseVariant
+          name="Default"
+          exportName="FooDemo"
+          sourceFile="components/demo/magic/special-effects/foo.jsx"
+        >
+          <FooDemo />
+        </ShowcaseVariant>
+      </ShowcaseSection>
+    </ShowcasePage>
+  )
+}
+```
+
+## Section ordering
+
+Order sections to match magicui.design's docs order for that category.
+
+## Empty categories
+
+If no components are installed yet, render `<ShowcasePage>` with
+`{null}` as children and an honest description. The library auto-shows
+the empty state.
+
+## Anti-patterns
+
+- ❌ Using `<h2>`, `<h3>`, or the legacy `<Spacing>` component.
+- ❌ Hardcoded `<Tabs>` / `<Card>` per variant. Use `<ShowcaseVariant>` only.
+- ❌ Missing `id`, `sourceFile`, or `docsUrl` on a section.
+- ❌ Duplicating the `Spacing` component definition in pages.

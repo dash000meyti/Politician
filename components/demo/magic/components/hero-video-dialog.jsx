@@ -1,6 +1,6 @@
 import { HeroVideoDialog } from "@/components/ui/magic"
 
-export function HeroVideoDialogStart() {
+export function HeroVideoDialogDemoStart() {
   return (
     <HeroVideoDialog
       className="block dark:hidden"

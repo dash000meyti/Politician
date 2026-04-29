@@ -4,7 +4,7 @@ import { motion } from "motion/react"
 
 import { Pointer } from "@/components/ui/magic"
 
-export function PointerStart() {
+export function PointerDemoStart() {
   return (
     <div className="bg-gray-100 w-72 h-72 mx-auto">
       <Pointer>

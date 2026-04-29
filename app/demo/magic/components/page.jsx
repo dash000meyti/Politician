@@ -1,209 +1,373 @@
-import Link from "next/link"
-
+import { ShowcasePage, ShowcaseSection, ShowcaseVariant } from "@/components/showcase"
 import {
   MarqueeDemo,
-  Marquee3D,
+  MarqueeDemo3D,
   MarqueeDemoVertical,
-  TerminalStart,
+  TerminalDemoStart,
   TerminalDemo,
-  HeroVideoDialogStart,
+  HeroVideoDialogDemoStart,
   HeroVideoDialogDemo,
   HeroVideoDialogDemoTopInBottomOut,
-  BentoStart,
-  BentoDemo,
-  AnimatedListStart,
+  BentoGridDemoStart,
+  BentoGridDemo,
+  AnimatedListDemoStart,
   AnimatedListDemo,
-  DockStart,
+  DockDemoStart,
   DockDemo,
-  TweetDemo,
-  OrbitingCirclesStart,
+  TweetCardDemo,
+  OrbitingCirclesDemoStart,
   OrbitingCirclesDemo,
-  AvatarCirclesStart,
+  AvatarCirclesDemoStart,
   AvatarCirclesDemo,
-  LensStart,
+  LensDemoStart,
   LensDemo,
   LensDemoStatic,
-  PointerStart,
+  PointerDemoStart,
   PointerDemo,
-  SmoothCursorDemo,
-  ProgressiveBlurStart,
-  ProgressiveBlurDemo,
-  DottedMapStart,
+  ProgressiveBlurDemoStart,
+  DottedMapDemoStart,
   DottedMapDemo,
   DottedMapDemoPulse,
-} from '@/components/demo'
+} from "@/components/demo"
 
-export function Spacing({ dark = false } = {}) {
-  const bgClass = dark ? "bg-gray-400" : "bg-gray-100"
-  return <div className={`w-full h-1 ${bgClass} my-4`} />
-}
+const crumbs = [
+  { label: "Home", href: "/" },
+  { label: "Demo", href: "/demo" },
+  { label: "Magic UI", href: "/demo/magic" },
+  { label: "Components" },
+]
 
 export default function DemoMagicComponentsPage() {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center">
+    <ShowcasePage
+      title="Magic UI Components"
+      group="magic/components"
+      crumbs={crumbs}
+      description="General-purpose animated components: marquees, terminals, video dialogs, bento grids, docks, dotted maps, and more."
+    >
+      <ShowcaseSection
+        id="marquee"
+        name="Marquee"
+        description="An infinite scrolling content row, horizontal or vertical, with optional pause-on-hover."
+        docsUrl="https://magicui.design/docs/components/marquee"
+        sourceFile="components/ui/magic/components/marquee.jsx"
+      >
+        <ShowcaseVariant
+          name="Default"
+          exportName="MarqueeDemo"
+          sourceFile="components/demo/magic/components/marquee.jsx"
+        >
+          <MarqueeDemo />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Vertical"
+          exportName="MarqueeDemoVertical"
+          sourceFile="components/demo/magic/components/marquee.jsx"
+        >
+          <MarqueeDemoVertical />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="3D"
+          exportName="MarqueeDemo3D"
+          sourceFile="components/demo/magic/components/marquee.jsx"
+        >
+          <MarqueeDemo3D />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <Link className="text-blue-500" href="/demo/magic">Back</Link>
+      <ShowcaseSection
+        id="terminal"
+        name="Terminal"
+        description="A typewriter-style terminal with animated lines."
+        docsUrl="https://magicui.design/docs/components/terminal"
+        sourceFile="components/ui/magic/components/terminal.jsx"
+      >
+        <ShowcaseVariant
+          name="Start (minimal)"
+          exportName="TerminalDemoStart"
+          sourceFile="components/demo/magic/components/terminal.jsx"
+        >
+          <TerminalDemoStart />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Default"
+          exportName="TerminalDemo"
+          sourceFile="components/demo/magic/components/terminal.jsx"
+        >
+          <TerminalDemo />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h1>Magic Components</h1>
-      <Spacing dark/>
+      <ShowcaseSection
+        id="hero-video-dialog"
+        name="Hero Video Dialog"
+        description="A thumbnail that opens a video in a dialog with multiple animation styles."
+        docsUrl="https://magicui.design/docs/components/hero-video-dialog"
+        sourceFile="components/ui/magic/components/hero-video-dialog.jsx"
+      >
+        <ShowcaseVariant
+          name="Start (minimal)"
+          exportName="HeroVideoDialogDemoStart"
+          sourceFile="components/demo/magic/components/hero-video-dialog.jsx"
+        >
+          <HeroVideoDialogDemoStart />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Default (from-center)"
+          exportName="HeroVideoDialogDemo"
+          sourceFile="components/demo/magic/components/hero-video-dialog.jsx"
+        >
+          <HeroVideoDialogDemo />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Top-in / Bottom-out"
+          exportName="HeroVideoDialogDemoTopInBottomOut"
+          sourceFile="components/demo/magic/components/hero-video-dialog.jsx"
+        >
+          <HeroVideoDialogDemoTopInBottomOut />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h2>Marquee</h2>
-      <Spacing />
+      <ShowcaseSection
+        id="bento-grid"
+        name="Bento Grid"
+        description="A bento-style feature grid with cards of varying sizes."
+        docsUrl="https://magicui.design/docs/components/bento-grid"
+        sourceFile="components/ui/magic/components/bento-grid.jsx"
+      >
+        <ShowcaseVariant
+          name="Start (minimal)"
+          exportName="BentoGridDemoStart"
+          sourceFile="components/demo/magic/components/bento-grid.jsx"
+        >
+          <BentoGridDemoStart />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Default"
+          exportName="BentoGridDemo"
+          sourceFile="components/demo/magic/components/bento-grid.jsx"
+        >
+          <BentoGridDemo />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h3>MarqueeDemo</h3>
-      <MarqueeDemo />
-      <Spacing />
+      <ShowcaseSection
+        id="animated-list"
+        name="Animated List"
+        description="A list whose items animate in sequence."
+        docsUrl="https://magicui.design/docs/components/animated-list"
+        sourceFile="components/ui/magic/components/animated-list.jsx"
+      >
+        <ShowcaseVariant
+          name="Start (minimal)"
+          exportName="AnimatedListDemoStart"
+          sourceFile="components/demo/magic/components/animated-list.jsx"
+        >
+          <AnimatedListDemoStart />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Default"
+          exportName="AnimatedListDemo"
+          sourceFile="components/demo/magic/components/animated-list.jsx"
+        >
+          <AnimatedListDemo />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h3>MarqueeDemoVertical</h3>
-      <MarqueeDemoVertical />
-      <Spacing />
+      <ShowcaseSection
+        id="dock"
+        name="Dock"
+        description="A macOS-style icon dock with hover magnification."
+        docsUrl="https://magicui.design/docs/components/dock"
+        sourceFile="components/ui/magic/components/dock.jsx"
+      >
+        <ShowcaseVariant
+          name="Start (minimal)"
+          exportName="DockDemoStart"
+          sourceFile="components/demo/magic/components/dock.jsx"
+        >
+          <DockDemoStart />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Default"
+          exportName="DockDemo"
+          sourceFile="components/demo/magic/components/dock.jsx"
+        >
+          <DockDemo />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h3>Marquee3D</h3>
-      <Marquee3D />
-      <Spacing dark/>
+      <ShowcaseSection
+        id="tweet-card"
+        name="Tweet Card"
+        description="A pre-styled tweet preview card from a tweet ID."
+        docsUrl="https://magicui.design/docs/components/tweet-card"
+        sourceFile="components/ui/magic/components/tweet-card.jsx"
+      >
+        <ShowcaseVariant
+          name="Default"
+          exportName="TweetCardDemo"
+          sourceFile="components/demo/magic/components/tweet-card.jsx"
+        >
+          <TweetCardDemo />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h2>Terminal</h2>
-      <Spacing />
+      <ShowcaseSection
+        id="orbiting-circles"
+        name="Orbiting Circles"
+        description="Items orbiting around a center point on configurable radii."
+        docsUrl="https://magicui.design/docs/components/orbiting-circles"
+        sourceFile="components/ui/magic/components/orbiting-circles.jsx"
+      >
+        <ShowcaseVariant
+          name="Start (minimal)"
+          exportName="OrbitingCirclesDemoStart"
+          sourceFile="components/demo/magic/components/orbiting-circles.jsx"
+        >
+          <OrbitingCirclesDemoStart />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Default"
+          exportName="OrbitingCirclesDemo"
+          sourceFile="components/demo/magic/components/orbiting-circles.jsx"
+        >
+          <OrbitingCirclesDemo />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h3>TerminalStart</h3>
-      <TerminalStart />
-      <Spacing />
+      <ShowcaseSection
+        id="avatar-circles"
+        name="Avatar Circles"
+        description="A clustered avatars stack with overflow count."
+        docsUrl="https://magicui.design/docs/components/avatar-circles"
+        sourceFile="components/ui/magic/components/avatar-circles.jsx"
+      >
+        <ShowcaseVariant
+          name="Start (minimal)"
+          exportName="AvatarCirclesDemoStart"
+          sourceFile="components/demo/magic/components/avatar-circles.jsx"
+        >
+          <AvatarCirclesDemoStart />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Default"
+          exportName="AvatarCirclesDemo"
+          sourceFile="components/demo/magic/components/avatar-circles.jsx"
+        >
+          <AvatarCirclesDemo />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h3>TerminalDemo</h3>
-      <TerminalDemo />
-      <Spacing dark/>
+      <ShowcaseSection
+        id="lens"
+        name="Lens"
+        description="A magnifying lens hover effect."
+        docsUrl="https://magicui.design/docs/components/lens"
+        sourceFile="components/ui/magic/components/lens.jsx"
+      >
+        <ShowcaseVariant
+          name="Start (minimal)"
+          exportName="LensDemoStart"
+          sourceFile="components/demo/magic/components/lens.jsx"
+        >
+          <LensDemoStart />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Default"
+          exportName="LensDemo"
+          sourceFile="components/demo/magic/components/lens.jsx"
+        >
+          <LensDemo />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Static"
+          exportName="LensDemoStatic"
+          sourceFile="components/demo/magic/components/lens.jsx"
+        >
+          <LensDemoStatic />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h2>Hero Video Dialog</h2>
-      <Spacing />
+      <ShowcaseSection
+        id="pointer"
+        name="Pointer"
+        description="A custom mouse pointer overlay for a region."
+        docsUrl="https://magicui.design/docs/components/pointer"
+        sourceFile="components/ui/magic/components/pointer.jsx"
+      >
+        <ShowcaseVariant
+          name="Start (minimal)"
+          exportName="PointerDemoStart"
+          sourceFile="components/demo/magic/components/pointer.jsx"
+        >
+          <PointerDemoStart />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Default"
+          exportName="PointerDemo"
+          sourceFile="components/demo/magic/components/pointer.jsx"
+        >
+          <PointerDemo />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h3>HeroVideoDialogStart</h3>
-      <HeroVideoDialogStart />
-      <Spacing />
+      <ShowcaseSection
+        id="smooth-cursor"
+        name="Smooth Cursor"
+        description="A spring-following custom cursor — currently disabled in this demo."
+        docsUrl="https://magicui.design/docs/components/smooth-cursor"
+        sourceFile="components/ui/magic/components/smooth-cursor.jsx"
+        status="manually disabled"
+      >
+        {null}
+      </ShowcaseSection>
 
-      <h3>HeroVideoDialogDemo</h3>
-      <HeroVideoDialogDemo />
-      <Spacing dark/>
+      <ShowcaseSection
+        id="progressive-blur"
+        name="Progressive Blur"
+        description="A directional progressive blur overlay (top/right/bottom/left)."
+        docsUrl="https://magicui.design/docs/components/progressive-blur"
+        sourceFile="components/ui/magic/components/progressive-blur.jsx"
+      >
+        <ShowcaseVariant
+          name="Start (minimal)"
+          exportName="ProgressiveBlurDemoStart"
+          sourceFile="components/demo/magic/components/progressive-blur.jsx"
+        >
+          <ProgressiveBlurDemoStart />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h3>HeroVideoDialogDemoTopInBottomOut</h3>
-      <HeroVideoDialogDemoTopInBottomOut />
-      <Spacing dark/>
-
-      <h2>Bento</h2>
-      <Spacing />
-
-      <h3>BentoStart</h3>
-      <BentoStart />
-      <Spacing />
-
-      <h3>BentoDemo</h3>
-      <BentoDemo />
-      <Spacing dark/>
-
-      <h2>AnimatedListStart</h2>
-      <Spacing />
-
-      <h3>Start</h3>
-      <AnimatedListStart />
-      <Spacing />
-
-      <h3>AnimatedListDemo</h3>
-      <AnimatedListDemo />
-      <Spacing dark/>
-
-      <h2>Dock</h2>
-      <Spacing />
-
-      <h3>DockStart</h3>
-      <DockStart />
-      <Spacing />
-
-      <h3>DockDemo</h3>
-      <DockDemo />
-      <Spacing dark/>
-
-      <h2>Tweet Card</h2>
-      <Spacing />
-
-      <h3>TweetDemo</h3>
-      <TweetDemo />
-      <Spacing dark/>
-
-      <h2>Orbiting Circles</h2>
-      <Spacing />
-
-      <h3>OrbitingCirclesStart</h3>
-      <OrbitingCirclesStart />
-      <Spacing />
-
-      <h3>OrbitingCirclesDemo</h3>
-      <OrbitingCirclesDemo />
-      <Spacing dark/>
-
-      <h2>Avatar Circles</h2>
-      <Spacing />
-
-      <h3>AvatarCirclesStart</h3>
-      <AvatarCirclesStart />
-      <Spacing />
-
-      <h3>AvatarCirclesDemo</h3>
-      <AvatarCirclesDemo />
-      <Spacing dark/>
-
-      <h2>Lens</h2>
-      <Spacing />
-
-      <h3>LensStart</h3>
-      <LensStart />
-      <Spacing />
-
-      <h3>LensDemo</h3>
-      <LensDemo />
-      <Spacing />
-
-      <h3>LensDemoStatic</h3>
-      <LensDemoStatic />
-      <Spacing dark/>
-
-      <h2>Pointer</h2>
-      <Spacing />
-
-      <h3>PointerStart</h3>
-      <PointerStart />
-      <Spacing />
-
-      <h3>PointerDemo</h3>
-      <PointerDemo />
-      <Spacing dark/>
-
-      <h2>Smooth Curso</h2>
-      <Spacing />
-
-      <h3>SmoothCursorDemo // coment</h3>
-      {/* <SmoothCursorDemo /> */}
-      <Spacing dark/>
-
-      <h2>Progressive Blur</h2>
-      <Spacing />
-
-      <h3>ProgressiveBlurStart</h3>
-      <ProgressiveBlurStart />
-      <Spacing dark/>
-
-      <h2>Dotted Map</h2>
-      <Spacing />
-
-      <h3>DottedMapStart</h3>
-      <DottedMapStart />
-      <Spacing />
-
-      <h3>DottedMapDemo</h3>
-      <DottedMapDemo />
-      <Spacing />
-
-      <h3>DottedMapDemoPulse</h3>
-      <DottedMapDemoPulse />
-
-    </div>
+      <ShowcaseSection
+        id="dotted-map"
+        name="Dotted Map"
+        description="A world map made of dots, with optional markers and pulse animation."
+        docsUrl="https://magicui.design/docs/components/dotted-map"
+        sourceFile="components/ui/magic/components/dotted-map.jsx"
+      >
+        <ShowcaseVariant
+          name="Start (minimal)"
+          exportName="DottedMapDemoStart"
+          sourceFile="components/demo/magic/components/dotted-map.jsx"
+        >
+          <DottedMapDemoStart />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="With markers"
+          exportName="DottedMapDemo"
+          sourceFile="components/demo/magic/components/dotted-map.jsx"
+        >
+          <DottedMapDemo />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Pulse"
+          exportName="DottedMapDemoPulse"
+          sourceFile="components/demo/magic/components/dotted-map.jsx"
+        >
+          <DottedMapDemoPulse />
+        </ShowcaseVariant>
+      </ShowcaseSection>
+    </ShowcasePage>
   )
 }

@@ -1,0 +1,72 @@
+---
+description: How to add a Magic UI component to this starter
+globs: components/ui/magic/**, components/demo/magic/**, app/demo/magic/**
+alwaysApply: false
+---
+
+# Adding a Magic UI Component
+
+The Magic UI registry is configured in `components.json` as `@magicui` →
+`https://magicui.design/r/{name}`.
+
+## Steps
+
+1. **Install** with shadcn CLI:
+   ```bash
+   npx shadcn@latest add @magicui/<name>
+   ```
+   This drops a file under `components/ui/`. Some Magic UI components land
+   directly at `components/ui/<name>.jsx`; **move it** to the correct group:
+   `components/ui/magic/<group>/<name>.jsx`.
+
+2. **Choose the group** strictly from Magic UI's 8 official categories:
+   - `components` — Marquee, Terminal, Bento Grid, Dock, …
+   - `special-effects` — Animated Beam, Border Beam, Confetti, …
+   - `animations` — Blur Fade, etc.
+   - `text` — Text Animate, Typing Animation, Aurora Text, …
+   - `device` — Safari, iPhone, Android
+   - `buttons` — Rainbow Button, Shimmer Button, Ripple Button
+   - `backgrounds` — Flickering Grid, Retro Grid, Dot Pattern, …
+   - `community` — File Tree, Code Comparison, Neon Gradient Card, …
+
+3. **Re-export** from `components/ui/magic/<group>/index.js`:
+   ```js
+   export * from "./<name>"
+   ```
+
+4. **Create demos** at `components/demo/magic/<group>/<name>.jsx`. Include:
+   - `<Name>DemoStart` — minimal example using all defaults.
+   - `<Name>Demo` — the canonical demo from magicui.design docs.
+   - 0–3 additional variants if Magic UI shows them (use descriptive
+     `<Name>Demo<Modifier>` names — never `Demo2`, `Demo3`).
+
+5. **Re-export demos** from `components/demo/magic/<group>/index.js`.
+
+6. **Add a `<ShowcaseSection>`** to `app/demo/magic/<group>/page.jsx`:
+   ```jsx
+   <ShowcaseSection
+     id="<name>"
+     name="<Display Name>"
+     description="…"
+     docsUrl="https://magicui.design/docs/components/<name>"
+     sourceFile="components/ui/magic/<group>/<name>.jsx"
+   >
+     <ShowcaseVariant
+       name="Default"
+       exportName="<Name>Demo"
+       sourceFile="components/demo/magic/<group>/<name>.jsx"
+     >
+       <NameDemo />
+     </ShowcaseVariant>
+   </ShowcaseSection>
+   ```
+
+7. **Update the catalog** at `docs/COMPONENT-CATALOG.md` (mark this component
+   as installed).
+
+## Anti-patterns
+
+- ❌ Leaving the component at `components/ui/<name>.jsx` after install.
+- ❌ Skipping the demo file — every component MUST have at least `<Name>Demo`.
+- ❌ Adding Magic UI components to `components/ui/` (without the `magic/` prefix).
+- ❌ Inventing a new group folder.

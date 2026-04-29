@@ -1,0 +1,49 @@
+---
+description: Rules for files inside components/demo/**
+globs: components/demo/**
+alwaysApply: false
+---
+
+# Demo Component Rules
+
+Files in `components/demo/**` mirror the structure of `components/ui/**`. Each
+demo file exports one or more variants for the matching UI component.
+
+## Required structure
+
+```jsx
+// components/demo/magic/special-effects/border-beam.jsx
+import { BorderBeam } from "@/components/ui"
+
+export function BorderBeamDemo() {
+  return (/* canonical demo from magicui.design */)
+}
+
+export function BorderBeamDemoStart() {
+  return (/* minimal example */)
+}
+
+export function BorderBeamDemoComponent() {
+  return (/* additional variant */)
+}
+```
+
+## Rules
+
+1. **One file per UI component**, all variants live in that file.
+2. **Variant names** start with `<ComponentName>Demo` and PascalCase suffixes.
+   See `naming.mdc`.
+3. **Imports** come from `@/components/ui` (top-level barrel) — never reach
+   into private files like `@/components/ui/button/button.jsx`.
+4. **No business logic** — demos are visual examples. Keep helpers, fixture
+   data, icons, etc. inline in the file.
+5. **No async/data loading** — demos must render instantly without fetch.
+6. **`"use client"` only when needed** — only when you import a client-only
+   library (motion, cmdk, etc.) or use hooks.
+7. **Self-contained** — a demo file should be copyable into another project
+   (after fixing the `@/components/ui` import path).
+
+## Variant tab layout
+
+Each `<ShowcaseVariant>` on the page must reference an `exportName` from this
+file. If you add a variant here, also add it to the page in `app/demo/...`.

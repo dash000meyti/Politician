@@ -1,8 +1,7 @@
-import Link from "next/link"
-
+import { ShowcasePage, ShowcaseSection, ShowcaseVariant } from "@/components/showcase"
 import {
   AnimatedBeamDemo,
-  AnimatedBeamDemo2,
+  AnimatedBeamDemoBidirectional,
   AnimatedBeamDemoMultiple,
   BorderBeamDemo,
   BorderBeamDemoComponent,
@@ -10,9 +9,9 @@ import {
   ShineBorderDemoMonotone,
   MagicCardDemo,
   MagicCardDemoOrb,
-  GlareEffectsDemo,
-  GlareEffectsDemoAlerts,
-  MeteorDemo,
+  GlareHoverDemo,
+  GlareHoverDemoAlerts,
+  MeteorsDemo,
   ConfettiDemo,
   ConfettiDemoAngle,
   ConfettiDemoFireworks,
@@ -20,133 +19,236 @@ import {
   ConfettiDemoEmoji,
   ParticlesDemo,
   AnimatedThemeTogglerDemo,
-  BlurFadeDemo,
-} from '@/components/demo'
+} from "@/components/demo"
 
-export function Spacing({ dark = false } = {}) {
-  const bgClass = dark ? "bg-gray-400" : "bg-gray-100"
-  return <div className={`w-full h-1 ${bgClass} my-4`} />
-}
+const crumbs = [
+  { label: "Home", href: "/" },
+  { label: "Demo", href: "/demo" },
+  { label: "Magic UI", href: "/demo/magic" },
+  { label: "Special Effects" },
+]
 
 export default function DemoMagicSpecialEffectsPage() {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center">
+    <ShowcasePage
+      title="Special Effects"
+      group="magic/special-effects"
+      crumbs={crumbs}
+      description="Decorative motion effects: animated beams, glowing borders, magic cards, meteors, confetti, particles, and a theme toggler."
+    >
+      <ShowcaseSection
+        id="animated-beam"
+        name="Animated Beam"
+        description="An animated beam of light traveling between two refs inside a container."
+        docsUrl="https://magicui.design/docs/components/animated-beam"
+        sourceFile="components/ui/magic/special-effects/animated-beam.jsx"
+      >
+        <ShowcaseVariant
+          name="Default"
+          exportName="AnimatedBeamDemo"
+          sourceFile="components/demo/magic/special-effects/animated-beam.jsx"
+        >
+          <AnimatedBeamDemo />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Bidirectional"
+          exportName="AnimatedBeamDemoBidirectional"
+          sourceFile="components/demo/magic/special-effects/animated-beam.jsx"
+        >
+          <AnimatedBeamDemoBidirectional />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Multiple"
+          exportName="AnimatedBeamDemoMultiple"
+          sourceFile="components/demo/magic/special-effects/animated-beam.jsx"
+        >
+          <AnimatedBeamDemoMultiple />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <Link className="text-blue-500" href="/demo/magic">Back</Link>
+      <ShowcaseSection
+        id="border-beam"
+        name="Border Beam"
+        description="A traveling beam of light around the border of a container."
+        docsUrl="https://magicui.design/docs/components/border-beam"
+        sourceFile="components/ui/magic/special-effects/border-beam.jsx"
+      >
+        <ShowcaseVariant
+          name="Default"
+          exportName="BorderBeamDemo"
+          sourceFile="components/demo/magic/special-effects/border-beam.jsx"
+        >
+          <BorderBeamDemo />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Component variant"
+          exportName="BorderBeamDemoComponent"
+          sourceFile="components/demo/magic/special-effects/border-beam.jsx"
+        >
+          <BorderBeamDemoComponent />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h1>Special Effects</h1>
-      <Spacing dark />
+      <ShowcaseSection
+        id="shine-border"
+        name="Shine Border"
+        description="A border with an animated shine sweeping along it."
+        docsUrl="https://magicui.design/docs/components/shine-border"
+        sourceFile="components/ui/magic/special-effects/shine-border.jsx"
+      >
+        <ShowcaseVariant
+          name="Default"
+          exportName="ShineBorderDemo"
+          sourceFile="components/demo/magic/special-effects/shine-border.jsx"
+        >
+          <ShineBorderDemo />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Monotone"
+          exportName="ShineBorderDemoMonotone"
+          sourceFile="components/demo/magic/special-effects/shine-border.jsx"
+        >
+          <ShineBorderDemoMonotone />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h2>Animated Beam</h2>
-      <Spacing />
+      <ShowcaseSection
+        id="magic-card"
+        name="Magic Card"
+        description="A spotlight effect that follows the mouse on a card."
+        docsUrl="https://magicui.design/docs/components/magic-card"
+        sourceFile="components/ui/magic/special-effects/magic-card.jsx"
+      >
+        <ShowcaseVariant
+          name="Default"
+          exportName="MagicCardDemo"
+          sourceFile="components/demo/magic/special-effects/magic-card.jsx"
+        >
+          <MagicCardDemo />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Orb"
+          exportName="MagicCardDemoOrb"
+          sourceFile="components/demo/magic/special-effects/magic-card.jsx"
+        >
+          <MagicCardDemoOrb />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h3>AnimatedBeamDemo</h3>
-      <AnimatedBeamDemo />
-      <Spacing />
+      <ShowcaseSection
+        id="glare-hover"
+        name="Glare Hover"
+        description="A glare effect that follows the mouse pointer on hover."
+        docsUrl="https://magicui.design/docs/components/glare-hover"
+        sourceFile="components/ui/magic/special-effects/glare-hover.jsx"
+      >
+        <ShowcaseVariant
+          name="Default"
+          exportName="GlareHoverDemo"
+          sourceFile="components/demo/magic/special-effects/glare-hover.jsx"
+        >
+          <GlareHoverDemo />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Alerts"
+          exportName="GlareHoverDemoAlerts"
+          sourceFile="components/demo/magic/special-effects/glare-hover.jsx"
+        >
+          <GlareHoverDemoAlerts />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h3>AnimatedBeamDemo2</h3>
-      <AnimatedBeamDemo2 />
-      <Spacing />
+      <ShowcaseSection
+        id="meteors"
+        name="Meteors"
+        description="Animated meteor shower background effect."
+        docsUrl="https://magicui.design/docs/components/meteors"
+        sourceFile="components/ui/magic/special-effects/meteors.jsx"
+      >
+        <ShowcaseVariant
+          name="Default"
+          exportName="MeteorsDemo"
+          sourceFile="components/demo/magic/special-effects/meteors.jsx"
+        >
+          <MeteorsDemo />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h3>AnimatedBeamDemoMultiple</h3>
-      <AnimatedBeamDemoMultiple />
-      <Spacing dark />
+      <ShowcaseSection
+        id="confetti"
+        name="Confetti"
+        description="Imperative confetti effects with multiple firing presets."
+        docsUrl="https://magicui.design/docs/components/confetti"
+        sourceFile="components/ui/magic/special-effects/confetti.jsx"
+      >
+        <ShowcaseVariant
+          name="Default"
+          exportName="ConfettiDemo"
+          sourceFile="components/demo/magic/special-effects/confetti.jsx"
+        >
+          <ConfettiDemo />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Random Angle"
+          exportName="ConfettiDemoAngle"
+          sourceFile="components/demo/magic/special-effects/confetti.jsx"
+        >
+          <ConfettiDemoAngle />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Fireworks"
+          exportName="ConfettiDemoFireworks"
+          sourceFile="components/demo/magic/special-effects/confetti.jsx"
+        >
+          <ConfettiDemoFireworks />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Side cannons"
+          exportName="ConfettiDemoSide"
+          sourceFile="components/demo/magic/special-effects/confetti.jsx"
+        >
+          <ConfettiDemoSide />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Emoji"
+          exportName="ConfettiDemoEmoji"
+          sourceFile="components/demo/magic/special-effects/confetti.jsx"
+        >
+          <ConfettiDemoEmoji />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h2>Border Beam</h2>
-      <Spacing />
+      <ShowcaseSection
+        id="particles"
+        name="Particles"
+        description="A configurable particle field background."
+        docsUrl="https://magicui.design/docs/components/particles"
+        sourceFile="components/ui/magic/special-effects/particles.jsx"
+      >
+        <ShowcaseVariant
+          name="Default"
+          exportName="ParticlesDemo"
+          sourceFile="components/demo/magic/special-effects/particles.jsx"
+        >
+          <ParticlesDemo />
+        </ShowcaseVariant>
+      </ShowcaseSection>
 
-      <h3>BorderBeamDemo</h3>
-      <BorderBeamDemo />
-      <Spacing />
-
-      <h3>BorderBeamDemoComponent</h3>
-      <BorderBeamDemoComponent />
-      <Spacing dark />
-
-      <h2>Shine Border</h2>
-      <Spacing />
-
-      <h3>ShineBorderDemo</h3>
-      <ShineBorderDemo />
-      <Spacing />
-
-      <h3>ShineBorderDemoMonotone</h3>
-      <ShineBorderDemoMonotone />
-      <Spacing dark />
-
-      <h2>Magic Card</h2>
-      <Spacing />
-
-      <h3>MagicCardDemo</h3>
-      <MagicCardDemo />
-      <Spacing />
-
-      <h3>MagicCardDemoOrb</h3>
-      <MagicCardDemoOrb />
-      <Spacing dark />
-
-      <h2>Glare Effects</h2>
-      <Spacing />
-
-      <h3>GlareEffectsDemo</h3>
-      <GlareEffectsDemo />
-      <Spacing />
-
-      <h3>GlareEffectsDemoAlerts</h3>
-      <GlareEffectsDemoAlerts />
-      <Spacing dark />
-
-      <h2>Meteor</h2>
-      <Spacing />
-
-      <h3>MeteorDemo</h3>
-      <MeteorDemo />
-      <Spacing dark />
-
-      <h2>Meteor</h2>
-      <Spacing />
-
-      <h3>ConfettiDemo</h3>
-      <ConfettiDemo />
-      <Spacing />
-
-      <h3>ConfettiDemoAngle</h3>
-      <ConfettiDemoAngle />
-      <Spacing />
-
-      <h3>ConfettiDemoFireworks</h3>
-      <ConfettiDemoFireworks />
-      <Spacing />
-
-      <h3>ConfettiDemoSide</h3>
-      <ConfettiDemoSide />
-      <Spacing />
-
-      <h3>ConfettiDemoEmoji</h3>
-      <ConfettiDemoEmoji />
-      <Spacing dark />
-
-      <h2>Particles</h2>
-      <Spacing />
-
-      <h3>ParticlesDemo</h3>
-      <ParticlesDemo />
-      <Spacing dark/>
-
-      <h2>Animated Theme Toggler</h2>
-      <Spacing />
-
-      <h3>AnimatedThemeTogglerDemo</h3>
-      <AnimatedThemeTogglerDemo />
-      <Spacing dark/>
-
-      <h2>Blur Fade</h2>
-      <Spacing />
-
-      <h3>BlurFadeDemo</h3>
-      <BlurFadeDemo />
-      <Spacing dark/>
-
-    </div>
+      <ShowcaseSection
+        id="animated-theme-toggler"
+        name="Animated Theme Toggler"
+        description="Animated dark/light theme toggle button."
+        docsUrl="https://magicui.design/docs/components/animated-theme-toggler"
+        sourceFile="components/ui/magic/special-effects/animated-theme-toggler.jsx"
+      >
+        <ShowcaseVariant
+          name="Default"
+          exportName="AnimatedThemeTogglerDemo"
+          sourceFile="components/demo/magic/special-effects/animated-theme-toggler.jsx"
+        >
+          <AnimatedThemeTogglerDemo />
+        </ShowcaseVariant>
+      </ShowcaseSection>
+    </ShowcasePage>
   )
 }

@@ -4,7 +4,7 @@ import {
   TypingAnimation,
 } from "@/components/ui/magic"
 
-export function TerminalStart() {
+export function TerminalDemoStart() {
   return (
     <Terminal>
       <TypingAnimation>Line1 : TypingAnimation in Terminal</TypingAnimation>

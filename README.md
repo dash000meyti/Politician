@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Magic UI Starter
 
-## Getting Started
+A Next.js 16 + React 19 + Tailwind 4 + shadcn (`radix-nova`) + Magic UI starter
+with a built-in interactive component showcase at `/demo`.
 
-First, run the development server:
+## Features
+
+- Pre-installed **shadcn** primitive set (~60 components)
+- Pre-installed Magic UI selection across the **`components`**,
+  **`special-effects`**, and **`animations`** categories
+- Built-in **showcase** at `/demo`:
+  - Sticky header with breadcrumbs, theme toggle, command palette
+  - Per-component **Preview / Code / Usage / Props** tabs
+  - Sidebar table of contents with scroll-spy
+  - Mobile sheet TOC, back-to-top FAB, copy-code buttons
+- Strict folder structure mirrored across `ui/magic/<group>/`,
+  `demo/magic/<group>/`, and `app/demo/magic/<group>/`
+- **Cursor rules** under `.cursor/rules/` and ready-to-use prompt templates
+  under `docs/prompts/`
+- Scaffolding scripts for new demos / groups + a conventions auditor
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to land on the starter
+homepage. The component showcase lives at
+[/demo](http://localhost:3000/demo).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Adding a component
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+# Magic UI
+npx shadcn@latest add @magicui/<name>
 
-## Learn More
+# shadcn
+npx shadcn@latest add <name>
+```
 
-To learn more about Next.js, take a look at the following resources:
+Then scaffold a demo and register it. See
+[docs/ADDING-COMPONENTS.md](docs/ADDING-COMPONENTS.md) for the full checklist.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Documentation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [STRUCTURE](docs/STRUCTURE.md) — folder layout
+- [CONVENTIONS](docs/CONVENTIONS.md) — naming and code style
+- [ADDING-COMPONENTS](docs/ADDING-COMPONENTS.md) — gold-path checklist
+- [DEMO-SYSTEM](docs/DEMO-SYSTEM.md) — how the showcase works
+- [RULES-AND-PROMPTS](docs/RULES-AND-PROMPTS.md) — Cursor rules + prompt
+  templates
+- [COMPONENT-CATALOG](docs/COMPONENT-CATALOG.md) — Magic UI install status
 
-## Deploy on Vercel
+## Tech stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Next.js 16 (App Router, Turbopack)
+- React 19
+- Tailwind CSS 4
+- shadcn (`radix-nova` style)
+- Magic UI registry: `components.json` is configured with
+  `"@magicui": "https://magicui.design/r/{name}"`
+- `next-themes`, `motion`, `cmdk`, `recharts`, `react-tweet`, `vaul`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Scripts
+
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Start the dev server with Turbopack |
+| `npm run build` | Production build |
+| `npm run lint` | Run ESLint |
+| `npm run scaffold:demo <group> <name>` | Scaffold a new demo file |
+| `npm run scaffold:group <group>` | Scaffold a new ui/demo group folder |
+| `npm run audit:conventions` | Verify naming + structure |
+
+## License
+
+This starter is open source under the MIT license. Magic UI components are
+provided by [magicui.design](https://magicui.design); shadcn primitives by
+[ui.shadcn.com](https://ui.shadcn.com). Their licenses apply to the respective
+files.

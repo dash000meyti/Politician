@@ -16,7 +16,7 @@ import { GlareHover } from "@/components/ui"
 import { InfoIcon,
   TriangleAlertIcon,CheckCircleIcon } from "lucide-react"
 
-export function GlareEffectsDemo() {
+export function GlareHoverDemo() {
   return (
     <GlareHover className="rounded-2xl" duration={1500} color="#D3AF37" opacity={0.34}>
       <Card className="w-sm border-2">
@@ -71,7 +71,7 @@ export function GlareEffectsDemo() {
   )
 }
 
-export function GlareEffectsDemoAlerts() {
+export function GlareHoverDemoAlerts() {
   return (
     <div className="flex flex-col gap-3">
       <GlareHover className="rounded-lg" duration={1000} opacity={0.25} color="#000">

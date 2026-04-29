@@ -1,6 +1,6 @@
 import { Meteors } from "@/components/ui"
 
-export function MeteorDemo() {
+export function MeteorsDemo() {
   return (
     <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border">
       <Meteors number={18} />

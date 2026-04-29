@@ -26,7 +26,7 @@
 
 import { ProgressiveBlur } from "@/components/ui/magic"
 
-export function ProgressiveBlurStart() {
+export function ProgressiveBlurDemoStart() {
   return (
     <div className="relative bg-amber-100 h-[300px] w-full max-w-[500px] mx-auto overflow-auto">
 

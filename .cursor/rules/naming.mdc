@@ -1,0 +1,52 @@
+---
+description: Naming conventions for files, components, and demo variants
+alwaysApply: true
+---
+
+# Naming Conventions
+
+## Files
+
+- All component / demo / showcase files: **kebab-case** with `.jsx` extension.
+  - Good: `border-beam.jsx`, `animated-list.jsx`
+  - Bad: `BorderBeam.jsx`, `borderBeam.jsx`, `animated_list.jsx`
+
+## Component exports (UI)
+
+- The primary component export uses **PascalCase** matching the file name:
+  - File `border-beam.jsx` exports `function BorderBeam(props) { … }`
+- Sub-components stay in the same file using PascalCase:
+  - `BentoGrid`, `BentoCard` (both in `bento-grid.jsx`)
+
+## Demo variant exports
+
+A demo file lives at `components/demo/.../<component>.jsx` and exports one or
+more variants. Variant names follow:
+
+- `<ComponentName>Demo` → the canonical default variant. Always present.
+- `<ComponentName>DemoStart` → the smallest minimal example (props default).
+- `<ComponentName>Demo<Modifier>` → variations, e.g.
+  `BorderBeamDemoComponent`, `ConfettiDemoFireworks`, `LensDemoStatic`.
+
+```jsx
+// ✅ GOOD
+export function BorderBeamDemo() { /* … */ }
+export function BorderBeamDemoStart() { /* … */ }
+export function BorderBeamDemoComponent() { /* … */ }
+
+// ❌ BAD
+export function BorderBeamStart() { /* … */ }      // missing "Demo"
+export function BorderBeamDemo2() { /* … */ }      // numbered, not descriptive
+export function borderBeamDemo() { /* … */ }      // lower camelCase
+```
+
+## Group folders
+
+Use the official Magic UI group names: `components`, `special-effects`,
+`animations`, `text`, `device`, `buttons`, `backgrounds`, `community`. Do not
+invent new groups.
+
+## index.js exports
+
+Each `index.js` re-exports each file with `export * from './<name>'`. Keep them
+sorted alphabetically when reasonable.

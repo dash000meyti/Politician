@@ -1,0 +1,51 @@
+---
+description: Project folder structure and module boundaries
+alwaysApply: true
+---
+
+# Folder Structure
+
+This is a Next.js 16 + React 19 + Tailwind 4 + shadcn + Magic UI starter.
+
+## Top-level
+
+```text
+app/                Next.js App Router pages
+  demo/             Component showcase pages (do not delete)
+components/
+  ui/               shadcn primitives + ui/magic for Magic UI
+  ui/magic/<group>/ Magic UI components, grouped by category (8 groups)
+  demo/             Demo variants for every component
+  demo/<...>/       mirrors components/ui/* (same folders, same filenames)
+  showcase/         Internal showcase library (page, section, variant, tabs, code)
+  providers.jsx     ThemeProvider + other client providers
+docs/               Documentation (STRUCTURE, CONVENTIONS, ADDING-COMPONENTS, DEMO-SYSTEM, etc.)
+docs/prompts/       Prompt templates for common AI tasks
+hooks/              React hooks (kebab-case files)
+lib/                Utilities (cn, etc.)
+public/             Static assets
+scripts/            Dev/scaffolding scripts (mjs)
+```
+
+## Module boundaries
+
+- Pages in `app/demo/**` import demos from `@/components/demo` and the showcase
+  library from `@/components/showcase`. Pages MUST NOT import directly from
+  `@/components/ui`.
+- Demo files in `components/demo/**` import the underlying component from
+  `@/components/ui` (or `@/components/ui/magic`).
+- Each leaf folder (`components/ui/magic/<group>`, `components/demo/<...>`) MUST
+  have an `index.js` that re-exports each component file.
+
+## Magic UI groups (mirrored across `ui/magic/*`, `demo/magic/*`, `app/demo/magic/*`)
+
+`components`, `special-effects`, `animations`, `text`, `device`, `buttons`,
+`backgrounds`, `community`. Use the same group name everywhere.
+
+## When in doubt
+
+- New shadcn primitive → `components/ui/<name>.jsx` + demo at
+  `components/demo/components/<name>.jsx`.
+- New Magic UI component → `components/ui/magic/<group>/<name>.jsx` + demo at
+  `components/demo/magic/<group>/<name>.jsx`.
+- New showcase helper → `components/showcase/<name>.jsx` + add to its `index.js`.

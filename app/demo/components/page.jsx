@@ -1,929 +1,650 @@
-import Link from "next/link"
+import { ShowcasePage, ShowcaseSection, ShowcaseVariant } from "@/components/showcase"
+import * as Demos from "@/components/demo"
 
-import {
-  AccordionStart,
-  AccordionDemo,
-  AccordionDemoMultipleDisabled,
-  AccordionDemoRtl,
-  AlertDemo,
-  AlertDemoDestructive,
-  AlertDemoAction,
-  AlertDemoCustomColors,
-  AlertDialogDemo,
-  AlertDialogDemoSmall,
-  AlertDialogDemoMedia,
-  AlertDialogDemoSmallMedia,
-  AlertDialogDemoDestructive,
-  AspectRatioDemo,
-  AvatarDemo,
-  AvatarDemoBadge,
-  AvatarDemoBadgeIcon,
-  AvatarDemoGroup,
-  AvatarDemoGroupCount,
-  AvatarDemoGroupIcon,
-  AvatarDemoSizes,
-  BadgeDemo,
-  BadgeDemoIcon,
-  BadgeDemoColors,
-  BreadcrumbDemo,
-  BreadcrumbDemoSeparator,
-  BreadcrumbDemoDropdown,
-  ButtonDemo,
-  ButtonDemoSize,
-  ButtonDemoVariant,
-  ButtonDemoChild,
-  ButtonGroupDemo,
-  ButtonGroupDemoOrientation,
-  ButtonGroupDemoNested,
-  ButtonGroupDemoSeparator,
-  ButtonGroupDemoSize,
-  CalendarDemo,
-  CalendarDemoHijri,
-  CalendarDemoRange,
-  CalendarDemoPresets,
-  CalendarDemoTime,
-  CalendarDemoBooked,
-  CalendarDemoCustomDays,
-  CalendarDemoWeekNumbers,
-  CardDemo,
-  CardDemoSmall,
-  CardDemoImage,
-  CarouselDemo,
-  CarouselDemoSize,
-  CarouselDemoOrientation,
-  ChartDemo,
-  ChartDemoTooltip,
-  CheckboxDemo,
-  CollapsibleDemo,
-  CollapsibleDemoSettings,
-  CollapsibleDemoFileTree,
-  ComboboxDemo,
-  ComboboxDemoMultiple,
-  ComboboxDemoClear,
-  ComboboxDemoGroupsAndSeparator,
-  ComboboxDemoCustomItems,
-  ComboboxDemoInvalid,
-  ComboboxDemoDisabled,
-  ComboboxDemoAutoHighlight,
-  ComboboxDemoPopup,
-  ComboxboxDemoInputGroup,
-  CommandDemo,
-  CommandDemoManyItems,
-  ContextMenuDemo,
-  ContextMenuDemoSubmenu,
-  ContextMenuDemoIcons,
-  ContextMenuDemoCheckboxRadio,
-  DataTableDemo,
-  DatePickerDemo,
-  DialogDemo,
-  DialogDemoSticky,
-  DialogDemoFull,
-  DialogDemoRtl,
-  DrawerDemo,
-  DropdownMenuDemo,
-  DropdownMenuDemoComplex,
-  EmptyDemo,
-  FieldDemo,
-  HoverCardDemo,
-  InputDemo,
-  InputGroupDemo,
-  InputOTPDemo,
-  InputOTPDemoSeparator,
-  ItemDemo,
-  ItemDemoAvatar,
-  ItemDemoImage,
-  KbdDemo,
-  KbdDemoInputGroup,
-  MenubarDemo,
-  NativeSelectDemo,
-  NavigationMenuDemo,
-  PaginationDemo,
-  PopoverDemo,
-  ProgressDemo,
-  RadioGroupDemo,
-  RadioGroupDemoDescription,
-  RadioGroupDemoChoiceCard,
-  RadioGroupDemoFieldset,
-  RadioGroupDemoFull,
-  ResizableDemo,
-  ScrollAreaDemo,
-  ScrollAreaDemoHorizontal,
-  SelectDemo,
-  SeparatorDemo,
-  SeparatorDemoVertical,
-  SheetDemo,
-  SidebarDemo,
-  SkeletonDemo,
-  SkeletonDemoCard,
-  SkeletonDemoText,
-  SkeletonDemoForm,
-  SkeletonDemoTable,
-  SliderDemo,
-  SliderDemoRange,
-  SliderDemoMultiple,
-  SliderDemoVertical,
-  SliderDemoControlled,
-  SliderDemoDisabled,
-  SonnerDemo,
-  SonnerDemoTypes,
-  SonnerDemoPosition,
-  SpinnerDemo,
-  SpinnerDemoCustom,
-  SwitchDemo,
-  SwitchDemoCard,
-  SwitchDemoFull,
-  TableDemo,
-  TableDemoActions,
-  TabsDemo,
-  TabsDemoLine,
-  TabsDemoVertical,
-  TabsDemoFull,
-  TextareaDemo,
-  ToggleDemo,
-  ToggleDemoOutline,
-  ToggleGroupDemo,
-  ToggleGroupDemoSpacing,
-  ToggleGroupDemoVertical,
-  ToggleGroupDemoCustom,
-  TooltipDemo,
-  TooltipDemoSides,
-  TooltipDemoKeyboard,
-} from "@/components/demo"
+const crumbs = [
+  { label: "Home", href: "/" },
+  { label: "Demo", href: "/demo" },
+  { label: "Components" },
+]
 
-export function Spacing({ dark = false } = {}) {
-  const bgClass = dark ? "bg-gray-400" : "bg-gray-100"
-  return <div className={`w-full h-1 ${bgClass} my-4`} />
-}
+const shadcnDocs = (slug) => `https://ui.shadcn.com/docs/components/${slug}`
+
+const sections = [
+  {
+    id: "accordion",
+    name: "Accordion",
+    slug: "accordion",
+    file: "accordion",
+    description: "A vertically stacked set of interactive headings.",
+    variants: [
+      { name: "Start (minimal)", exportName: "AccordionDemoStart" },
+      { name: "Default", exportName: "AccordionDemo" },
+      { name: "Multiple disabled", exportName: "AccordionDemoMultipleDisabled" },
+      { name: "RTL", exportName: "AccordionDemoRtl" },
+    ],
+  },
+  {
+    id: "alert",
+    name: "Alert",
+    slug: "alert",
+    file: "alert",
+    description: "Display a callout for user attention.",
+    variants: [
+      { name: "Default", exportName: "AlertDemo" },
+      { name: "Destructive", exportName: "AlertDemoDestructive" },
+      { name: "With action", exportName: "AlertDemoAction" },
+      { name: "Custom colors", exportName: "AlertDemoCustomColors" },
+    ],
+  },
+  {
+    id: "alert-dialog",
+    name: "Alert Dialog",
+    slug: "alert-dialog",
+    file: "alert-dialog",
+    description: "A modal dialog that interrupts the user with important content and expects a response.",
+    variants: [
+      { name: "Default", exportName: "AlertDialogDemo" },
+      { name: "Small", exportName: "AlertDialogDemoSmall" },
+      { name: "Media", exportName: "AlertDialogDemoMedia" },
+      { name: "Small + media", exportName: "AlertDialogDemoSmallMedia" },
+      { name: "Destructive", exportName: "AlertDialogDemoDestructive" },
+    ],
+  },
+  {
+    id: "aspect-ratio",
+    name: "Aspect Ratio",
+    slug: "aspect-ratio",
+    file: "aspect-ratio",
+    description: "Displays content within a desired aspect ratio.",
+    variants: [{ name: "Default", exportName: "AspectRatioDemo" }],
+  },
+  {
+    id: "avatar",
+    name: "Avatar",
+    slug: "avatar",
+    file: "avatar",
+    description: "An image element with a fallback for representing users.",
+    variants: [
+      { name: "Default", exportName: "AvatarDemo" },
+      { name: "Badge", exportName: "AvatarDemoBadge" },
+      { name: "Badge with icon", exportName: "AvatarDemoBadgeIcon" },
+      { name: "Group", exportName: "AvatarDemoGroup" },
+      { name: "Group with count", exportName: "AvatarDemoGroupCount" },
+      { name: "Group with icon", exportName: "AvatarDemoGroupIcon" },
+      { name: "Sizes", exportName: "AvatarDemoSizes" },
+    ],
+  },
+  {
+    id: "badge",
+    name: "Badge",
+    slug: "badge",
+    file: "badge",
+    description: "Small status descriptors for UI elements.",
+    variants: [
+      { name: "Default", exportName: "BadgeDemo" },
+      { name: "With icon", exportName: "BadgeDemoIcon" },
+      { name: "Colors", exportName: "BadgeDemoColors" },
+    ],
+  },
+  {
+    id: "breadcrumb",
+    name: "Breadcrumb",
+    slug: "breadcrumb",
+    file: "breadcrumb",
+    description: "Displays the path to the current resource using a hierarchy of links.",
+    variants: [
+      { name: "Default", exportName: "BreadcrumbDemo" },
+      { name: "Custom separator", exportName: "BreadcrumbDemoSeparator" },
+      { name: "Dropdown", exportName: "BreadcrumbDemoDropdown" },
+    ],
+  },
+  {
+    id: "button",
+    name: "Button",
+    slug: "button",
+    file: "button",
+    description: "Displays a button or a component that looks like a button.",
+    variants: [
+      { name: "Default", exportName: "ButtonDemo" },
+      { name: "Sizes", exportName: "ButtonDemoSize" },
+      { name: "Variants", exportName: "ButtonDemoVariant" },
+      { name: "As child", exportName: "ButtonDemoChild" },
+    ],
+  },
+  {
+    id: "button-group",
+    name: "Button Group",
+    slug: "button-group",
+    file: "button-group",
+    description: "Group multiple related buttons.",
+    variants: [
+      { name: "Default", exportName: "ButtonGroupDemo" },
+      { name: "Orientation", exportName: "ButtonGroupDemoOrientation" },
+      { name: "Nested", exportName: "ButtonGroupDemoNested" },
+      { name: "Separator", exportName: "ButtonGroupDemoSeparator" },
+      { name: "Sizes", exportName: "ButtonGroupDemoSize" },
+    ],
+  },
+  {
+    id: "calendar",
+    name: "Calendar",
+    slug: "calendar",
+    file: "calendar",
+    description: "A date field component for picking a date or date range.",
+    variants: [
+      { name: "Default", exportName: "CalendarDemo" },
+      { name: "Hijri", exportName: "CalendarDemoHijri" },
+      { name: "Range", exportName: "CalendarDemoRange" },
+      { name: "Presets", exportName: "CalendarDemoPresets" },
+      { name: "With time", exportName: "CalendarDemoTime" },
+      { name: "Booked dates", exportName: "CalendarDemoBooked" },
+      { name: "Custom days", exportName: "CalendarDemoCustomDays" },
+      { name: "Week numbers", exportName: "CalendarDemoWeekNumbers" },
+    ],
+  },
+  {
+    id: "card",
+    name: "Card",
+    slug: "card",
+    file: "card",
+    description: "Displays a card with header, content and footer.",
+    variants: [
+      { name: "Default", exportName: "CardDemo" },
+      { name: "Small", exportName: "CardDemoSmall" },
+      { name: "With image", exportName: "CardDemoImage" },
+    ],
+  },
+  {
+    id: "carousel",
+    name: "Carousel",
+    slug: "carousel",
+    file: "carousel",
+    description: "A carousel with motion and swipe built using embla.",
+    variants: [
+      { name: "Default", exportName: "CarouselDemo" },
+      { name: "Sizes", exportName: "CarouselDemoSize" },
+      { name: "Orientation", exportName: "CarouselDemoOrientation" },
+    ],
+  },
+  {
+    id: "chart",
+    name: "Chart",
+    slug: "chart",
+    file: "chart",
+    description: "Composable charts built on top of recharts.",
+    variants: [
+      { name: "Default", exportName: "ChartDemo" },
+      { name: "Tooltip", exportName: "ChartDemoTooltip" },
+    ],
+  },
+  {
+    id: "checkbox",
+    name: "Checkbox",
+    slug: "checkbox",
+    file: "checkbox",
+    description: "A control that allows the user to toggle between checked and not checked.",
+    variants: [{ name: "Default", exportName: "CheckboxDemo" }],
+  },
+  {
+    id: "collapsible",
+    name: "Collapsible",
+    slug: "collapsible",
+    file: "collapsible",
+    description: "An interactive component which expands/collapses a panel.",
+    variants: [
+      { name: "Default", exportName: "CollapsibleDemo" },
+      { name: "Settings", exportName: "CollapsibleDemoSettings" },
+      { name: "File tree", exportName: "CollapsibleDemoFileTree" },
+    ],
+  },
+  {
+    id: "combobox",
+    name: "Combobox",
+    slug: "combobox",
+    file: "combobox",
+    description: "Autocomplete input + popover combo for selecting from a list.",
+    variants: [
+      { name: "Default", exportName: "ComboboxDemo" },
+      { name: "Multiple", exportName: "ComboboxDemoMultiple" },
+      { name: "Clearable", exportName: "ComboboxDemoClear" },
+      { name: "Groups + separator", exportName: "ComboboxDemoGroupsAndSeparator" },
+      { name: "Custom items", exportName: "ComboboxDemoCustomItems" },
+      { name: "Invalid", exportName: "ComboboxDemoInvalid" },
+      { name: "Disabled", exportName: "ComboboxDemoDisabled" },
+      { name: "Auto highlight", exportName: "ComboboxDemoAutoHighlight" },
+      { name: "Popup", exportName: "ComboboxDemoPopup" },
+      { name: "Input group", exportName: "ComboboxDemoInputGroup" },
+    ],
+  },
+  {
+    id: "command",
+    name: "Command",
+    slug: "command",
+    file: "command",
+    description: "Fast, composable, unstyled command menu for React.",
+    variants: [
+      { name: "Default", exportName: "CommandDemo" },
+      { name: "Many items", exportName: "CommandDemoManyItems" },
+    ],
+  },
+  {
+    id: "context-menu",
+    name: "Context Menu",
+    slug: "context-menu",
+    file: "context-menu",
+    description: "Displays a menu to the user — such as a set of actions or functions — triggered by a button.",
+    variants: [
+      { name: "Default", exportName: "ContextMenuDemo" },
+      { name: "Submenu", exportName: "ContextMenuDemoSubmenu" },
+      { name: "With icons", exportName: "ContextMenuDemoIcons" },
+      { name: "Checkbox + radio", exportName: "ContextMenuDemoCheckboxRadio" },
+    ],
+  },
+  {
+    id: "data-table",
+    name: "Data Table",
+    slug: "data-table",
+    file: "data-table",
+    description: "A powerful data table built on tanstack/table.",
+    variants: [{ name: "Default", exportName: "DataTableDemo" }],
+  },
+  {
+    id: "date-picker",
+    name: "Date Picker",
+    slug: "date-picker",
+    file: "date-picker",
+    description: "A combination of popover + calendar for picking dates.",
+    variants: [{ name: "Default", exportName: "DatePickerDemo" }],
+  },
+  {
+    id: "dialog",
+    name: "Dialog",
+    slug: "dialog",
+    file: "dialog",
+    description: "A window overlaid on either the primary window or another dialog window.",
+    variants: [
+      { name: "Default", exportName: "DialogDemo" },
+      { name: "Sticky header/footer", exportName: "DialogDemoSticky" },
+      { name: "Full content", exportName: "DialogDemoFull" },
+      { name: "RTL", exportName: "DialogDemoRtl" },
+    ],
+  },
+  {
+    id: "drawer",
+    name: "Drawer",
+    slug: "drawer",
+    file: "drawer",
+    description: "A drawer component for React (vaul).",
+    variants: [{ name: "Default", exportName: "DrawerDemo" }],
+  },
+  {
+    id: "dropdown-menu",
+    name: "Dropdown Menu",
+    slug: "dropdown-menu",
+    file: "dropdown-menu",
+    description: "Displays a menu to the user — such as a set of actions or functions — triggered by a button.",
+    variants: [
+      { name: "Default", exportName: "DropdownMenuDemo" },
+      { name: "Complex", exportName: "DropdownMenuDemoComplex" },
+    ],
+  },
+  {
+    id: "empty",
+    name: "Empty",
+    slug: "empty",
+    file: "empty",
+    description: "An empty state placeholder for lists, tables, search results, etc.",
+    variants: [{ name: "Default", exportName: "EmptyDemo" }],
+  },
+  {
+    id: "field",
+    name: "Field",
+    slug: "field",
+    file: "field",
+    description: "Form field wrapper with label, hint, and error states.",
+    variants: [{ name: "Default", exportName: "FieldDemo" }],
+  },
+  {
+    id: "hover-card",
+    name: "Hover Card",
+    slug: "hover-card",
+    file: "hover-card",
+    description: "Preview content on hover.",
+    variants: [{ name: "Default", exportName: "HoverCardDemo" }],
+  },
+  {
+    id: "input",
+    name: "Input",
+    slug: "input",
+    file: "input",
+    description: "A text input field.",
+    variants: [{ name: "Default", exportName: "InputDemo" }],
+  },
+  {
+    id: "input-group",
+    name: "Input Group",
+    slug: "input-group",
+    file: "input-group",
+    description: "An input combined with an addon (icon, button, kbd, etc.).",
+    variants: [{ name: "Default", exportName: "InputGroupDemo" }],
+  },
+  {
+    id: "input-otp",
+    name: "Input OTP",
+    slug: "input-otp",
+    file: "input-otp",
+    description: "Accessible one-time password input.",
+    variants: [
+      { name: "Default", exportName: "InputOTPDemo" },
+      { name: "With separator", exportName: "InputOTPDemoSeparator" },
+    ],
+  },
+  {
+    id: "item",
+    name: "Item",
+    slug: "item",
+    file: "item",
+    description: "A list/menu item primitive with optional avatar/image/leading/trailing.",
+    variants: [
+      { name: "Default", exportName: "ItemDemo" },
+      { name: "Avatar", exportName: "ItemDemoAvatar" },
+      { name: "Image", exportName: "ItemDemoImage" },
+    ],
+  },
+  {
+    id: "kbd",
+    name: "Kbd",
+    slug: "kbd",
+    file: "kbd",
+    description: "Keyboard key/shortcut display.",
+    variants: [
+      { name: "Default", exportName: "KbdDemo" },
+      { name: "Inside input group", exportName: "KbdDemoInputGroup" },
+    ],
+  },
+  {
+    id: "menubar",
+    name: "Menubar",
+    slug: "menubar",
+    file: "menubar",
+    description: "A horizontal menu bar.",
+    variants: [{ name: "Default", exportName: "MenubarDemo" }],
+  },
+  {
+    id: "native-select",
+    name: "Native Select",
+    slug: "native-select",
+    file: "native-select",
+    description: "A styled native HTML <select>.",
+    variants: [{ name: "Default", exportName: "NativeSelectDemo" }],
+  },
+  {
+    id: "navigation-menu",
+    name: "Navigation Menu",
+    slug: "navigation-menu",
+    file: "navigation-menu",
+    description: "A collection of links for navigating websites.",
+    variants: [{ name: "Default", exportName: "NavigationMenuDemo" }],
+  },
+  {
+    id: "pagination",
+    name: "Pagination",
+    slug: "pagination",
+    file: "pagination",
+    description: "Pagination with page links and previous/next.",
+    variants: [{ name: "Default", exportName: "PaginationDemo" }],
+  },
+  {
+    id: "popover",
+    name: "Popover",
+    slug: "popover",
+    file: "popover",
+    description: "Displays rich content in a portal triggered by a button.",
+    variants: [{ name: "Default", exportName: "PopoverDemo" }],
+  },
+  {
+    id: "progress",
+    name: "Progress",
+    slug: "progress",
+    file: "progress",
+    description: "Displays progress towards a known total.",
+    variants: [{ name: "Default", exportName: "ProgressDemo" }],
+  },
+  {
+    id: "radio-group",
+    name: "Radio Group",
+    slug: "radio-group",
+    file: "radio-group",
+    description: "Single-select group of radio inputs.",
+    variants: [
+      { name: "Default", exportName: "RadioGroupDemo" },
+      { name: "With description", exportName: "RadioGroupDemoDescription" },
+      { name: "Choice card", exportName: "RadioGroupDemoChoiceCard" },
+      { name: "Fieldset", exportName: "RadioGroupDemoFieldset" },
+      { name: "Full", exportName: "RadioGroupDemoFull" },
+    ],
+  },
+  {
+    id: "resizable",
+    name: "Resizable",
+    slug: "resizable",
+    file: "resizable",
+    description: "Resizable panel groups (react-resizable-panels).",
+    variants: [{ name: "Default", exportName: "ResizableDemo" }],
+  },
+  {
+    id: "scroll-area",
+    name: "Scroll Area",
+    slug: "scroll-area",
+    file: "scroll-area",
+    description: "Augments native scroll functionality for custom, cross-browser styling.",
+    variants: [
+      { name: "Default", exportName: "ScrollAreaDemo" },
+      { name: "Horizontal", exportName: "ScrollAreaDemoHorizontal" },
+    ],
+  },
+  {
+    id: "select",
+    name: "Select",
+    slug: "select",
+    file: "select",
+    description: "Displays a list of options for the user to pick from.",
+    variants: [{ name: "Default", exportName: "SelectDemo" }],
+  },
+  {
+    id: "separator",
+    name: "Separator",
+    slug: "separator",
+    file: "separator",
+    description: "Visually or semantically separates content.",
+    variants: [
+      { name: "Default", exportName: "SeparatorDemo" },
+      { name: "Vertical", exportName: "SeparatorDemoVertical" },
+    ],
+  },
+  {
+    id: "sheet",
+    name: "Sheet",
+    slug: "sheet",
+    file: "sheet",
+    description: "Extends Dialog to display content that complements the main content of the screen.",
+    variants: [{ name: "Default", exportName: "SheetDemo" }],
+  },
+  {
+    id: "sidebar",
+    name: "Sidebar",
+    slug: "sidebar",
+    file: "sidebar",
+    description: "A composable, themeable and customizable sidebar component.",
+    variants: [{ name: "Default", exportName: "SidebarDemo" }],
+  },
+  {
+    id: "skeleton",
+    name: "Skeleton",
+    slug: "skeleton",
+    file: "skeleton",
+    description: "Use to show a placeholder while content is loading.",
+    variants: [
+      { name: "Default", exportName: "SkeletonDemo" },
+      { name: "Card", exportName: "SkeletonDemoCard" },
+      { name: "Text", exportName: "SkeletonDemoText" },
+      { name: "Form", exportName: "SkeletonDemoForm" },
+      { name: "Table", exportName: "SkeletonDemoTable" },
+    ],
+  },
+  {
+    id: "slider",
+    name: "Slider",
+    slug: "slider",
+    file: "slider",
+    description: "An input where the user selects a value from within a given range.",
+    variants: [
+      { name: "Default", exportName: "SliderDemo" },
+      { name: "Range", exportName: "SliderDemoRange" },
+      { name: "Multiple", exportName: "SliderDemoMultiple" },
+      { name: "Vertical", exportName: "SliderDemoVertical" },
+      { name: "Controlled", exportName: "SliderDemoControlled" },
+      { name: "Disabled", exportName: "SliderDemoDisabled" },
+    ],
+  },
+  {
+    id: "sonner",
+    name: "Sonner",
+    slug: "sonner",
+    file: "sonner",
+    description: "An opinionated toast component for React.",
+    variants: [
+      { name: "Default", exportName: "SonnerDemo" },
+      { name: "Types", exportName: "SonnerDemoTypes" },
+      { name: "Position", exportName: "SonnerDemoPosition" },
+    ],
+  },
+  {
+    id: "spinner",
+    name: "Spinner",
+    slug: "spinner",
+    file: "spinner",
+    description: "A loading spinner.",
+    variants: [
+      { name: "Default", exportName: "SpinnerDemo" },
+      { name: "Custom", exportName: "SpinnerDemoCustom" },
+    ],
+  },
+  {
+    id: "switch",
+    name: "Switch",
+    slug: "switch",
+    file: "switch",
+    description: "A control that allows the user to toggle between two states.",
+    variants: [
+      { name: "Default", exportName: "SwitchDemo" },
+      { name: "Card", exportName: "SwitchDemoCard" },
+      { name: "Full", exportName: "SwitchDemoFull" },
+    ],
+  },
+  {
+    id: "table",
+    name: "Table",
+    slug: "table",
+    file: "table",
+    description: "A responsive table component.",
+    variants: [
+      { name: "Default", exportName: "TableDemo" },
+      { name: "Actions", exportName: "TableDemoActions" },
+    ],
+  },
+  {
+    id: "tabs",
+    name: "Tabs",
+    slug: "tabs",
+    file: "tabs",
+    description: "A set of layered sections of content.",
+    variants: [
+      { name: "Default", exportName: "TabsDemo" },
+      { name: "Line variant", exportName: "TabsDemoLine" },
+      { name: "Vertical", exportName: "TabsDemoVertical" },
+      { name: "Full", exportName: "TabsDemoFull" },
+    ],
+  },
+  {
+    id: "textarea",
+    name: "Textarea",
+    slug: "textarea",
+    file: "textarea",
+    description: "Displays a form textarea.",
+    variants: [{ name: "Default", exportName: "TextareaDemo" }],
+  },
+  {
+    id: "toggle",
+    name: "Toggle",
+    slug: "toggle",
+    file: "toggle",
+    description: "A two-state button that can be either on or off.",
+    variants: [
+      { name: "Default", exportName: "ToggleDemo" },
+      { name: "Outline", exportName: "ToggleDemoOutline" },
+    ],
+  },
+  {
+    id: "toggle-group",
+    name: "Toggle Group",
+    slug: "toggle-group",
+    file: "toggle-group",
+    description: "A set of two-state buttons that can be toggled on or off.",
+    variants: [
+      { name: "Default", exportName: "ToggleGroupDemo" },
+      { name: "Spacing", exportName: "ToggleGroupDemoSpacing" },
+      { name: "Vertical", exportName: "ToggleGroupDemoVertical" },
+      { name: "Custom", exportName: "ToggleGroupDemoCustom" },
+    ],
+  },
+  {
+    id: "tooltip",
+    name: "Tooltip",
+    slug: "tooltip",
+    file: "tooltip",
+    description: "A popup that displays information related to an element when the element is focused or hovered.",
+    variants: [
+      { name: "Default", exportName: "TooltipDemo" },
+      { name: "Sides", exportName: "TooltipDemoSides" },
+      { name: "Keyboard", exportName: "TooltipDemoKeyboard" },
+    ],
+  },
+]
 
 export default function DemoComponentsPage() {
-
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center">
-
-      <Link className="text-blue-500" href="/demo">Back</Link>
-
-      <h1>Components</h1>
-      <Spacing dark />
-
-      <h2>Accordion</h2>
-      <Spacing />
-
-      <h3>AccordionStart</h3>
-      <AccordionStart />
-      <Spacing />
-
-      <h3>Accordiondemo</h3>
-      <AccordionDemo />
-      <Spacing />
-
-      <h3>AccordionDemoMultipleDisabled</h3>
-      <AccordionDemoMultipleDisabled />
-      <Spacing />
-
-      <h3>AccordionDemoRtl</h3>
-      <AccordionDemoRtl />
-      <Spacing dark />
-
-      <h2>Alert</h2>
-      <Spacing />
-
-      <h3>AlertDemo</h3>
-      <AlertDemo />
-      <Spacing />
-
-      <h3>AlertDemoDestructive</h3>
-      <AlertDemoDestructive />
-      <Spacing />
-
-      <h3>AlertDemoAction</h3>
-      <AlertDemoAction />
-      <Spacing />
-
-      <h3>AlertDemoCustomColors</h3>
-      <AlertDemoCustomColors />
-      <Spacing dark />
-
-      <h2>Alert Dialog</h2>
-      <Spacing />
-
-      <h3>AlertDialogDemo</h3>
-      <AlertDialogDemo />
-      <Spacing />
-
-      <h3>AlertDialogDemoSmall</h3>
-      <AlertDialogDemoSmall />
-      <Spacing />
-
-      <h3>AlertDialogDemoMedia</h3>
-      <AlertDialogDemoMedia />
-      <Spacing />
-
-      <h3>AlertDialogDemoSmallMedia</h3>
-      <AlertDialogDemoSmallMedia />
-      <Spacing />
-
-      <h3>AlertDialogDemoDestructive</h3>
-      <AlertDialogDemoDestructive />
-      <Spacing dark />
-
-      <h2>Aspect Ratio</h2>
-      <Spacing />
-
-      <h3>AspectRatioDemo</h3>
-      <AspectRatioDemo />
-      <Spacing dark />
-
-      <h2>Avatar</h2>
-      <Spacing />
-
-      <h3>AvatarDemo</h3>
-      <AvatarDemo />
-      <Spacing />
-
-      <h3>AvatarDemoBadge</h3>
-      <AvatarDemoBadge />
-      <Spacing />
-
-      <h3>AvatarDemoBadgeIcon</h3>
-      <AvatarDemoBadgeIcon />
-      <Spacing />
-
-      <h3>AvatarDemoGroup</h3>
-      <AvatarDemoGroup />
-      <Spacing />
-
-      <h3>AvatarDemoGroupCount</h3>
-      <AvatarDemoGroupCount />
-      <Spacing />
-
-      <h3>AvatarDemoGroupIcon</h3>
-      <AvatarDemoGroupIcon />
-      <Spacing />
-
-      <h3>AvatarDemoSizes</h3>
-      <AvatarDemoSizes />
-      <Spacing dark />
-
-      <h2>Badge</h2>
-      <Spacing />
-
-      <h3>BadgeDemo</h3>
-      <BadgeDemo />
-      <Spacing />
-
-      <h3>BadgeDemoIcon</h3>
-      <BadgeDemoIcon />
-      <Spacing />
-
-      <h3>BadgeDemoColors</h3>
-      <BadgeDemoColors />
-      <Spacing dark />
-
-      <h2>Breadcrumb</h2>
-      <Spacing />
-
-      <h3>BreadcrumbDemo</h3>
-      <BreadcrumbDemo />
-      <Spacing />
-
-      <h3>BreadcrumbDemoSeparator</h3>
-      <BreadcrumbDemoSeparator />
-      <Spacing />
-
-      <h3>BreadcrumbDemoDropdown</h3>
-      <BreadcrumbDemoDropdown />
-      <Spacing dark />
-
-      <h2>Button</h2>
-      <Spacing />
-
-      <h3>ButtonDemo</h3>
-      <ButtonDemo />
-      <Spacing />
-
-      <h3>ButtonDemoSize</h3>
-      <ButtonDemoSize />
-      <Spacing />
-
-      <h3>ButtonDemoVariant</h3>
-      <ButtonDemoVariant />
-      <Spacing />
-
-      <h3>ButtonDemoChild</h3>
-      <ButtonDemoChild />
-      <Spacing dark />
-
-      <h2>Button Group</h2>
-      <Spacing />
-
-      <h3>ButtonGroupDemo</h3>
-      <ButtonGroupDemo />
-      <Spacing />
-
-      <h3>ButtonGroupDemoOrientation</h3>
-      <ButtonGroupDemoOrientation />
-      <Spacing />
-
-      <h3>ButtonGroupDemoNested</h3>
-      <ButtonGroupDemoNested />
-      <Spacing />
-
-      <h3>ButtonGroupDemoSeparator</h3>
-      <ButtonGroupDemoSeparator />
-      <Spacing />
-
-      <h3>ButtonGroupDemoSize</h3>
-      <ButtonGroupDemoSize />
-      <Spacing dark />
-
-      <h2>Button Calendar</h2>
-      <Spacing />
-
-      <h3>CalendarDemo</h3>
-      <CalendarDemo />
-      <Spacing />
-
-      <h3>CalendarDemoHijri</h3>
-      <CalendarDemoHijri />
-      <Spacing />
-
-      <h3>CalendarDemoRange</h3>
-      <CalendarDemoRange />
-      <Spacing />
-
-      <h3>CalendarDemoPresets</h3>
-      <CalendarDemoPresets />
-      <Spacing />
-
-      <h3>CalendarDemoTime</h3>
-      <CalendarDemoTime />
-      <Spacing />
-
-      <h3>CalendarDemoBooked</h3>
-      <CalendarDemoBooked />
-      <Spacing />
-
-      <h3>CalendarDemoCustomDays</h3>
-      <CalendarDemoCustomDays />
-      <Spacing />
-
-      <h3>CalendarDemoWeekNumbers</h3>
-      <CalendarDemoWeekNumbers />
-      <Spacing dark />
-
-      <h2>Card</h2>
-      <Spacing />
-
-      <h3>CardDemo</h3>
-      <CardDemo />
-      <Spacing />
-
-      <h3>CardDemoSmall</h3>
-      <CardDemoSmall />
-      <Spacing />
-
-      <h3>CardDemoImage</h3>
-      <CardDemoImage />
-      <Spacing dark />
-
-      <h2>Carousel</h2>
-      <Spacing />
-
-      <h3>CarouselDemo</h3>
-      <CarouselDemo />
-      <Spacing />
-
-      <h3>CarouselDemoSize</h3>
-      <CarouselDemoSize />
-      <Spacing />
-
-      <h3>CarouselDemoOrientation</h3>
-      <CarouselDemoOrientation />
-      <Spacing dark />
-
-      <h2>Chart</h2>
-      <Spacing />
-
-      <h3>ChartDemo</h3>
-      <ChartDemo />
-      <Spacing />
-
-      <h3>ChartDemoTooltip</h3>
-      <ChartDemoTooltip />
-      <Spacing dark />
-
-      <h2>Checkbox</h2>
-      <Spacing />
-
-      <h3>CheckboxDemo</h3>
-      <CheckboxDemo />
-      <Spacing dark />
-
-      <h2>Collapsible</h2>
-      <Spacing />
-
-      <h3>CollapsibleDemo</h3>
-      <CollapsibleDemo />
-      <Spacing />
-
-      <h3>CollapsibleDemoSettings</h3>
-      <CollapsibleDemoSettings />
-      <Spacing />
-
-      <h3>CollapsibleDemoFileTree</h3>
-      <CollapsibleDemoFileTree />
-      <Spacing dark />
-
-      <h2>Combobox</h2>
-      <Spacing />
-
-      <h3>ComboboxDemo</h3>
-      <ComboboxDemo />
-      <Spacing />
-
-      <h3>ComboboxDemoMultiple</h3>
-      <ComboboxDemoMultiple />
-      <Spacing />
-
-      <h3>ComboboxDemoClear</h3>
-      <ComboboxDemoClear />
-      <Spacing />
-
-      <h3>ComboboxDemoGroupsAndSeparator</h3>
-      <ComboboxDemoGroupsAndSeparator />
-      <Spacing />
-
-      <h3>ComboboxDemoCustomItems</h3>
-      <ComboboxDemoCustomItems />
-      <Spacing />
-
-      <h3>ComboboxDemoInvalid</h3>
-      <ComboboxDemoInvalid />
-      <Spacing />
-
-      <h3>ComboboxDemoDisabled</h3>
-      <ComboboxDemoDisabled />
-      <Spacing />
-
-      <h3>ComboboxDemoAutoHighlight</h3>
-      <ComboboxDemoAutoHighlight />
-      <Spacing />
-
-      <h3>ComboboxDemoPopup</h3>
-      <ComboboxDemoPopup />
-      <Spacing />
-
-      <h3>ComboxboxDemoInputGroup</h3>
-      <ComboxboxDemoInputGroup />
-      <Spacing dark />
-
-      <h2>Command</h2>
-      <Spacing />
-
-      <h3>CommandDemo</h3>
-      <CommandDemo />
-      <Spacing />
-
-      <h3>CommandDemoManyItems</h3>
-      <CommandDemoManyItems />
-      <Spacing dark />
-
-      <h2>Context Menu</h2>
-      <Spacing />
-
-      <h3>ContextMenuDemo</h3>
-      <ContextMenuDemo />
-      <Spacing />
-
-      <h3>ContextMenuDemoSubmenu</h3>
-      <ContextMenuDemoSubmenu />
-      <Spacing />
-
-      <h3>ContextMenuDemoIcons</h3>
-      <ContextMenuDemoIcons />
-      <Spacing />
-
-      <h3>ContextMenuDemoCheckboxRadio</h3>
-      <ContextMenuDemoCheckboxRadio />
-      <Spacing />
-
-      <h3>DataTableDemo</h3>
-      <DataTableDemo />
-      <Spacing dark />
-
-      <h2>Date Picker</h2>
-      <Spacing />
-
-      <h3>DatePickerDemo</h3>
-      <DatePickerDemo />
-      <Spacing dark />
-
-      <h2>Dialog</h2>
-      <Spacing />
-
-      <h3>DialogDemo</h3>
-      <DialogDemo />
-      <Spacing />
-
-      <h3>DialogDemoSticky</h3>
-      <DialogDemoSticky />
-      <Spacing />
-
-      <h3>DialogDemoFull</h3>
-      <DialogDemoFull />
-      <Spacing dark />
-
-      <h2>Direction</h2>
-      <Spacing />
-
-      <div direction="rtl">
-
-        <DialogDemoRtl />
-
-      </div>
-      <Spacing dark />
-
-      <h2>Drawer</h2>
-      <Spacing />
-
-      <h3>DrawerDemo</h3>
-      <DrawerDemo />
-      <Spacing dark />
-
-      <h2>Dropdown Menu</h2>
-      <Spacing />
-
-      <h3>DropdownMenuDemo</h3>
-      <DropdownMenuDemo />
-      <Spacing />
-
-      <h3>DropdownMenuDemoComplex</h3>
-      <DropdownMenuDemoComplex />
-      <Spacing dark />
-
-      <h2>Empty</h2>
-      <Spacing />
-
-      <h3>EmptyDemo</h3>
-      <EmptyDemo />
-      <Spacing dark />
-
-      <h2>Field</h2>
-      <Spacing />
-
-      <h3>FieldDemo</h3>
-      <FieldDemo />
-      <Spacing dark />
-
-      <h2>Hover Card</h2>
-      <Spacing />
-
-      <h3>HoverCardDemo</h3>
-      <HoverCardDemo />
-      <Spacing dark />
-
-      <h2>Input</h2>
-      <Spacing />
-
-      <h3>InputDemo</h3>
-      <InputDemo />
-      <Spacing dark />
-
-      <h2>Input Group</h2>
-      <Spacing />
-
-      <h3>InputGroupDemo</h3>
-      <InputGroupDemo />
-      <Spacing dark />
-
-      <h2>Input OTP</h2>
-      <Spacing />
-
-      <h3>InputOTPDemo</h3>
-      <InputOTPDemo />
-      <Spacing />
-
-      <h3>InputOTPDemoSeparator</h3>
-      <InputOTPDemoSeparator />
-      <Spacing dark />
-
-      <h2>Item</h2>
-      <Spacing />
-
-      <h3>ItemDemo</h3>
-      <ItemDemo />
-      <Spacing />
-
-      <h3>ItemDemoAvatar</h3>
-      <ItemDemoAvatar />
-      <Spacing />
-
-      <h3>ItemDemoImage</h3>
-      <ItemDemoImage />
-      <Spacing dark/>
-
-      <h2>Kbd</h2>
-      <Spacing />
-
-      <h3>KbdDemo</h3>
-      <KbdDemo />
-      <Spacing />
-
-      <h3>KbdDemoInputGroup</h3>
-      <KbdDemoInputGroup />
-      <Spacing dark/>
-
-      <h2>Menubar</h2>
-      <Spacing />
-
-      <h3>MenubarDemo</h3>
-      <MenubarDemo />
-      <Spacing dark/>
-
-      <h2>Native Select</h2>
-      <Spacing />
-
-      <h3>NativeSelectDemo</h3>
-      <NativeSelectDemo />
-      <Spacing dark/>
-
-      <h2>Navigation Menu</h2>
-      <Spacing />
-
-      <h3>NavigationMenuDemo</h3>
-      <NavigationMenuDemo />
-      <Spacing dark/>
-
-      <h2>Pagination</h2>
-      <Spacing />
-
-      <h3>PaginationDemo</h3>
-      <PaginationDemo />
-      <Spacing dark/>
-
-      <h2>Popover</h2>
-      <Spacing />
-
-      <h3>PopoverDemo</h3>
-      <PopoverDemo />
-      <Spacing dark/>
-
-      <h2>Progress</h2>
-      <Spacing />
-
-      <h3>ProgressDemo</h3>
-      <ProgressDemo />
-      <Spacing dark/>
-
-      <h2>Radio Group</h2>
-      <Spacing />
-
-      <h3>RadioGroupDemo</h3>
-      <RadioGroupDemo />
-      <Spacing/>
-
-      <h3>RadioGroupDemoDescription</h3>
-      <RadioGroupDemoDescription />
-      <Spacing/>
-
-      <h3>RadioGroupDemoChoiceCard</h3>
-      <RadioGroupDemoChoiceCard />
-      <Spacing/>
-
-      <h3>RadioGroupDemoFieldset</h3>
-      <RadioGroupDemoFieldset />
-      <Spacing/>
-
-      <h3>RadioGroupDemoFull</h3>
-      <RadioGroupDemoFull />
-      <Spacing dark/>
-
-      <h2>Resizable</h2>
-      <Spacing />
-
-      <h3>ResizableDemo</h3>
-      <ResizableDemo />
-      <Spacing dark/>
-
-      <h2>Scroll Area</h2>
-      <Spacing />
-
-      <h3>ScrollAreaDemo</h3>
-      <ScrollAreaDemo />
-      <Spacing />
-
-      <h3>ScrollAreaDemoHorizontal</h3>
-      <ScrollAreaDemoHorizontal />
-      <Spacing dark/>
-
-      <h2>Select</h2>
-      <Spacing />
-
-      <h3>SelectDemo</h3>
-      <SelectDemo />
-      <Spacing dark/>
-
-      <h2>Separator</h2>
-      <Spacing />
-
-      <h3>SeparatorDemo</h3>
-      <SeparatorDemo />
-      <Spacing />
-
-      <h3>SeparatorDemoVertical</h3>
-      <SeparatorDemoVertical />
-      <Spacing dark/>
-
-      <h2>Sheet</h2>
-      <Spacing />
-
-      <h3>SheetDemo</h3>
-      <SheetDemo />
-      <Spacing dark/>
-
-      <h2>Sidebar</h2>
-      <Spacing />
-
-      <h3>SidebarDemo</h3>
-      <SidebarDemo />
-      <Spacing dark/>
-
-      <h2>Skeleton</h2>
-      <Spacing />
-
-      <h3>SkeletonDemo</h3>
-      <SkeletonDemo />
-      <Spacing />
-
-      <h3>SkeletonDemoCard</h3>
-      <SkeletonDemoCard />
-      <Spacing />
-
-      <h3>SkeletonDemoText</h3>
-      <SkeletonDemoText />
-      <Spacing />
-
-      <h3>SkeletonDemoForm</h3>
-      <SkeletonDemoForm />
-      <Spacing />
-
-      <h3>SkeletonDemoTable</h3>
-      <SkeletonDemoTable />
-      <Spacing dark/>
-
-      <h2>Slider</h2>
-      <Spacing />
-
-      <h3>SliderDemo</h3>
-      <SliderDemo />
-      <Spacing />
-
-      <h3>SliderDemoRange</h3>
-      <SliderDemoRange />
-      <Spacing />
-
-      <h3>SliderDemoMultiple</h3>
-      <SliderDemoMultiple />
-      <Spacing />
-
-      <h3>SliderDemoVertical</h3>
-      <SliderDemoVertical />
-      <Spacing />
-
-      <h3>SliderDemoControlled</h3>
-      <SliderDemoControlled />
-      <Spacing />
-
-      <h3>SliderDemoDisabled</h3>
-      <SliderDemoDisabled />
-      <Spacing dark/>
-
-      <h2>Sonner</h2>
-      <Spacing />
-
-      <h3>SonnerDemo</h3>
-      <SonnerDemo />
-      <Spacing />
-
-      <h3>SonnerDemoTypes</h3>
-      <SonnerDemoTypes />
-      <Spacing />
-
-      <h3>SonnerDemoPosition</h3>
-      <SonnerDemoPosition />
-      <Spacing dark/>
-
-      <h2>Spinner</h2>
-      <Spacing />
-
-      <h3>SpinnerDemo</h3>
-      <SpinnerDemo />
-      <Spacing />
-
-      <h3>SpinnerDemoCustom</h3>
-      <SpinnerDemoCustom />
-      <Spacing dark/>
-
-      <h2>Switch</h2>
-      <Spacing />
-
-      <h3>SwitchDemo</h3>
-      <SwitchDemo />
-      <Spacing />
-
-      <h3>SwitchDemoCard</h3>
-      <SwitchDemoCard />
-      <Spacing />
-
-      <h3>SwitchDemoFull</h3>
-      <SwitchDemoFull />
-      <Spacing dark/>
-
-      <h2>Table</h2>
-      <Spacing />
-
-      <h3>TableDemo</h3>
-      <TableDemo />
-      <Spacing />
-
-      <h3>TableDemoActions</h3>
-      <TableDemoActions />
-      <Spacing dark/>
-
-      <h2>Tabs</h2>
-      <Spacing />
-
-      <h3>TabsDemo</h3>
-      <TabsDemo />
-      <Spacing />
-
-      <h3>TabsDemoLine</h3>
-      <TabsDemoLine />
-      <Spacing />
-
-      <h3>TabsDemoVertical</h3>
-      <TabsDemoVertical />
-      <Spacing />
-
-      <h3>TabsDemoFull</h3>
-      <TabsDemoFull />
-      <Spacing dark/>
-
-      <h2>Textarea</h2>
-      <Spacing />
-
-      <h3>TextareaDemo</h3>
-      <TextareaDemo/>
-      <Spacing dark/>
-
-      <h2>Toggle</h2>
-      <Spacing />
-
-      <h3>ToggleDemo</h3>
-      <ToggleDemo/>
-      <Spacing />
-
-      <h3>ToggleDemoOutline</h3>
-      <ToggleDemoOutline/>
-      <Spacing dark/>
-
-      <h2>ToggleGroup</h2>
-      <Spacing />
-
-      <h3>ToggleGroupDemo</h3>
-      <ToggleGroupDemo/>
-      <Spacing />
-
-      <h3>ToggleGroupDemoSpacing</h3>
-      <ToggleGroupDemoSpacing/>
-      <Spacing />
-
-      <h3>ToggleGroupDemoVertical</h3>
-      <ToggleGroupDemoVertical/>
-      <Spacing />
-
-      <h3>ToggleGroupDemoCustom</h3>
-      <ToggleGroupDemoCustom/>
-      <Spacing dark/>
-
-      <h2>Tooltip</h2>
-      <Spacing />
-
-      <h3>TooltipDemo</h3>
-      <TooltipDemo/>
-      <Spacing />
-
-      <h3>TooltipDemoSides</h3>
-      <TooltipDemoSides/>
-      <Spacing />
-
-      <h3>TooltipDemoKeyboard</h3>
-      <TooltipDemoKeyboard/>
-      <Spacing />
-
-
-
-
-    </div>
+    <ShowcasePage
+      title="Components"
+      group="components"
+      crumbs={crumbs}
+      description="shadcn-style primitives. Each section shows the full range of variants installed in this starter."
+    >
+      {sections.map((s) => (
+        <ShowcaseSection
+          key={s.id}
+          id={s.id}
+          name={s.name}
+          description={s.description}
+          docsUrl={shadcnDocs(s.slug)}
+          sourceFile={`components/ui/${s.file}.jsx`}
+        >
+          {s.variants.map((v) => {
+            const Comp = Demos[v.exportName]
+            if (!Comp) return null
+            return (
+              <ShowcaseVariant
+                key={v.exportName}
+                name={v.name}
+                exportName={v.exportName}
+                sourceFile={`components/demo/components/${s.file}.jsx`}
+              >
+                <Comp />
+              </ShowcaseVariant>
+            )
+          })}
+        </ShowcaseSection>
+      ))}
+    </ShowcasePage>
   )
 }

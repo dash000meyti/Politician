@@ -67,7 +67,7 @@ const features = [
   },
 ]
 
-export function BentoStart() {
+export function BentoGridDemoStart() {
   return (
     <BentoGrid>
       <BentoCard Icon={FileTextIcon} />
@@ -75,7 +75,7 @@ export function BentoStart() {
   )
 }
 
-export function BentoDemo() {
+export function BentoGridDemo() {
   return (
     <BentoGrid className="lg:grid-rows-3">
       {features.map((feature) => (

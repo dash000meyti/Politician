@@ -129,7 +129,7 @@ const Icons = {
   ),
 }
 
-export function OrbitingCirclesStart() {
+export function OrbitingCirclesDemoStart() {
   return (
     <div className="relative flex flex-col items-center justify-center h-[500px] w-full overflow-hidden">
 

@@ -117,7 +117,7 @@ const Icons = {
   ),
 }
 
-export function DockStart() {
+export function DockDemoStart() {
   return (
     <Dock>
       <DockIcon>

@@ -331,7 +331,7 @@ export function ComboboxDemoPopup() {
   )
 }
 
-export function ComboxboxDemoInputGroup() {
+export function ComboboxDemoInputGroup() {
   return (
     <Combobox items={timezones}>
       <ComboboxInput placeholder="Select a timezone">

@@ -2,7 +2,7 @@
 
 import { Lens } from "@/components/ui/magic"
 
-export function LensStart() {
+export function LensDemoStart() {
   return (
     <Lens
       // zoomFactor={2}
