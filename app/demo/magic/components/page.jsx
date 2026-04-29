@@ -25,6 +25,9 @@ import {
   PointerDemoStart,
   PointerDemo,
   ProgressiveBlurDemoStart,
+  ProgressiveBlurDemo,
+  ProgressiveBlurDemoTop,
+  ProgressiveBlurDemoBoth,
   DottedMapDemoStart,
   DottedMapDemo,
   DottedMapDemoPulse,
@@ -326,7 +329,7 @@ export default function DemoMagicComponentsPage() {
       <ShowcaseSection
         id="progressive-blur"
         name="Progressive Blur"
-        description="A directional progressive blur overlay (top/right/bottom/left)."
+        description="A smooth blur gradient effect for scrollable content, indicating more content above or below."
         docsUrl="https://magicui.design/docs/components/progressive-blur"
         sourceFile="components/ui/magic/components/progressive-blur.jsx"
       >
@@ -336,6 +339,27 @@ export default function DemoMagicComponentsPage() {
           sourceFile="components/demo/magic/components/progressive-blur.jsx"
         >
           <ProgressiveBlurDemoStart />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Default"
+          exportName="ProgressiveBlurDemo"
+          sourceFile="components/demo/magic/components/progressive-blur.jsx"
+        >
+          <ProgressiveBlurDemo />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Top"
+          exportName="ProgressiveBlurDemoTop"
+          sourceFile="components/demo/magic/components/progressive-blur.jsx"
+        >
+          <ProgressiveBlurDemoTop />
+        </ShowcaseVariant>
+        <ShowcaseVariant
+          name="Both"
+          exportName="ProgressiveBlurDemoBoth"
+          sourceFile="components/demo/magic/components/progressive-blur.jsx"
+        >
+          <ProgressiveBlurDemoBoth />
         </ShowcaseVariant>
       </ShowcaseSection>
 

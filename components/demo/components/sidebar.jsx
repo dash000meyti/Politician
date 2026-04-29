@@ -1,117 +1,61 @@
+"use client"
 
-import { SidebarProvider, SidebarTrigger } from "@/components/ui"
-import { ChevronDown, User2, Plus } from "lucide-react"
-import {
-  Sidebar,
-  SidebarContent,
-  SidebarFooter,
-  SidebarGroup,
-  SidebarHeader,
-  SidebarMenu,
-  SidebarMenuItem,
-  DropdownMenu,
-  DropdownMenuTrigger,
-  SidebarMenuButton,
-  DropdownMenuItem,
-  DropdownMenuContent,
-  SidebarGroupLabel,
-  SidebarGroupAction,
-  SidebarGroupContent,
-} from "@/components/ui"
+import { PanelLeft } from "lucide-react"
 
-export function AppSidebar() {
-
-  const projects = [
-    {
-      name:"a",
-      url:"#",
-      name:"A",
-      icon:"Plus"
-    },
-    {
-      name:"b",
-      url:"#",
-      name:"B",
-      icon:"Plus"
-    },
-    {
-      name:"c",
-      url:"#",
-      name:"C",
-      icon:"Plus"
-    },
-  ]
-
-
-
-  return (
-    <div>
-      <Sidebar>
-        <SidebarHeader>
-          <SidebarTrigger className="flex ms-auto" />
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <SidebarMenuButton>
-                    Select Workspace
-                    <ChevronDown className="ml-auto" />
-                  </SidebarMenuButton>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-[--radix-popper-anchor-width]">
-                  <DropdownMenuItem>
-                    <span>Acme Inc</span>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </SidebarMenuItem>
-          </SidebarMenu>
-        </SidebarHeader>
-        <SidebarContent>
-          <SidebarGroup>
-            <SidebarGroupLabel>Application</SidebarGroupLabel>
-            <SidebarGroupAction>
-              <Plus /> <span className="sr-only">Add Project</span>
-            </SidebarGroupAction>
-            <SidebarGroupContent>
-            {projects.map((project) => (
-              <SidebarMenuItem key={project.name}>
-                <SidebarMenuButton asChild>
-                  <a href={project.url}>
-                    <project.icon />
-                    <span>{project.name}</span>
-                  </a>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            ))}
-            </SidebarGroupContent>
-          </SidebarGroup>
-
-
-
-        </SidebarContent>
-        <SidebarFooter>
-          <SidebarMenu>
-            <SidebarMenuItem>
-              <SidebarMenuButton>
-                <User2 /> Username
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </SidebarMenu>
-        </SidebarFooter>
-      </Sidebar>
-    </div>
-  )
-}
+import { Button, SidebarTrigger, useSidebar } from "@/components/ui"
 
 export function SidebarDemo() {
-  return (
-    <div className="w-full h-[300px]">
-      <SidebarProvider>
-        <AppSidebar />
-        <SidebarTrigger />
+  const { toggleSidebar, state, isMobile, openMobile } = useSidebar()
+  const isOpen = isMobile ? openMobile : state === "expanded"
 
-      </SidebarProvider>
+  return (
+    <div className="border-border bg-muted/30 flex flex-col gap-4 rounded-lg border p-6">
+      <div className="space-y-1">
+        <p className="text-foreground text-sm font-medium">
+          Reuses the page-level Sidebar
+        </p>
+        <p className="text-muted-foreground max-w-prose text-sm">
+          This demo doesn&apos;t mount its own{" "}
+          <code className="bg-muted rounded px-1 py-0.5 font-mono text-[11px]">
+            Sidebar
+          </code>
+          . It reads the same{" "}
+          <code className="bg-muted rounded px-1 py-0.5 font-mono text-[11px]">
+            SidebarProvider
+          </code>{" "}
+          context from{" "}
+          <code className="bg-muted rounded px-1 py-0.5 font-mono text-[11px]">
+            ShowcasePage
+          </code>{" "}
+          and toggles the &quot;On this page&quot; navigation.
+        </p>
+      </div>
+
+      <div className="flex flex-wrap items-center gap-3">
+        <Button
+          onClick={toggleSidebar}
+          variant="outline"
+          size="sm"
+          className="gap-2"
+        >
+          <PanelLeft className="size-4" />
+          Toggle &quot;On this page&quot;
+        </Button>
+
+        <SidebarTrigger className="border-border h-8 w-8 border" />
+
+        <span className="text-muted-foreground text-xs">
+          State:{" "}
+          <code className="bg-muted rounded px-1.5 py-0.5 font-mono text-[11px]">
+            {isOpen ? "open" : "closed"}
+          </code>
+          <span className="mx-2 opacity-40">•</span>
+          Shortcut:{" "}
+          <kbd className="bg-muted rounded px-1.5 py-0.5 font-mono text-[11px]">
+            ⌘ B
+          </kbd>
+        </span>
+      </div>
     </div>
   )
 }
