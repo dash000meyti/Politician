@@ -1,62 +1,60 @@
 import Link from "next/link"
 
 import { ShowcaseBreadcrumbs } from "@/components/showcase"
+import { manifest } from "@/components/showcase/manifest"
 
-const categories = [
+const CATEGORY_META = [
   {
     id: "components",
     title: "Components",
-    count: 14,
     description:
       "Marquee, Terminal, Hero Video Dialog, Bento Grid, Animated List, Dock, Tweet Card, and more.",
   },
   {
     id: "special-effects",
     title: "Special Effects",
-    count: 9,
     description:
       "Animated Beam, Border Beam, Shine Border, Magic Card, Glare Hover, Meteors, Confetti, Particles, Theme Toggler.",
   },
   {
     id: "animations",
     title: "Animations",
-    count: 1,
     description: "Blur Fade and other in-view animation primitives.",
   },
   {
     id: "text",
     title: "Text Animations",
-    count: 0,
     description:
       "Text Animate, Typing Animation, Aurora Text, Sparkles Text, Number Ticker, Hyper Text, and more.",
   },
   {
     id: "device",
     title: "Device Mocks",
-    count: 0,
     description: "Safari, iPhone, Android device frames.",
   },
   {
     id: "buttons",
     title: "Buttons",
-    count: 0,
     description: "Rainbow Button, Shimmer Button, Ripple Button.",
   },
   {
     id: "backgrounds",
     title: "Backgrounds",
-    count: 0,
     description:
       "Flickering Grid, Animated Grid Pattern, Retro Grid, Ripple, Dot Pattern, Light Rays, and more.",
   },
   {
     id: "community",
     title: "Community",
-    count: 0,
     description:
       "File Tree, Code Comparison, Neon Gradient Card, Pulsating Button, Comic Text, Pixel Image, and more.",
   },
 ]
+
+const categories = CATEGORY_META.map((c) => ({
+  ...c,
+  count: manifest.find((g) => g.group === `magic/${c.id}`)?.items.length ?? 0,
+}))
 
 export default function DemoMagicPage() {
   return (

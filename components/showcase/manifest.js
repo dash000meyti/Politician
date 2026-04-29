@@ -41,11 +41,52 @@ export const manifest = [
     href: "/demo/magic/animations",
     items: ["blur-fade"],
   },
-  { group: "magic/text", label: "Magic UI · Text", href: "/demo/magic/text", items: [] },
-  { group: "magic/device", label: "Magic UI · Device Mocks", href: "/demo/magic/device", items: [] },
-  { group: "magic/buttons", label: "Magic UI · Buttons", href: "/demo/magic/buttons", items: [] },
-  { group: "magic/backgrounds", label: "Magic UI · Backgrounds", href: "/demo/magic/backgrounds", items: [] },
-  { group: "magic/community", label: "Magic UI · Community", href: "/demo/magic/community", items: [] },
+  {
+    group: "magic/text",
+    label: "Magic UI · Text",
+    href: "/demo/magic/text",
+    items: [
+      "animated-gradient-text", "animated-shiny-text", "aurora-text",
+      "dia-text-reveal", "highlighter", "hyper-text", "line-shadow-text",
+      "morphing-text", "number-ticker", "scroll-based-velocity",
+      "sparkles-text", "spinning-text", "text-3d-flip", "text-animate",
+      "text-reveal", "typing-animation", "video-text", "word-rotate",
+    ],
+  },
+  {
+    group: "magic/device",
+    label: "Magic UI · Device Mocks",
+    href: "/demo/magic/device",
+    items: ["android", "iphone", "safari"],
+  },
+  {
+    group: "magic/buttons",
+    label: "Magic UI · Buttons",
+    href: "/demo/magic/buttons",
+    items: ["rainbow-button", "ripple-button", "shimmer-button"],
+  },
+  {
+    group: "magic/backgrounds",
+    label: "Magic UI · Backgrounds",
+    href: "/demo/magic/backgrounds",
+    items: [
+      "animated-grid-pattern", "dot-pattern", "flickering-grid",
+      "grid-pattern", "hexagon-pattern", "interactive-grid-pattern",
+      "light-rays", "noise-texture", "retro-grid", "ripple",
+      "striped-pattern",
+    ],
+  },
+  {
+    group: "magic/community",
+    label: "Magic UI · Community",
+    href: "/demo/magic/community",
+    items: [
+      "animated-circular-progress-bar", "backlight", "code-comparison",
+      "comic-text", "cool-mode", "file-tree", "interactive-hover-button",
+      "neon-gradient-card", "pixel-image", "pulsating-button",
+      "scroll-progress", "shiny-button", "warp-background",
+    ],
+  },
 ]
 
 export function flatManifest() {

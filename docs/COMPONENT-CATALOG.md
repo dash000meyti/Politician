@@ -43,67 +43,67 @@ Legend: `[x]` installed · `[ ]` not installed yet.
 
 ## Text Animations
 
-- [ ] Text Animate
-- [ ] Typing Animation
-- [ ] Line Shadow Text
-- [ ] Aurora Text
-- [ ] Video Text
-- [ ] Number Ticker
-- [ ] Animated Shiny Text
-- [ ] Animated Gradient Text
-- [ ] Text Reveal
-- [ ] Dia Text Reveal
-- [ ] Hyper Text
-- [ ] Word Rotate
-- [ ] Scroll Based Velocity
-- [ ] Sparkles Text
-- [ ] Morphing Text
-- [ ] Spinning Text
-- [ ] Text Highlighter
-- [ ] Text 3D Flip
+- [x] Text Animate
+- [x] Typing Animation
+- [x] Line Shadow Text
+- [x] Aurora Text
+- [x] Video Text
+- [x] Number Ticker
+- [x] Animated Shiny Text
+- [x] Animated Gradient Text
+- [x] Text Reveal
+- [x] Dia Text Reveal
+- [x] Hyper Text
+- [x] Word Rotate
+- [x] Scroll Based Velocity
+- [x] Sparkles Text
+- [x] Morphing Text
+- [x] Spinning Text
+- [x] Text Highlighter
+- [x] Text 3D Flip
 
 ## Device Mocks
 
-- [ ] Safari
-- [ ] iPhone
-- [ ] Android
+- [x] Safari
+- [x] iPhone
+- [x] Android
 
 ## Buttons
 
-- [ ] Rainbow Button
-- [ ] Shimmer Button
-- [ ] Ripple Button
+- [x] Rainbow Button
+- [x] Shimmer Button
+- [x] Ripple Button
 
 ## Backgrounds
 
-- [ ] Flickering Grid
-- [ ] Animated Grid Pattern
-- [ ] Retro Grid
-- [ ] Ripple
-- [ ] Dot Pattern
-- [ ] Grid Pattern
-- [ ] Hexagon Pattern
-- [ ] Striped Pattern
-- [ ] Interactive Grid Pattern
-- [ ] Light Rays
-- [ ] Noise Texture
+- [x] Flickering Grid
+- [x] Animated Grid Pattern
+- [x] Retro Grid
+- [x] Ripple
+- [x] Dot Pattern
+- [x] Grid Pattern
+- [x] Hexagon Pattern
+- [x] Striped Pattern
+- [x] Interactive Grid Pattern
+- [x] Light Rays
+- [x] Noise Texture
 
 ## Community
 
-- [ ] Shiny Button
-- [ ] File Tree
-- [ ] Code Comparison
-- [ ] Scroll Progress
-- [ ] Neon Gradient Card
-- [ ] Comic Text
-- [ ] Cool Mode
-- [ ] Pixel Image
-- [ ] Pulsating Button
-- [ ] Warp Background
-- [ ] Interactive Hover Button
-- [ ] Animated Circular Progress Bar
-- [ ] Backlight
+- [x] Shiny Button
+- [x] File Tree
+- [x] Code Comparison
+- [x] Scroll Progress
+- [x] Neon Gradient Card
+- [x] Comic Text
+- [x] Cool Mode
+- [x] Pixel Image
+- [x] Pulsating Button
+- [x] Warp Background
+- [x] Interactive Hover Button
+- [x] Animated Circular Progress Bar
+- [x] Backlight
 
 ---
 
-**Total installed:** 24 / 85.
+**Total installed:** 72 / 85.
