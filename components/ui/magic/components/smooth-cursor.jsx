@@ -72,7 +72,7 @@ export function SmoothCursor({
 }) {
   const lastMousePos = useRef({ x: 0, y: 0 })
   const velocity = useRef({ x: 0, y: 0 })
-  const lastUpdateTime = useRef(Date.now())
+  const lastUpdateTime = useRef(0)
   const previousAngle = useRef(0)
   const accumulatedRotation = useRef(0)
   const [isEnabled, setIsEnabled] = useState(false)
@@ -116,6 +116,7 @@ export function SmoothCursor({
       return
     }
 
+    lastUpdateTime.current = Date.now()
     let timeout = null
 
     const updateVelocity = (currentPos) => {

@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image"
+
 import { cn } from "@/lib/utils"
 
 export const AvatarCircles = ({
@@ -14,8 +16,7 @@ export const AvatarCircles = ({
           href={url.profileUrl}
           target="_blank"
           rel="noopener noreferrer">
-          <img
-            key={index}
+          <Image
             className="h-10 w-10 rounded-full border-2 border-white dark:border-gray-800"
             src={url.imageUrl}
             width={40}

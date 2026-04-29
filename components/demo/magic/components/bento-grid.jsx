@@ -8,6 +8,13 @@ import {
 
 import { BentoCard, BentoGrid } from "@/components/ui/magic"
 
+const BackgroundPlaceholder = () => (
+  <div
+    aria-hidden="true"
+    className="from-primary/20 absolute -top-20 -right-20 h-64 w-64 rounded-full bg-linear-to-br via-transparent to-transparent opacity-60 blur-3xl"
+  />
+)
+
 const features = [
   {
     Icon: FileTextIcon,
@@ -15,9 +22,7 @@ const features = [
     description: "We automatically save your files as you type.",
     href: "/",
     cta: "Learn more",
-    background: (
-      <img alt="" className="absolute -top-20 -right-20 opacity-60" />
-    ),
+    background: <BackgroundPlaceholder />,
     className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
   },
   {
@@ -26,9 +31,7 @@ const features = [
     description: "Search through all your files in one place.",
     href: "/",
     cta: "Learn more",
-    background: (
-      <img alt="" className="absolute -top-20 -right-20 opacity-60" />
-    ),
+    background: <BackgroundPlaceholder />,
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
   },
   {
@@ -37,9 +40,7 @@ const features = [
     description: "Supports 100+ languages and counting.",
     href: "/",
     cta: "Learn more",
-    background: (
-      <img alt="" className="absolute -top-20 -right-20 opacity-60" />
-    ),
+    background: <BackgroundPlaceholder />,
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
   },
   {
@@ -48,9 +49,7 @@ const features = [
     description: "Use the calendar to filter your files by date.",
     href: "/",
     cta: "Learn more",
-    background: (
-      <img alt="" className="absolute -top-20 -right-20 opacity-60" />
-    ),
+    background: <BackgroundPlaceholder />,
     className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
   },
   {
@@ -60,9 +59,7 @@ const features = [
       "Get notified when someone shares a file or mentions you in a comment.",
     href: "/",
     cta: "Learn more",
-    background: (
-      <img alt="" className="absolute -top-20 -right-20 opacity-60" />
-    ),
+    background: <BackgroundPlaceholder />,
     className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
   },
 ]

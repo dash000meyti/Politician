@@ -1,4 +1,5 @@
 import { Suspense } from "react"
+import Image from "next/image"
 import { enrichTweet } from "react-tweet";
 import { getTweet } from "react-tweet/api";
 
@@ -96,7 +97,7 @@ export const TweetHeader = ({
         target="_blank"
         rel="noreferrer"
         className="shrink-0">
-        <img
+        <Image
           title={`Profile picture of ${tweet.user.name}`}
           alt={tweet.user.screen_name}
           height={48}
@@ -192,7 +193,7 @@ export const TweetMedia = ({
           className="relative flex transform-gpu snap-x snap-mandatory gap-4 overflow-x-auto">
           <div className="shrink-0 snap-center sm:w-2" />
           {tweet.photos.map((photo) => (
-            <img
+            <Image
               key={photo.url}
               src={photo.url}
               width={photo.width}
@@ -208,11 +209,13 @@ export const TweetMedia = ({
         !tweet.photos &&
         // @ts-expect-error package doesn't have type definitions
         tweet?.card?.binding_values?.thumbnail_image_large?.image_value.url && (
-          <img
+          <Image
             src={
               // @ts-expect-error package doesn't have type definitions
               tweet.card.binding_values.thumbnail_image_large.image_value.url
             }
+            width={600}
+            height={256}
             className="h-64 rounded-xl border object-cover shadow-sm"
             alt={tweet.text} />
         )}

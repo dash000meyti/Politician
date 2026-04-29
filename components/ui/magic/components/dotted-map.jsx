@@ -20,16 +20,11 @@ export function DottedMap(
     ...svgProps
   }
 ) {
-  const { points, addMarkers } = createMap({
-    width,
-    height,
-    mapSamples,
-  })
-  const processedMarkers = addMarkers(markers)
-
-  // Compute stagger helpers in a single, simple pass
-  const { xStep, yToRowIndex } = React.useMemo(() => {
-    const sorted = [...points].sort((a, b) => a.y - b.y || a.x - b.x)
+  // Memoize the entire map (points + processedMarkers + stagger helpers) so
+  // every derived value comes from a single, stable `createMap` call.
+  const { points, processedMarkers, xStep, yToRowIndex } = React.useMemo(() => {
+    const map = createMap({ width, height, mapSamples })
+    const sorted = [...map.points].sort((a, b) => a.y - b.y || a.x - b.x)
     const rowMap = new Map()
     let step = 0
     let prevY = Number.NaN
@@ -37,7 +32,6 @@ export function DottedMap(
 
     for (const p of sorted) {
       if (p.y !== prevY) {
-        // new row
         prevY = p.y
         prevXInRow = Number.NaN
         if (!rowMap.has(p.y)) rowMap.set(p.y, rowMap.size)
@@ -49,8 +43,13 @@ export function DottedMap(
       prevXInRow = p.x
     }
 
-    return { xStep: step || 1, yToRowIndex: rowMap }
-  }, [points])
+    return {
+      points: map.points,
+      processedMarkers: map.addMarkers(markers),
+      xStep: step || 1,
+      yToRowIndex: rowMap,
+    }
+  }, [width, height, mapSamples, markers])
 
   return (
     <svg

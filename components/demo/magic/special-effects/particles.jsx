@@ -1,17 +1,14 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
 
 import { Particles } from "@/components/ui"
+import { useMounted } from "@/hooks/use-mounted"
 
 export function ParticlesDemo() {
   const { resolvedTheme } = useTheme()
-  const [color, setColor] = useState("#ffffff")
-
-  useEffect(() => {
-    setColor(resolvedTheme === "dark" ? "#ffffff" : "#000000")
-  }, [resolvedTheme])
+  const mounted = useMounted()
+  const color = mounted && resolvedTheme === "light" ? "#000000" : "#ffffff"
 
   return (
     <div className="bg-background relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border">

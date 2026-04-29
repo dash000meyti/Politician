@@ -41,15 +41,13 @@ export const AnimatedSpan = ({
 
   const sequence = useSequence()
   const itemIndex = useItemIndex()
-  const [hasStarted, setHasStarted] = useState(false)
-  useEffect(() => {
-    if (!sequence || itemIndex === null) return
-    if (!sequence.sequenceStarted) return
-    if (hasStarted) return
-    if (sequence.activeIndex === itemIndex) {
-      setHasStarted(true)
-    }
-  }, [sequence, hasStarted, itemIndex])
+  // `hasStarted` is monotonic: once a sequence reaches this item, it stays
+  // started. Since Terminal only ever increments `activeIndex`, deriving from
+  // the current sequence state during render is safe.
+  const hasStarted =
+    sequence?.sequenceStarted === true &&
+    itemIndex !== null &&
+    sequence.activeIndex >= itemIndex
 
   const shouldAnimate = sequence ? hasStarted : startOnView ? isInView : true
 
@@ -87,7 +85,7 @@ export const TypingAnimation = ({
   const MotionComponent = motionElements[Component]
 
   const [displayedText, setDisplayedText] = useState("")
-  const [started, setStarted] = useState(false)
+  const [nonSequenceStarted, setNonSequenceStarted] = useState(false)
   const elementRef = useRef(null)
   const isInView = useInView(elementRef, {
     amount: 0.3,
@@ -102,37 +100,26 @@ export const TypingAnimation = ({
   const sequenceCompleteItemRef = useRef(null)
   const sequenceItemIndexRef = useRef(null)
 
+  // When part of a sequence, `started` is derived from the monotonically
+  // increasing activeIndex. When standalone, fall back to a timer that flips
+  // the local `nonSequenceStarted` state via an event callback.
+  const started =
+    hasSequence && itemIndex !== null
+      ? sequenceStarted && sequenceActiveIndex >= itemIndex
+      : nonSequenceStarted
+
   useEffect(() => {
     sequenceCompleteItemRef.current = sequence?.completeItem ?? null
     sequenceItemIndexRef.current = itemIndex
   }, [sequence?.completeItem, itemIndex])
 
   useEffect(() => {
-    let startTimeout = null
+    if (hasSequence && itemIndex !== null) return
+    if (startOnView && !isInView) return
 
-    if (hasSequence && itemIndex !== null) {
-      if (sequenceStarted && !started && sequenceActiveIndex === itemIndex) {
-        setStarted(true)
-      }
-    } else if (!startOnView || isInView) {
-      startTimeout = setTimeout(() => setStarted(true), delay)
-    }
-
-    return () => {
-      if (startTimeout !== null) {
-        clearTimeout(startTimeout)
-      }
-    };
-  }, [
-    delay,
-    startOnView,
-    isInView,
-    started,
-    hasSequence,
-    sequenceActiveIndex,
-    sequenceStarted,
-    itemIndex,
-  ])
+    const startTimeout = setTimeout(() => setNonSequenceStarted(true), delay)
+    return () => clearTimeout(startTimeout);
+  }, [delay, startOnView, isInView, hasSequence, itemIndex])
 
   useEffect(() => {
     let typingEffect = null

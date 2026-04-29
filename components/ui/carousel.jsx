@@ -31,14 +31,9 @@ function Carousel({
     ...opts,
     axis: orientation === "horizontal" ? "x" : "y",
   }, plugins)
-  const [canScrollPrev, setCanScrollPrev] = React.useState(false)
-  const [canScrollNext, setCanScrollNext] = React.useState(false)
-
-  const onSelect = React.useCallback((api) => {
-    if (!api) return
-    setCanScrollPrev(api.canScrollPrev())
-    setCanScrollNext(api.canScrollNext())
-  }, [])
+  const [, tick] = React.useReducer((x) => x + 1, 0)
+  const canScrollPrev = api?.canScrollPrev() ?? false
+  const canScrollNext = api?.canScrollNext() ?? false
 
   const scrollPrev = React.useCallback(() => {
     api?.scrollPrev()
@@ -65,14 +60,14 @@ function Carousel({
 
   React.useEffect(() => {
     if (!api) return
-    onSelect(api)
-    api.on("reInit", onSelect)
-    api.on("select", onSelect)
+    api.on("reInit", tick)
+    api.on("select", tick)
 
     return () => {
-      api?.off("select", onSelect)
+      api?.off("reInit", tick)
+      api?.off("select", tick)
     };
-  }, [api, onSelect])
+  }, [api])
 
   return (
     <CarouselContext.Provider

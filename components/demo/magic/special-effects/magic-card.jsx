@@ -2,9 +2,9 @@
 
 import { useTheme } from "next-themes"
 
-import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui"
+import { useMounted } from "@/hooks/use-mounted"
 import {
   Card,
   CardContent,
@@ -55,10 +55,7 @@ export function MagicCardDemo() {
 
 export function MagicCardDemoOrb() {
   const { theme, systemTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  const mounted = useMounted()
   const isDark = mounted
     ? (theme === "system" ? systemTheme : theme) === "dark"
     : true
