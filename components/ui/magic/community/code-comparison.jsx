@@ -9,6 +9,8 @@ import { useTheme } from "next-themes"
 
 import { cn } from "@/lib/utils"
 
+const FOCUSED_LINE_MARK = 'class="line focused"'
+
 export function CodeComparison({
   beforeCode,
   afterCode,
@@ -21,20 +23,14 @@ export function CodeComparison({
   const { theme, systemTheme } = useTheme()
   const [highlightedBefore, setHighlightedBefore] = useState("")
   const [highlightedAfter, setHighlightedAfter] = useState("")
-  const [hasLeftFocus, setHasLeftFocus] = useState(false)
-  const [hasRightFocus, setHasRightFocus] = useState(false)
 
   const selectedTheme = useMemo(() => {
     const currentTheme = theme === "system" ? systemTheme : theme
     return currentTheme === "dark" ? darkTheme : lightTheme
   }, [theme, systemTheme, darkTheme, lightTheme])
 
-  useEffect(() => {
-    if (highlightedBefore || highlightedAfter) {
-      setHasLeftFocus(highlightedBefore.includes('class="line focused"'))
-      setHasRightFocus(highlightedAfter.includes('class="line focused"'))
-    }
-  }, [highlightedBefore, highlightedAfter])
+  const hasLeftFocus = highlightedBefore.includes(FOCUSED_LINE_MARK)
+  const hasRightFocus = highlightedAfter.includes(FOCUSED_LINE_MARK)
 
   useEffect(() => {
     async function highlightCode() {

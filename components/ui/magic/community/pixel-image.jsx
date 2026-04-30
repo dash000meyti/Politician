@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
+import Image from "next/image"
 
 import { cn } from "@/lib/utils"
 
@@ -41,14 +42,19 @@ export const PixelImage = ({
   }, [customGrid, grid])
 
   useEffect(() => {
-    setIsVisible(true)
+    const raf = requestAnimationFrame(() => {
+      setIsVisible(true)
+    })
     const colorTimeout = setTimeout(() => {
       setShowColor(true)
     }, colorRevealDelay)
-    return () => clearTimeout(colorTimeout);
+    return () => {
+      cancelAnimationFrame(raf)
+      clearTimeout(colorTimeout)
+    };
   }, [colorRevealDelay])
 
-  const pieces = useMemo(() => {
+  const buildPieces = useCallback(() => {
     const total = rows * cols
     return Array.from({ length: total }, (_, index) => {
       const row = Math.floor(index / cols)
@@ -69,6 +75,8 @@ export const PixelImage = ({
     });
   }, [rows, cols, maxAnimationDelay])
 
+  const pieces = useMemo(() => buildPieces(), [buildPieces])
+
   return (
     <div className="relative h-72 w-72 select-none md:h-96 md:w-96">
       {pieces.map((piece, index) => (
@@ -83,9 +91,11 @@ export const PixelImage = ({
             transitionDelay: `${piece.delay}ms`,
             transitionDuration: `${pixelFadeInDuration}ms`,
           }}>
-          <img
+          <Image
             src={src}
             alt={`Pixel image piece ${index + 1}`}
+            fill
+            sizes="(min-width: 768px) 24rem, 18rem"
             className={cn(
               "z-1 rounded-[2.5rem] object-cover",
               grayscaleAnimation && (showColor ? "grayscale-0" : "grayscale")

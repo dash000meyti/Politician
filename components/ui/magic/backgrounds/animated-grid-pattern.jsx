@@ -22,17 +22,17 @@ export function AnimatedGridPattern({
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
   const [squares, setSquares] = useState([])
 
-  const getPos = useCallback(() => {
+  const getPos = useCallback((w, h) => {
     return [
-      Math.floor((Math.random() * dimensions.width) / width),
-      Math.floor((Math.random() * dimensions.height) / height),
+      Math.floor((Math.random() * w) / width),
+      Math.floor((Math.random() * h) / height),
     ];
-  }, [dimensions.height, dimensions.width, height, width])
+  }, [height, width])
 
-  const generateSquares = useCallback((count) => {
+  const generateSquares = useCallback((count, w, h) => {
     return Array.from({ length: count }, (_, i) => ({
       id: i,
-      pos: getPos(),
+      pos: getPos(w, h),
       iteration: 0,
     }));
   }, [getPos])
@@ -45,50 +45,45 @@ export function AnimatedGridPattern({
       const nextSquares = currentSquares.slice()
       nextSquares[squareId] = {
         ...current,
-        pos: getPos(),
+        pos: getPos(dimensions.width, dimensions.height),
         iteration: current.iteration + 1,
       }
 
       return nextSquares
     })
-  }, [getPos])
-
-  useEffect(() => {
-    if (dimensions.width && dimensions.height) {
-      setSquares(generateSquares(numSquares))
-    }
-  }, [dimensions.width, dimensions.height, generateSquares, numSquares])
+  }, [getPos, dimensions.width, dimensions.height])
 
   useEffect(() => {
     const element = containerRef.current
-    let resizeObserver = null
+    if (!element) return
 
-    if (element) {
-      resizeObserver = new ResizeObserver((entries) => {
-        for (const entry of entries) {
-          setDimensions((currentDimensions) => {
-            const nextWidth = entry.contentRect.width
-            const nextHeight = entry.contentRect.height
-            if (
-              currentDimensions.width === nextWidth &&
-              currentDimensions.height === nextHeight
-            ) {
-              return currentDimensions
-            }
-            return { width: nextWidth, height: nextHeight }
-          })
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const nextWidth = entry.contentRect.width
+        const nextHeight = entry.contentRect.height
+
+        setDimensions((currentDimensions) => {
+          if (
+            currentDimensions.width === nextWidth &&
+            currentDimensions.height === nextHeight
+          ) {
+            return currentDimensions
+          }
+          return { width: nextWidth, height: nextHeight }
+        })
+
+        if (nextWidth && nextHeight) {
+          setSquares(generateSquares(numSquares, nextWidth, nextHeight))
         }
-      })
+      }
+    })
 
-      resizeObserver.observe(element)
-    }
+    resizeObserver.observe(element)
 
     return () => {
-      if (resizeObserver) {
-        resizeObserver.disconnect()
-      }
+      resizeObserver.disconnect()
     };
-  }, [])
+  }, [numSquares, generateSquares])
 
   return (
     <svg

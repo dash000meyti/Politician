@@ -8,11 +8,10 @@ const Beam = ({
   width,
   x,
   delay,
-  duration
+  duration,
+  hue,
+  ar
 }) => {
-  const hue = Math.floor(Math.random() * 360)
-  const ar = Math.floor(Math.random() * 10) + 1
-
   return (
     <motion.div
       style={
@@ -55,7 +54,9 @@ export const WarpBackground = ({
     for (let i = 0; i < beamsPerSide; i++) {
       const x = Math.floor(i * step)
       const delay = Math.random() * (beamDelayMax - beamDelayMin) + beamDelayMin
-      beams.push({ x, delay })
+      const hue = Math.floor(Math.random() * 360)
+      const ar = Math.floor(Math.random() * 10) + 1
+      beams.push({ x, delay, hue, ar })
     }
     return beams
   }, [beamsPerSide, beamSize, beamDelayMax, beamDelayMin])
@@ -87,7 +88,9 @@ export const WarpBackground = ({
               width={`${beamSize}%`}
               x={`${beam.x * beamSize}%`}
               delay={beam.delay}
-              duration={beamDuration} />
+              duration={beamDuration}
+              hue={beam.hue}
+              ar={beam.ar} />
           ))}
         </div>
         {/* bottom side */}
@@ -99,7 +102,9 @@ export const WarpBackground = ({
               width={`${beamSize}%`}
               x={`${beam.x * beamSize}%`}
               delay={beam.delay}
-              duration={beamDuration} />
+              duration={beamDuration}
+              hue={beam.hue}
+              ar={beam.ar} />
           ))}
         </div>
         {/* left side */}
@@ -111,7 +116,9 @@ export const WarpBackground = ({
               width={`${beamSize}%`}
               x={`${beam.x * beamSize}%`}
               delay={beam.delay}
-              duration={beamDuration} />
+              duration={beamDuration}
+              hue={beam.hue}
+              ar={beam.ar} />
           ))}
         </div>
         {/* right side */}
@@ -123,7 +130,9 @@ export const WarpBackground = ({
               width={`${beamSize}%`}
               x={`${beam.x * beamSize}%`}
               delay={beam.delay}
-              duration={beamDuration} />
+              duration={beamDuration}
+              hue={beam.hue}
+              ar={beam.ar} />
           ))}
         </div>
       </div>

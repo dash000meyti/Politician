@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 const PHONE_WIDTH = 433
 const PHONE_HEIGHT = 882
 const SCREEN_X = 21.25
@@ -62,7 +64,12 @@ export function Iphone({
             height: `${HEIGHT_PCT}%`,
             borderRadius: `${RADIUS_H}% / ${RADIUS_V}%`,
           }}>
-          <img src={src} alt="" className="block size-full object-cover object-top" />
+          <Image
+            src={src}
+            alt=""
+            fill
+            sizes="(min-width: 768px) 24rem, 18rem"
+            className="block size-full object-cover object-top" />
         </div>
       )}
       <svg

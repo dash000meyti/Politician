@@ -38,10 +38,6 @@ export function TypingAnimation({
 }) {
   const MotionComponent = motionElements[Component]
 
-  const [displayedText, setDisplayedText] = useState("")
-  const [currentWordIndex, setCurrentWordIndex] = useState(0)
-  const [currentCharIndex, setCurrentCharIndex] = useState(0)
-  const [phase, setPhase] = useState("typing")
   const elementRef = useRef(null)
   const isInView = useInView(elementRef, {
     amount: 0.3,
@@ -57,12 +53,19 @@ export function TypingAnimation({
   const shouldStart = startOnView ? isInView : true
   const animationSourceKey = useMemo(() => (words ? words.join("\u0000") : (children ?? "")), [words, children])
 
-  useEffect(() => {
+  const [displayedText, setDisplayedText] = useState("")
+  const [currentWordIndex, setCurrentWordIndex] = useState(0)
+  const [currentCharIndex, setCurrentCharIndex] = useState(0)
+  const [phase, setPhase] = useState("typing")
+  const [prevSourceKey, setPrevSourceKey] = useState(animationSourceKey)
+
+  if (prevSourceKey !== animationSourceKey) {
+    setPrevSourceKey(animationSourceKey)
     setDisplayedText("")
     setCurrentWordIndex(0)
     setCurrentCharIndex(0)
     setPhase("typing")
-  }, [animationSourceKey])
+  }
 
   useEffect(() => {
     let timeout = null

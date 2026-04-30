@@ -1,33 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useCallback, useMemo } from "react";
 import { motion } from "motion/react"
 
 import { cn } from "@/lib/utils"
-
-const createRays = (count, cycle) => {
-  if (count <= 0) return []
-
-  return Array.from({ length: count }, (_, index) => {
-    const left = 8 + Math.random() * 84
-    const rotate = -28 + Math.random() * 56
-    const width = 160 + Math.random() * 160
-    const swing = 0.8 + Math.random() * 1.8
-    const delay = Math.random() * cycle
-    const duration = cycle * (0.75 + Math.random() * 0.5)
-    const intensity = 0.6 + Math.random() * 0.5
-
-    return {
-      id: `${index}-${Math.round(left * 10)}`,
-      left,
-      rotate,
-      width,
-      swing,
-      delay,
-      duration,
-      intensity,
-    };
-  });
-}
 
 const Ray = ({
   left,
@@ -73,12 +48,32 @@ export function LightRays({
   ref,
   ...props
 }) {
-  const [rays, setRays] = useState([])
   const cycleDuration = Math.max(speed, 0.1)
 
-  useEffect(() => {
-    setRays(createRays(count, cycleDuration))
-  }, [count, cycleDuration])
+  const buildRays = useCallback((c, cycle) => {
+    if (c <= 0) return []
+    return Array.from({ length: c }, (_, index) => {
+      const left = 8 + Math.random() * 84
+      const rotate = -28 + Math.random() * 56
+      const rayWidth = 160 + Math.random() * 160
+      const swing = 0.8 + Math.random() * 1.8
+      const delay = Math.random() * cycle
+      const duration = cycle * (0.75 + Math.random() * 0.5)
+      const intensity = 0.6 + Math.random() * 0.5
+      return {
+        id: `${index}-${Math.round(left * 10)}`,
+        left,
+        rotate,
+        width: rayWidth,
+        swing,
+        delay,
+        duration,
+        intensity,
+      };
+    });
+  }, [])
+
+  const rays = useMemo(() => buildRays(count, cycleDuration), [buildRays, count, cycleDuration])
 
   return (
     <div
