@@ -1,0 +1,237 @@
+// =============================================================================
+// Personal CMS — Prisma schema (DESIGN ONLY for Phase 0 MVP)
+// =============================================================================
+// This schema is intentionally NOT migrated yet. It documents the data model
+// for the next phase of the project (auth, RBAC, real CMS).
+//
+// Phase 1 will: install @prisma/client, run `prisma migrate dev`, and add a
+// seed script that creates the four default roles, the permission matrix, and
+// the technical-admin user (from .env).
+// =============================================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// -----------------------------------------------------------------------------
+// Auth & RBAC
+// -----------------------------------------------------------------------------
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  passwordHash  String
+  name          String
+  avatar        String?
+  locale        String    @default("fa")
+  bio           String?
+  isTechAdmin   Boolean   @default(false) // Single tech admin from .env
+  isActive      Boolean   @default(true)
+  emailVerified DateTime?
+  lastLoginAt   DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  roles    UserRole[]
+  articles Article[]
+  comments Comment[]
+  sessions Session[]
+
+  @@index([email])
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([token])
+}
+
+model Role {
+  id          String   @id @default(cuid())
+  key         String   @unique // tech_admin | admin | editor | user | <custom>
+  nameFa      String
+  nameEn      String
+  description String?
+  isSystem    Boolean  @default(false) // Cannot be deleted from UI
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  permissions RolePermission[]
+  users       UserRole[]
+}
+
+model Permission {
+  id          String  @id @default(cuid())
+  key         String  @unique // articles.create | users.update | settings.read
+  group       String // articles | users | comments | settings | analytics
+  nameFa      String
+  nameEn      String
+  description String?
+
+  roles RolePermission[]
+
+  @@index([group])
+}
+
+model UserRole {
+  userId    String
+  roleId    String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+}
+
+model RolePermission {
+  roleId       String
+  permissionId String
+
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+}
+
+// -----------------------------------------------------------------------------
+// Content
+// -----------------------------------------------------------------------------
+
+model ContentType {
+  id       String  @id @default(cuid())
+  key      String  @unique // news | video | book | event | <custom>
+  nameFa   String
+  nameEn   String
+  icon     String? // lucide-react icon name
+  schema   String? // JSON: extra fields specific to this content type
+  isSystem Boolean @default(false)
+
+  articles Article[]
+}
+
+model Article {
+  id            String        @id @default(cuid())
+  typeId        String
+  slug          String
+  locale        String        @default("fa") // fa | en
+  title         String
+  excerpt       String?
+  body          String // Rich content (JSON or Markdown)
+  cover         String?
+  publishedAt   DateTime?
+  isPinned      Boolean       @default(false)
+  status        ArticleStatus @default(DRAFT)
+  authorId      String?
+  // Type-specific extra fields stored as JSON for flexibility
+  extra         String? // JSON: { duration?, videoUrl?, pages?, eventDate?, ... }
+  viewCount     Int           @default(0)
+  readingTime   Int? // minutes
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  type     ContentType   @relation(fields: [typeId], references: [id])
+  author   User?         @relation(fields: [authorId], references: [id])
+  tags     ArticleTag[]
+  comments Comment[]
+
+  @@unique([slug, locale])
+  @@index([typeId, status, publishedAt])
+  @@index([isPinned])
+}
+
+enum ArticleStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+model Tag {
+  id     String       @id @default(cuid())
+  slug   String       @unique
+  nameFa String
+  nameEn String
+
+  articles ArticleTag[]
+}
+
+model ArticleTag {
+  articleId String
+  tagId     String
+
+  article Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  tag     Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([articleId, tagId])
+}
+
+model Comment {
+  id        String        @id @default(cuid())
+  articleId String
+  userId    String
+  body      String
+  status    CommentStatus @default(PENDING)
+  parentId  String?
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+
+  article  Article   @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  parent   Comment?  @relation("CommentReplies", fields: [parentId], references: [id])
+  replies  Comment[] @relation("CommentReplies")
+
+  @@index([articleId, status])
+}
+
+enum CommentStatus {
+  PENDING
+  APPROVED
+  SPAM
+  REJECTED
+}
+
+// -----------------------------------------------------------------------------
+// Forms & messaging
+// -----------------------------------------------------------------------------
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String
+  body      String
+  locale    String   @default("fa")
+  ipAddress String?
+  isRead    Boolean  @default(false)
+  isSpam    Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([isRead, createdAt])
+}
+
+// -----------------------------------------------------------------------------
+// Settings
+// -----------------------------------------------------------------------------
+
+model Setting {
+  key       String   @id // brand.color | site.title.fa | analytics.enabled | ...
+  value     String
+  group     String? // brand | site | analytics | seo | social
+  updatedAt DateTime @updatedAt
+
+  @@index([group])
+}
