@@ -10,15 +10,16 @@ export function ThemeToggle() {
   const { theme, resolvedTheme, setTheme } = useTheme()
   const mounted = useMounted()
 
-  const current = theme === "system" ? resolvedTheme : theme
+  const current = mounted ? (theme === "system" ? resolvedTheme : theme) : null
   const next = current === "dark" ? "light" : "dark"
+  const label = mounted ? `Switch to ${next} theme` : "Toggle theme"
 
   return (
     <Button
       variant="ghost"
       size="icon"
       onClick={() => setTheme(next)}
-      aria-label={`Switch to ${next} theme`}
+      aria-label={label}
       className="h-8 w-8"
     >
       {mounted && current === "dark" ? (

@@ -6,7 +6,7 @@ import { Menu } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useLocale } from "@/lib/i18n/dictionary-context"
 import { persona } from "@/lib/persona"
-import { Sheet, SheetContent, SheetTrigger, Button, Separator } from "@/components/ui"
+import { Sheet, SheetContent, SheetTitle, SheetTrigger, Button, Separator } from "@/components/ui"
 import { SiteLink } from "./site-link"
 
 export function MobileNav({ nav, dict, className }) {
@@ -30,6 +30,7 @@ export function MobileNav({ nav, dict, className }) {
         side={locale === "fa" ? "right" : "left"}
         className="flex w-[78%] flex-col gap-6 p-6 sm:max-w-sm"
       >
+        <SheetTitle className="sr-only">{dict.nav.openMenu}</SheetTitle>
         <div className="flex flex-col gap-1.5">
           <span className="font-title text-lg font-bold">
             {personaInfo.shortName}

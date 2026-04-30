@@ -40,10 +40,9 @@ export function LocaleSwitcher({ className }) {
           aria-label="Switch language"
         >
           <Languages className="h-3.5 w-3.5" />
-          <span className="hidden sm:inline">{localeNames[locale]}</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="min-w-32">
+      <DropdownMenuContent align="end" className="min-w-18">
         {locales.map((l) => (
           <DropdownMenuItem key={l} asChild>
             <Link
@@ -51,6 +50,7 @@ export function LocaleSwitcher({ className }) {
               className={cn(
                 "cursor-pointer text-sm",
                 l === locale && "font-semibold",
+                "flex justify-end"
               )}
             >
               {localeNames[l]}

@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Sparkles } from "lucide-react"
+import Image from "next/image"
 
 import { cn } from "@/lib/utils"
 import { useDictionary, useLocale } from "@/lib/i18n/dictionary-context"
@@ -47,7 +47,13 @@ export function SiteHeader() {
           className="group flex items-center gap-2 font-title text-base font-bold tracking-tight"
         >
           <span className="relative flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-brand to-accent-1 text-brand-foreground shadow-lg ring-1 ring-foreground/10">
-            <Sparkles className="h-4 w-4" />
+            <Image
+              src="/icon-192.png"
+              alt="Brand icon"
+              width={32}
+              height={32}
+              className="rounded-full"
+            />
           </span>
           <span className="hidden flex-col leading-none sm:flex">
             <span>{personaInfo.shortName}</span>
