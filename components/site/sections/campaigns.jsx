@@ -1,7 +1,15 @@
 "use client"
 
 import * as React from "react"
-import { Sparkles, BookOpen, Leaf, Users, ArrowRight } from "lucide-react"
+import {
+  Sparkles,
+  BookOpen,
+  Leaf,
+  Users,
+  Scale,
+  Briefcase,
+  ArrowRight,
+} from "lucide-react"
 
 import { useDictionary } from "@/lib/i18n/dictionary-context"
 import {
@@ -12,12 +20,14 @@ import {
 import { Button } from "@/components/ui"
 import { SectionHeading } from "./section-heading"
 
-const ICON = { Sparkles, BookOpen, Leaf, Users }
+const ICON = { Sparkles, BookOpen, Leaf, Users, Scale, Briefcase }
 const COLOR_HEX = {
   Sparkles: "#ff5e62",
   BookOpen: "#34d399",
   Leaf: "#fbbf24",
   Users: "#7c5cff",
+  Scale: "#7c5cff",
+  Briefcase: "#34d399",
 }
 
 export function Campaigns({ items }) {

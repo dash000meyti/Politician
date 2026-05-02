@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { notFound } from "next/navigation"
-import { GraduationCap, Award, Briefcase, Users } from "lucide-react"
+import { GraduationCap, BookOpen, Briefcase, Award } from "lucide-react"
 
 import { isLocale } from "@/lib/i18n/config"
 import { getDictionary } from "@/lib/i18n/get-dictionary"
@@ -17,10 +17,34 @@ export async function generateMetadata({ params }) {
 }
 
 const ACHIEVEMENTS = [
-  { icon: GraduationCap, value: 4, suffix: "", labelFa: "مدرک تحصیلی", labelEn: "Degrees" },
-  { icon: Briefcase, value: 12, suffix: "+", labelFa: "سال تجربه‌ی اجرایی", labelEn: "Years of executive experience" },
-  { icon: Users, value: 50, suffix: "k+", labelFa: "مخاطب فعال", labelEn: "Active audience" },
-  { icon: Award, value: 18, suffix: "", labelFa: "نشان و جایزه", labelEn: "Awards and honors" },
+  {
+    icon: GraduationCap,
+    value: 3,
+    suffix: "",
+    labelFa: "مدرک دانشگاهی",
+    labelEn: "University degrees",
+  },
+  {
+    icon: BookOpen,
+    value: 4,
+    suffix: "",
+    labelFa: "کتاب منتشرشده",
+    labelEn: "Published books",
+  },
+  {
+    icon: Briefcase,
+    value: 16,
+    suffix: "+",
+    labelFa: "سال فعالیت رسانه‌ای و اجرایی",
+    labelEn: "Years in media & executive roles",
+  },
+  {
+    icon: Award,
+    value: 1,
+    suffix: "",
+    labelFa: "عضویت هیئت علمی پژوهشگاه",
+    labelEn: "Research institute faculty role",
+  },
 ]
 
 export default async function AboutPage({ params }) {
@@ -37,8 +61,8 @@ export default async function AboutPage({ params }) {
           <BlurFade inView delay={0.05}>
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border/60 bg-gradient-to-br from-brand/20 to-accent-1/10">
               <Image
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=900&auto=format&fit=crop"
-                alt={personaInfo.name}
+                src={persona.hero.portrait}
+                alt={persona.hero.portraitAlt[locale] ?? persona.hero.portraitAlt.fa}
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover"

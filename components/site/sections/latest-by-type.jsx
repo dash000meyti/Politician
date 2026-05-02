@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react"
 
 import { useDictionary, useLocale } from "@/lib/i18n/dictionary-context"
 import { BlurFade } from "@/components/ui/magic"
-import { Tabs, TabsList, TabsTrigger, TabsContent, Button } from "@/components/ui"
+import { Button } from "@/components/ui"
 import { ArticleCard } from "../cards/article-card"
 import { VideoCard } from "../cards/video-card"
 import { BookCard } from "../cards/book-card"
@@ -47,31 +47,27 @@ export function LatestByType({ data }) {
       </div>
 
       <BlurFade inView delay={0.2} className="mt-10">
-        <Tabs defaultValue="news" className="w-full">
-          <TabsList className="flex w-full flex-wrap justify-start gap-1 bg-muted/40 p-1">
-            {TYPES.map((t) => (
-              <TabsTrigger
-                key={t}
-                value={t}
-                className="rounded-full px-4 py-1.5 text-sm font-medium data-[state=active]:bg-background data-[state=active]:shadow-sm"
-              >
-                {dict.sections.latest.tabs[t]}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+        <div className="flex w-full flex-col gap-14 sm:gap-16">
+          {TYPES.map((t) => {
+            const items = (data[t] ?? []).slice(0, 3)
+            if (items.length === 0) return null
 
-          {TYPES.map((t) => (
-            <TabsContent key={t} value={t} className="mt-8">
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {(data[t] ?? []).slice(0, 3).map((a, i) => (
-                  <BlurFade key={a.id} inView delay={0.05 + i * 0.05}>
-                    <CardForType type={t} article={a} />
-                  </BlurFade>
-                ))}
+            return (
+              <div key={t}>
+                <h3 className="font-title text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+                  {dict.sections.latest.tabs[t]}
+                </h3>
+                <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {items.map((a, i) => (
+                    <BlurFade key={a.id} inView delay={0.05 + i * 0.05}>
+                      <CardForType type={t} article={a} />
+                    </BlurFade>
+                  ))}
+                </div>
               </div>
-            </TabsContent>
-          ))}
-        </Tabs>
+            )
+          })}
+        </div>
       </BlurFade>
     </section>
   )

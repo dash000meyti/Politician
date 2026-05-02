@@ -3,7 +3,7 @@
 import * as React from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import { ArrowRight, Sparkles, Mail, ChevronDown } from "lucide-react"
+import { ArrowRight, Mail, ChevronDown } from "lucide-react"
 
 import { useDictionary, useLocale } from "@/lib/i18n/dictionary-context"
 import { persona } from "@/lib/persona"
@@ -19,6 +19,7 @@ import {
   WordRotate,
 } from "@/components/ui/magic"
 import { localized } from "../site-link"
+import { PersonaNameMark } from "../persona-name-mark"
 
 export function Hero() {
   const dict = useDictionary()
@@ -28,8 +29,8 @@ export function Hero() {
 
   const rotatingWords =
     locale === "fa"
-      ? ["شفافیت", "عدالت", "آینده", "مشارکت"]
-      : ["transparency", "justice", "future", "participation"]
+      ? ["اقتصاد سیاسی", "تمدن اسلامی", "استقلال", "اندیشه انقلابی"]
+      : ["political economy", "Islamic civilization", "independence", "revolutionary thought"]
 
   return (
     <section className="relative isolate overflow-hidden pt-12 pb-24 sm:pt-20 sm:pb-32 lg:pt-28">
@@ -59,18 +60,11 @@ export function Hero() {
           </BlurFade>
 
           <BlurFade delay={0.1} inView>
-            <h1 className="font-title text-4xl font-bold leading-[1.05] tracking-tight text-balance sm:text-5xl lg:text-6xl">
-              <span className="font-oneTime">{personaInfo.name}</span>
-              <br />
-              <span className="inline-flex items-center gap-3 text-3xl sm:text-4xl lg:text-5xl">
-                <AuroraText
-                  colors={["#7c5cff", "#ff5e62", "#34d399", "#fbbf24"]}
-                  speed={1.2}
-                >
-                  <WordRotate words={rotatingWords} duration={2200} />
-                </AuroraText>
-              </span>
-            </h1>
+              <PersonaNameMark
+                variant="hero"
+                className="text-foreground"
+                aria-label={personaInfo.name}
+              />
           </BlurFade>
 
           <BlurFade delay={0.18} inView>
@@ -130,11 +124,10 @@ export function Hero() {
           </BlurFade>
         </div>
 
-        <div className="relative flex items-center justify-center lg:col-span-5">
-          
+        <div className="relative flex w-full min-w-0 items-center justify-center lg:col-span-5">
           <BlurFade delay={0.2} inView>
-            <div className="relative flex aspect-[4/5] w-full max-w-md items-end justify-center">
-              <div className="absolute inset-0 -z-10 rounded-[3rem] bg-gradient-to-br from-brand/30 via-accent-1/20 to-accent-3/20 blur-2xl " />
+            <div className="relative flex aspect-[4/5] w-full min-w-0 items-end justify-center">
+              <div className="absolute inset-0 -z-10 rounded-[3rem] bg-gradient-to-br from-brand/30 via-accent-1/20 to-accent-3/20 blur-2xl" />
               <div className="relative flex h-full w-full items-end overflow-hidden rounded-[2.5rem]">
                 <Image
                   src={persona.hero.portrait}
@@ -142,17 +135,17 @@ export function Hero() {
                   width={1024}
                   height={1024}
                   priority
-                  sizes="(max-width: 1024px) 80vw, 35vw"
+                  sizes="(max-width: 1024px) 100vw, 100vw"
                   className="h-full w-full object-cover object-left"
                 />
                 <BorderBeam
-                  size={250}
+                  size={360}
                   duration={10}
                   colorFrom="#7c5cff"
                   colorTo="#ff5e62"
                 />
               </div>
-              <div className="absolute -end-2 top-12 flex flex-col items-end gap-1 rounded-2xl border border-border/60 bg-background/80 p-3 shadow-2xl backdrop-blur">
+              {/* <div className="absolute -end-2 top-12 flex flex-col items-end gap-1 rounded-2xl border border-border/60 bg-background/80 p-3 shadow-2xl backdrop-blur">
                 <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
                   {locale === "fa" ? "هم‌اکنون" : "Now"}
                 </span>
@@ -168,17 +161,10 @@ export function Hero() {
                 <span className="text-xs font-medium">
                   {locale === "fa" ? "+۲۰ هزار حامی" : "20k+ supporters"}
                 </span>
-              </div>
+              </div> */}
             </div>
           </BlurFade>
         </div>
-      </div>
-
-      <div className="mt-16 flex justify-center text-muted-foreground">
-        <span className="inline-flex animate-bounce items-center gap-1.5 text-[10px] uppercase tracking-wider">
-          <ChevronDown className="h-3 w-3" />
-          {dict.hero.scroll}
-        </span>
       </div>
     </section>
   )

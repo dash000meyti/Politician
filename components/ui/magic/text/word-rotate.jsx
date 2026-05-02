@@ -15,7 +15,8 @@ export function WordRotate({
     transition: { duration: 0.25, ease: "easeOut" },
   },
 
-  className
+  className,
+  style,
 }) {
   const [index, setIndex] = useState(0)
 
@@ -29,12 +30,18 @@ export function WordRotate({
   }, [words, duration])
 
   return (
-    <div className="overflow-hidden py-2">
-      <AnimatePresence mode="wait">
-        <motion.h1 key={words[index]} className={cn(className)} {...motionProps}>
-          {words[index]}
-        </motion.h1>
-      </AnimatePresence>
-    </div>
+    <AnimatePresence mode="wait">
+      <motion.span
+        key={words[index]}
+        className={cn(
+          "inline-block min-h-[1.15em] overflow-hidden py-1 align-middle",
+          className,
+        )}
+        style={style}
+        {...motionProps}
+      >
+        {words[index]}
+      </motion.span>
+    </AnimatePresence>
   );
 }

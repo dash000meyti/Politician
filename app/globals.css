@@ -3,8 +3,16 @@
 @import "shadcn/tailwind.css";
 
 @font-face {
-  font-family: "Divan NoEn Black";
+  font-family: "DivanNoEnBlack";
   src: url("/fonts/divan-noen-black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IranNastaliq";
+  src: url("/fonts/IranNastaliq-Web.woff") format("woff");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -13,9 +21,6 @@
 @font-face {
   font-family: "IRANSansX";
   src: url("/fonts/iransansx-bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
 }
 
 @font-face {
@@ -45,7 +50,7 @@
   --font-text: "IRANYekanX", var(--font-vazirmatn), var(--font-geist-sans), system-ui, sans-serif;
   --font-title: "Farhang2", var(--font-vazirmatn), var(--font-geist-sans), system-ui, sans-serif;
   --font-special: "IRANSansX", var(--font-vazirmatn), var(--font-geist-sans), system-ui, sans-serif;
-  --font-one-time: "Divan NoEn Black", var(--font-text);
+  --font-one-time: "IranNastaliq", var(--font-text);
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
   --color-accent-1: var(--accent-1);

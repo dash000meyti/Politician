@@ -10,6 +10,7 @@ import { ThemeToggle } from "@/components/showcase/theme-toggle"
 import { LocaleSwitcher } from "./locale-switcher"
 import { MobileNav } from "./mobile-nav"
 import { SiteLink } from "./site-link"
+import { PersonaNameMark } from "./persona-name-mark"
 
 const NAV = [
   { href: "/", labelKey: "home" },
@@ -56,7 +57,10 @@ export function SiteHeader() {
             />
           </span>
           <span className="hidden flex-col leading-none sm:flex">
-            <span className="font-oneTime">{personaInfo.shortName}</span>
+            <PersonaNameMark
+              variant="compact"
+              aria-label={personaInfo.name}
+            />
             <span className="mt-0.5 font-text text-[10px] font-normal text-muted-foreground">
               {personaInfo.role}
             </span>

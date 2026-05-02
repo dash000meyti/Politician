@@ -25,7 +25,7 @@
     "back": "Back"
   },
   "hero": {
-    "eyebrow": "A voice for transparency, collective action, a brighter future.",
+    "eyebrow": "Political economy, revolutionary thought, and Islamic civilization.",
     "ctaPrimary": "Join the movement",
     "ctaSecondary": "Latest activity",
     "scroll": "Scroll"
@@ -37,7 +37,7 @@
     },
     "bio": {
       "title": "About me",
-      "subtitle": "Twenty years on the field, one goal: the people.",
+      "subtitle": "From research and teaching to economic policymaking.",
       "stats": {
         "yearsLabel": "Years active",
         "eventsLabel": "Public events",
@@ -94,7 +94,7 @@
     },
     "closing": {
       "headline": "We build this road together.",
-      "signature": "Arman Radmanesh"
+      "signature": "Seyed Yaser Jebraeili"
     }
   },
   "content": {
@@ -146,7 +146,7 @@
     }
   },
   "footer": {
-    "tagline": "A voice for transparency, collective action, a brighter future.",
+    "tagline": "Analysis and discourse on the Islamic Revolution and Iran’s political economy.",
     "quickLinks": "Quick links",
     "follow": "Follow us",
     "rights": "All rights reserved.",

@@ -8,6 +8,7 @@ import {
   Leaf,
   Briefcase,
   Scale,
+  Sparkles,
 } from "lucide-react"
 
 import { useDictionary } from "@/lib/i18n/dictionary-context"
@@ -21,6 +22,7 @@ const ICON = {
   Leaf,
   Briefcase,
   Scale,
+  Sparkles,
 }
 
 export function Mission({ items }) {

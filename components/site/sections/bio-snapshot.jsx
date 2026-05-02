@@ -43,8 +43,8 @@ export function BioSnapshot() {
           <BlurFade inView delay={0.1}>
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border/60 bg-gradient-to-br from-brand/20 to-accent-1/20">
               <Image
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=900&auto=format&fit=crop"
-                alt={personaInfo.name}
+                src={persona.hero.portrait}
+                alt={persona.hero.portraitAlt[locale] ?? persona.hero.portraitAlt.fa}
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
                 className="object-cover mix-blend-luminosity opacity-90"

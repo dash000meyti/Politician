@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Image from "next/image"
 import { Calendar, User, Clock } from "lucide-react"
 
 import { useDictionary, useLocale } from "@/lib/i18n/dictionary-context"
@@ -44,13 +45,25 @@ export function VideoTemplate({ article }) {
 
       <BlurFade inView delay={0.18}>
         <div className="relative mt-8">
-          <HeroVideoDialog
-            animationStyle="from-center"
-            videoSrc={article.videoUrl ?? "https://www.youtube.com/embed/dQw4w9WgXcQ"}
-            thumbnailSrc={article.cover}
-            thumbnailAlt={article.title}
-            className="overflow-hidden rounded-2xl border border-border/60"
-          />
+          {article.videoUrl ? (
+            <HeroVideoDialog
+              animationStyle="from-center"
+              videoSrc={article.videoUrl}
+              thumbnailSrc={article.cover}
+              thumbnailAlt={article.title}
+              className="overflow-hidden rounded-2xl border border-border/60"
+            />
+          ) : (
+            <div className="relative aspect-video overflow-hidden rounded-2xl border border-border/60 bg-muted">
+              <Image
+                src={article.cover}
+                alt={article.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 896px) 100vw, 896px"
+              />
+            </div>
+          )}
         </div>
       </BlurFade>
 
