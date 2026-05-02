@@ -1,31 +1,24 @@
-import { notFound } from "next/navigation"
 import { Mail, MapPin, MessageCircle } from "lucide-react"
 
-import { isLocale } from "@/lib/i18n/config"
-import { getDictionary } from "@/lib/i18n/get-dictionary"
-import { persona } from "@/lib/persona"
 import { ContactForm } from "@/components/site"
 import { SectionHeading } from "@/components/site/sections"
 import { BlurFade } from "@/components/ui/magic"
 
-export async function generateMetadata({ params }) {
-  const { locale } = await params
-  if (!isLocale(locale)) return {}
-  const dict = await getDictionary(locale)
-  return { title: dict.contact.title, description: dict.contact.subtitle }
+export async function generateMetadata() {
+  return {
+    title: "ارتباط با من",
+    description:
+      "پیام شما خوانده می‌شود؛ پاسخ، در سریع‌ترین زمان ممکن.",
+  }
 }
 
-export default async function ContactPage({ params }) {
-  const { locale } = await params
-  if (!isLocale(locale)) notFound()
-  const dict = await getDictionary(locale)
-
+export default async function ContactPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-20 lg:px-8">
       <SectionHeading
-        eyebrow={dict.contact.channels.title}
-        title={dict.contact.title}
-        subtitle={dict.contact.subtitle}
+        eyebrow="راه‌های ارتباط"
+        title="ارتباط با من"
+        subtitle="پیام شما خوانده می‌شود؛ پاسخ، در سریع‌ترین زمان ممکن."
       />
 
       <div className="mt-12 grid gap-10 lg:grid-cols-12">
@@ -40,44 +33,42 @@ export default async function ContactPage({ params }) {
             <div className="rounded-2xl border border-border/60 bg-card p-5">
               <Mail className="h-5 w-5 text-brand" />
               <div className="mt-3 text-xs uppercase tracking-wider text-muted-foreground">
-                {dict.contact.channels.email}
+                ایمیل
               </div>
               <a
-                href={`mailto:${persona.contact.email}`}
+                href="mailto:contact@example.com"
                 className="mt-1 block font-title text-base font-bold hover:text-brand"
               >
-                {persona.contact.email}
+                contact@example.com
               </a>
             </div>
 
             <div className="rounded-2xl border border-border/60 bg-card p-5">
               <MapPin className="h-5 w-5 text-accent-1" />
               <div className="mt-3 text-xs uppercase tracking-wider text-muted-foreground">
-                {dict.contact.channels.office}
+                دفتر
               </div>
               <p className="mt-1 font-title text-base font-bold leading-snug">
-                {persona.contact.office[locale] ?? persona.contact.office.en}
+                ارتباط از طریق وب‌گاه رسمی — آدرس دفتر پس از تأیید درج می‌شود.
               </p>
             </div>
 
             <div className="rounded-2xl border border-border/60 bg-card p-5">
               <MessageCircle className="h-5 w-5 text-accent-2" />
               <div className="mt-3 text-xs uppercase tracking-wider text-muted-foreground">
-                {dict.contact.channels.social}
+                شبکه‌های اجتماعی
               </div>
               <ul className="mt-3 grid grid-cols-3 gap-2">
-                {persona.social.slice(0, 6).map((s) => (
-                  <li key={s.id}>
-                    <a
-                      href={s.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block rounded-lg border border-border/60 bg-background px-2 py-1.5 text-center text-[10px] font-medium uppercase tracking-wider text-muted-foreground transition hover:border-brand hover:text-foreground"
-                    >
-                      {s.id}
-                    </a>
-                  </li>
-                ))}
+                <li>
+                  <a
+                    href="https://jebraily.ir/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block rounded-lg border border-border/60 bg-background px-2 py-1.5 text-center text-[10px] font-medium uppercase tracking-wider text-muted-foreground transition hover:border-brand hover:text-foreground"
+                  >
+                    website
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

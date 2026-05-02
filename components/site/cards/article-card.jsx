@@ -5,15 +5,16 @@ import Image from "next/image"
 import { Calendar, ArrowRight, Pin } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { useDictionary, useLocale } from "@/lib/i18n/dictionary-context"
 import { Badge } from "@/components/ui"
 import { SiteLink } from "../site-link"
 
-export function ArticleCard({ article, className, featured = false }) {
-  const dict = useDictionary()
-  const locale = useLocale()
-  const typeLabel = dict.content.types[article.type]
-  const date = formatDate(article.publishedAt, locale)
+export function ArticleCard({
+  article,
+  className,
+  featured = false,
+  imageClassName,
+}) {
+  const date = formatDate(article.publishedAt)
 
   return (
     <SiteLink
@@ -26,8 +27,9 @@ export function ArticleCard({ article, className, featured = false }) {
     >
       <div
         className={cn(
-          "relative aspect-[16/10] w-full overflow-hidden bg-muted",
+          "relative aspect-16/10 w-full overflow-hidden bg-muted",
           featured && "md:aspect-auto md:h-auto md:w-1/2",
+          imageClassName,
         )}
       >
         <Image
@@ -39,7 +41,13 @@ export function ArticleCard({ article, className, featured = false }) {
         />
         <div className="absolute inset-x-0 top-0 flex items-center justify-between p-3">
           <Badge variant="secondary" className="bg-background/80 backdrop-blur">
-            {typeLabel}
+            {article.type === "news"
+              ? "خبر"
+              : article.type === "video"
+                ? "ویدیو"
+                : article.type === "book"
+                  ? "کتاب"
+                  : "رویداد"}
           </Badge>
           {article.pinned && (
             <Badge className="bg-brand text-brand-foreground">
@@ -90,7 +98,7 @@ export function ArticleCard({ article, className, featured = false }) {
             <span />
           )}
           <span className="inline-flex items-center gap-1 text-xs font-medium text-foreground/70 transition-colors group-hover:text-brand">
-            {dict.actions.readMore}
+            مطالعه‌ی بیشتر
             <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 rtl:rotate-180 rtl:group-hover:-translate-x-0.5" />
           </span>
         </div>
@@ -99,10 +107,10 @@ export function ArticleCard({ article, className, featured = false }) {
   )
 }
 
-export function formatDate(iso, locale = "fa") {
+export function formatDate(iso) {
   if (!iso) return ""
   try {
-    return new Intl.DateTimeFormat(locale === "fa" ? "fa-IR" : "en-US", {
+    return new Intl.DateTimeFormat("fa-IR", {
       year: "numeric",
       month: "short",
       day: "numeric",

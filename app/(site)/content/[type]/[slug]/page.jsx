@@ -3,9 +3,6 @@ import { ChevronLeft } from "lucide-react"
 import Link from "next/link"
 import Script from "next/script"
 
-import { isLocale } from "@/lib/i18n/config"
-import { getDictionary } from "@/lib/i18n/get-dictionary"
-import { persona } from "@/lib/persona"
 import {
   contentTypes,
   getArticleBySlug,
@@ -21,22 +18,16 @@ import {
 import { ContentGrid } from "@/components/site"
 
 export async function generateStaticParams() {
-  const params = []
-  for (const locale of ["fa", "en"]) {
-    for (const a of articles) {
-      params.push({ locale, type: a.type, slug: a.slug })
-    }
-  }
-  return params
+  return articles.map((a) => ({ type: a.type, slug: a.slug }))
 }
 
 export async function generateMetadata({ params }) {
-  const { locale, type, slug } = await params
-  if (!isLocale(locale) || !contentTypes.includes(type)) return {}
-  const article = getArticleBySlug({ slug, type, locale })
+  const { type, slug } = await params
+  if (!contentTypes.includes(type)) return {}
+  const article = getArticleBySlug({ slug, type })
   if (!article) return {}
 
-  const url = `/${locale}/content/${type}/${slug}`
+  const url = `/content/${type}/${slug}`
   return {
     title: article.title,
     description: article.excerpt,
@@ -60,16 +51,13 @@ function TemplateForType({ type, article }) {
 }
 
 export default async function ArticlePage({ params }) {
-  const { locale, type, slug } = await params
-  if (!isLocale(locale) || !contentTypes.includes(type)) notFound()
-  const article = getArticleBySlug({ slug, type, locale })
+  const { type, slug } = await params
+  if (!contentTypes.includes(type)) notFound()
+  const article = getArticleBySlug({ slug, type })
   if (!article) notFound()
-  const dict = await getDictionary(locale)
-  const related = getArticles({ locale, type })
+  const related = getArticles({ type })
     .filter((a) => a.slug !== slug)
     .slice(0, 3)
-
-  const personaInfo = persona[locale]
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -80,19 +68,19 @@ export default async function ArticlePage({ params }) {
     datePublished: article.publishedAt,
     author: {
       "@type": "Person",
-      name: article.author ?? personaInfo.name,
+      name: article.author ?? "سید یاسر جبرائیلی",
     },
-    inLanguage: locale,
+    inLanguage: "fa",
   }
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
       <Link
-        href={`/${locale}/content/${type}`}
+        href={`/content/${type}`}
         className="mb-8 inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
       >
         <ChevronLeft className="h-3.5 w-3.5 rtl:rotate-180" />
-        {dict.actions.back}
+        بازگشت
       </Link>
 
       <TemplateForType type={type} article={article} />
@@ -100,7 +88,7 @@ export default async function ArticlePage({ params }) {
       {related.length > 0 && (
         <section className="mt-20">
           <h2 className="font-title text-2xl font-bold">
-            {dict.content.related}
+            محتوای مرتبط
           </h2>
           <div className="mt-6">
             <ContentGrid articles={related} />
@@ -108,7 +96,7 @@ export default async function ArticlePage({ params }) {
         </section>
       )}
 
-      <Script id={`article-jsonld-${locale}-${type}-${slug}`} type="application/ld+json">
+      <Script id={`article-jsonld-${type}-${slug}`} type="application/ld+json">
         {JSON.stringify(jsonLd)}
       </Script>
     </div>

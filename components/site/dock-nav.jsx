@@ -4,7 +4,6 @@ import * as React from "react"
 import { Home, User2, Layers, Mail } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { useDictionary } from "@/lib/i18n/dictionary-context"
 import { Dock, DockIcon } from "@/components/ui/magic"
 import { Tooltip, TooltipContent, TooltipTrigger, Separator } from "@/components/ui"
 import { ThemeToggle } from "@/components/showcase/theme-toggle"
@@ -12,15 +11,13 @@ import { SiteLink } from "./site-link"
 import { SocialIcon } from "./social-icon"
 
 const ITEMS = [
-  { href: "/", icon: Home, labelKey: "home" },
-  { href: "/content", icon: Layers, labelKey: "content" },
-  { href: "/about", icon: User2, labelKey: "about" },
-  { href: "/contact", icon: Mail, labelKey: "contact" },
+  { href: "/", icon: Home, label: "صفحه اصلی" },
+  { href: "/content", icon: Layers, label: "مطالب" },
+  { href: "/about", icon: User2, label: "درباره من" },
+  { href: "/contact", icon: Mail, label: "ارتباط با من" },
 ]
 
 export function DockNav() {
-  const dict = useDictionary()
-
   return (
     <div
       className={cn(
@@ -47,11 +44,11 @@ export function DockNav() {
                       activeClassName="text-foreground"
                     >
                       <Icon className="h-[55%] w-[55%]" />
-                      <span className="sr-only">{dict.nav[item.labelKey]}</span>
+                      <span className="sr-only">{item.label}</span>
                     </SiteLink>
                   </TooltipTrigger>
                   <TooltipContent side="top" sideOffset={6}>
-                    {dict.nav[item.labelKey]}
+                    {item.label}
                   </TooltipContent>
                 </Tooltip>
               </DockIcon>

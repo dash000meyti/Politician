@@ -4,7 +4,6 @@ import * as React from "react"
 import { Send, Loader2 } from "lucide-react"
 import { toast } from "sonner"
 
-import { useDictionary, useLocale } from "@/lib/i18n/dictionary-context"
 import {
   Button,
   Input,
@@ -13,8 +12,6 @@ import {
 } from "@/components/ui"
 
 export function ContactForm() {
-  const dict = useDictionary()
-  const locale = useLocale()
   const [pending, setPending] = React.useState(false)
 
   async function onSubmit(e) {
@@ -26,13 +23,15 @@ export function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ ...payload, locale }),
+        body: JSON.stringify(payload),
       })
       if (!res.ok) throw new Error("Request failed")
-      toast.success(dict.contact.form.success)
+      toast.success("پیام شما با موفقیت ارسال شد.")
       e.currentTarget.reset()
     } catch (err) {
-      toast.error(dict.contact.form.error)
+      toast.error(
+        "ارسال پیام با خطا مواجه شد. لطفاً دوباره تلاش کنید.",
+      )
     } finally {
       setPending(false)
     }
@@ -42,46 +41,46 @@ export function ContactForm() {
     <form onSubmit={onSubmit} className="flex flex-col gap-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
-          <Label htmlFor="name">{dict.contact.form.name}</Label>
+          <Label htmlFor="name">نام و نام خانوادگی</Label>
           <Input
             id="name"
             name="name"
             required
-            placeholder={dict.contact.form.namePlaceholder}
+            placeholder="نام شما"
             autoComplete="name"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <Label htmlFor="email">{dict.contact.form.email}</Label>
+          <Label htmlFor="email">ایمیل</Label>
           <Input
             id="email"
             name="email"
             type="email"
             required
-            placeholder={dict.contact.form.emailPlaceholder}
+            placeholder="ایمیل شما"
             autoComplete="email"
           />
         </div>
       </div>
 
       <div className="flex flex-col gap-2">
-        <Label htmlFor="subject">{dict.contact.form.subject}</Label>
+        <Label htmlFor="subject">موضوع</Label>
         <Input
           id="subject"
           name="subject"
           required
-          placeholder={dict.contact.form.subjectPlaceholder}
+          placeholder="موضوع پیام"
         />
       </div>
 
       <div className="flex flex-col gap-2">
-        <Label htmlFor="message">{dict.contact.form.message}</Label>
+        <Label htmlFor="message">پیام</Label>
         <Textarea
           id="message"
           name="message"
           required
           rows={6}
-          placeholder={dict.contact.form.messagePlaceholder}
+          placeholder="متن پیام شما..."
         />
       </div>
 
@@ -95,12 +94,12 @@ export function ContactForm() {
           {pending ? (
             <>
               <Loader2 className="me-2 h-4 w-4 animate-spin" />
-              {dict.contact.form.sending}
+              در حال ارسال...
             </>
           ) : (
             <>
               <Send className="me-2 h-4 w-4 rtl:rotate-180" />
-              {dict.contact.form.submit}
+              ارسال پیام
             </>
           )}
         </Button>

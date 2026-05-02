@@ -3,12 +3,10 @@
 import * as React from "react"
 import Image from "next/image"
 
-import { useDictionary } from "@/lib/i18n/dictionary-context"
 import { BlurFade, Marquee } from "@/components/ui/magic"
 import { SectionHeading } from "./section-heading"
 
 export function Collaborations({ items }) {
-  const dict = useDictionary()
   if (!items?.length) return null
 
   return (
@@ -16,8 +14,8 @@ export function Collaborations({ items }) {
       <SectionHeading
         align="center"
         eyebrow="Together"
-        title={dict.sections.collaborations.title}
-        subtitle={dict.sections.collaborations.subtitle}
+        title="همکاری‌ها"
+        subtitle="در کنار سازمان‌ها و نهادهایی که به آینده باور دارند."
       />
 
       <BlurFade

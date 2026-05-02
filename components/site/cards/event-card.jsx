@@ -5,15 +5,12 @@ import Image from "next/image"
 import { CalendarDays, Clock, MapPin } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { useDictionary, useLocale } from "@/lib/i18n/dictionary-context"
 import { Badge } from "@/components/ui"
 import { SiteLink } from "../site-link"
 import { formatDate } from "./article-card"
 
 export function EventCard({ article, className }) {
-  const dict = useDictionary()
-  const locale = useLocale()
-  const date = formatDate(article.eventDate, locale)
+  const date = formatDate(article.eventDate)
   const isUpcoming = article.eventDate
     ? new Date(article.eventDate) > new Date()
     : false
@@ -37,7 +34,7 @@ export function EventCard({ article, className }) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
         <div className="absolute start-3 top-3">
           <Badge className="bg-accent-1 text-white">
-            {dict.content.types.event}
+            رویداد
           </Badge>
         </div>
         {isUpcoming && (
@@ -48,7 +45,7 @@ export function EventCard({ article, className }) {
         <div className="absolute bottom-3 start-3 end-3 flex items-end justify-between gap-3 text-white">
           <div className="flex flex-col">
             <span className="text-[11px] uppercase tracking-wider opacity-80">
-              {dict.content.types.event}
+              رویداد
             </span>
             <h3 className="line-clamp-2 font-title text-lg font-bold leading-tight">
               {article.title}

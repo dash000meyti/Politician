@@ -3,16 +3,11 @@
 import * as React from "react"
 import { Mail, MapPin } from "lucide-react"
 
-import { useDictionary, useLocale } from "@/lib/i18n/dictionary-context"
-import { persona } from "@/lib/persona"
 import { Separator } from "@/components/ui"
 import { SiteLink } from "./site-link"
 import { SocialIcon } from "./social-icon"
 
 export function SiteFooter() {
-  const dict = useDictionary()
-  const locale = useLocale()
-  const personaInfo = persona[locale] ?? persona.fa
   const year = new Date().getFullYear()
 
   return (
@@ -23,57 +18,73 @@ export function SiteFooter() {
 
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-4 lg:px-8">
         <div className="lg:col-span-2">
-          <div className="font-title text-lg font-bold">{personaInfo.shortName}</div>
+          <div className="font-title text-lg font-bold">یاسر جبرائیلی</div>
           <p className="mt-2 max-w-md text-sm text-muted-foreground">
-            {dict.footer.tagline}
+            تحلیل و گفتار در بستر انقلاب اسلامی و اقتصاد سیاسی ایران.
           </p>
           <div className="mt-6 flex flex-col gap-2 text-xs text-muted-foreground">
             <div className="flex items-center gap-2">
               <Mail className="h-3.5 w-3.5" />
               <a
-                href={`mailto:${persona.contact.email}`}
+                href="mailto:contact@example.com"
                 className="hover:text-foreground"
               >
-                {persona.contact.email}
+                contact@example.com
               </a>
             </div>
             <div className="flex items-center gap-2">
               <MapPin className="h-3.5 w-3.5" />
-              <span>{persona.contact.office[locale] ?? persona.contact.office.en}</span>
+              <span>
+                ارتباط از طریق وب‌گاه رسمی — آدرس دفتر پس از تأیید درج می‌شود.
+              </span>
             </div>
           </div>
         </div>
 
         <div>
           <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            {dict.footer.quickLinks}
+            لینک‌های سریع
           </div>
           <ul className="mt-4 flex flex-col gap-2 text-sm">
-            <li><SiteLink href="/" className="text-muted-foreground hover:text-foreground">{dict.nav.home}</SiteLink></li>
-            <li><SiteLink href="/about" className="text-muted-foreground hover:text-foreground">{dict.nav.about}</SiteLink></li>
-            <li><SiteLink href="/content" className="text-muted-foreground hover:text-foreground">{dict.nav.content}</SiteLink></li>
-            <li><SiteLink href="/contact" className="text-muted-foreground hover:text-foreground">{dict.nav.contact}</SiteLink></li>
+            <li>
+              <SiteLink href="/" className="text-muted-foreground hover:text-foreground">
+                صفحه اصلی
+              </SiteLink>
+            </li>
+            <li>
+              <SiteLink href="/about" className="text-muted-foreground hover:text-foreground">
+                درباره من
+              </SiteLink>
+            </li>
+            <li>
+              <SiteLink href="/content" className="text-muted-foreground hover:text-foreground">
+                مطالب
+              </SiteLink>
+            </li>
+            <li>
+              <SiteLink href="/contact" className="text-muted-foreground hover:text-foreground">
+                ارتباط با من
+              </SiteLink>
+            </li>
           </ul>
         </div>
 
         <div>
           <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            {dict.footer.follow}
+            ما را دنبال کنید
           </div>
           <ul className="mt-4 grid grid-cols-3 gap-2">
-            {persona.social.map((s) => (
-              <li key={s.id}>
-                <a
-                  href={s.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/60 bg-background text-muted-foreground transition-colors hover:border-brand hover:text-foreground"
-                >
-                  <SocialIcon name={s.id} size={14} />
-                </a>
-              </li>
-            ))}
+            <li>
+              <a
+                href="https://jebraily.ir/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="وب‌گاه رسمی"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/60 bg-background text-muted-foreground transition-colors hover:border-brand hover:text-foreground"
+              >
+                <SocialIcon name="website" size={14} />
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -81,9 +92,9 @@ export function SiteFooter() {
       <Separator />
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-5 text-xs text-muted-foreground sm:px-6 lg:px-8">
         <span>
-          © {year} {personaInfo.shortName}. {dict.footer.rights}
+          © {year} یاسر جبرائیلی. تمام حقوق محفوظ است.
         </span>
-        <span>{dict.footer.builtWith}</span>
+        <span>ساخته شده با Next.js، Tailwind و Magic UI.</span>
       </div>
     </footer>
   )

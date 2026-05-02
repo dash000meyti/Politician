@@ -4,15 +4,12 @@ import * as React from "react"
 import Image from "next/image"
 import { CalendarDays, Clock, MapPin } from "lucide-react"
 
-import { useDictionary, useLocale } from "@/lib/i18n/dictionary-context"
 import { BlurFade } from "@/components/ui/magic"
 import { Button } from "@/components/ui"
 import { formatDate } from "../cards/article-card"
 
 export function EventTemplate({ article }) {
-  const dict = useDictionary()
-  const locale = useLocale()
-  const eventDate = formatDate(article.eventDate, locale)
+  const eventDate = formatDate(article.eventDate)
 
   return (
     <article className="mx-auto max-w-5xl">
@@ -29,7 +26,7 @@ export function EventTemplate({ article }) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-10">
             <span className="rounded-full bg-accent-1 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wider">
-              {dict.content.types.event}
+              رویداد
             </span>
             <h1 className="mt-3 font-title text-3xl font-bold leading-tight text-balance sm:text-5xl">
               {article.title}
@@ -52,7 +49,7 @@ export function EventTemplate({ article }) {
           <aside className="sticky top-24 flex flex-col gap-4 rounded-2xl border border-border/60 bg-card p-6 shadow-sm">
             <div>
               <div className="text-[11px] uppercase tracking-wider text-muted-foreground">
-                {locale === "fa" ? "زمان" : "When"}
+                زمان
               </div>
               <div className="mt-1.5 flex items-center gap-2 font-title text-base font-semibold">
                 <CalendarDays className="h-4 w-4 text-accent-1" />
@@ -69,7 +66,7 @@ export function EventTemplate({ article }) {
             {article.venue && (
               <div>
                 <div className="text-[11px] uppercase tracking-wider text-muted-foreground">
-                  {locale === "fa" ? "مکان" : "Where"}
+                  مکان
                 </div>
                 <div className="mt-1.5 flex items-start gap-2 font-title text-base font-semibold">
                   <MapPin className="h-4 w-4 text-accent-1 shrink-0 mt-0.5" />
@@ -85,7 +82,7 @@ export function EventTemplate({ article }) {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {dict.actions.register}
+                  ثبت‌نام
                 </a>
               </Button>
             )}

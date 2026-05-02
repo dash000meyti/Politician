@@ -1,7 +1,5 @@
-import { persona } from "@/lib/persona"
-
 export default function robots() {
-  const base = persona.site.url.replace(/\/$/, "")
+  const base = "https://jebraily.ir".replace(/\/$/, "")
   return {
     rules: [
       {

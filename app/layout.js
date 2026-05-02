@@ -4,7 +4,6 @@ import { TooltipProvider } from "@/components/ui"
 import { Toaster } from "@/components/ui"
 import { DirectionProvider } from '@/components/ui'
 import { AppProviders } from "@/components/providers"
-import { persona } from "@/lib/persona"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,21 +23,31 @@ const vazirmatn = Vazirmatn({
 });
 
 export const metadata = {
-  metadataBase: new URL(persona.site.url),
+  metadataBase: new URL("https://jebraily.ir"),
   title: {
-    default: `${persona.fa.name} — ${persona.fa.title}`,
-    template: `%s · ${persona.fa.name}`,
+    default:
+      "سید یاسر جبرائیلی — صدای کنش جمعی، برای ساخت بهتر تمدن ایران اسلامی",
+    template: "%s · سید یاسر جبرائیلی",
   },
-  description: persona.fa.shortBio,
-  applicationName: persona.fa.name,
-  authors: [{ name: persona.fa.name }],
-  keywords: persona.keywords,
+  description:
+    "پژوهشگر اندیشه سیاسی و اقتصاد سیاسی؛ دبیرکل حزب تمدن نوین اسلامی و عضو هیئت علمی پژوهشگاه علوم انسانی و مطالعات فرهنگی. تمرکز او بر تحلیل سیاست‌های اقتصادی، حکمرانی پولی و مسیر توسعه در چارچوب انقلاب اسلامی است.",
+  applicationName: "سید یاسر جبرائیلی",
+  authors: [{ name: "سید یاسر جبرائیلی" }],
+  keywords: [
+    "یاسر جبرائیلی",
+    "حزب تمدن نوین اسلامی",
+    "اقتصاد سیاسی",
+    "اندیشه سیاسی",
+    "Iran",
+  ],
   openGraph: {
     type: "website",
     locale: "fa_IR",
-    siteName: persona.fa.name,
-    title: `${persona.fa.name} — ${persona.fa.title}`,
-    description: persona.fa.shortBio,
+    siteName: "سید یاسر جبرائیلی",
+    title:
+      "سید یاسر جبرائیلی — صدای کنش جمعی، برای ساخت بهتر تمدن ایران اسلامی",
+    description:
+      "پژوهشگر اندیشه سیاسی و اقتصاد سیاسی؛ دبیرکل حزب تمدن نوین اسلامی و عضو هیئت علمی پژوهشگاه علوم انسانی و مطالعات فرهنگی. تمرکز او بر تحلیل سیاست‌های اقتصادی، حکمرانی پولی و مسیر توسعه در چارچوب انقلاب اسلامی است.",
   },
 };
 

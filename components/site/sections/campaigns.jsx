@@ -11,7 +11,6 @@ import {
   ArrowRight,
 } from "lucide-react"
 
-import { useDictionary } from "@/lib/i18n/dictionary-context"
 import {
   BlurFade,
   AnimatedCircularProgressBar,
@@ -31,7 +30,6 @@ const COLOR_HEX = {
 }
 
 export function Campaigns({ items }) {
-  const dict = useDictionary()
   if (!items?.length) return null
 
   return (
@@ -39,8 +37,8 @@ export function Campaigns({ items }) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="Live"
-          title={dict.sections.campaigns.title}
-          subtitle={dict.sections.campaigns.subtitle}
+          title="کمپین‌های فعال"
+          subtitle="هر کمپین یک گام به سمت تغییری ملموس است."
         />
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -84,14 +82,14 @@ export function Campaigns({ items }) {
 
                   <div className="mt-5 flex items-center justify-between">
                     <div className="text-[11px] text-muted-foreground">
-                      {dict.sections.campaigns.progressLabel}: {c.progress}%
+                      پیشرفت: {c.progress}%
                     </div>
                     <Button
                       size="sm"
                       variant="ghost"
                       className="h-7 px-2 text-[11px]"
                     >
-                      {dict.sections.campaigns.support}
+                      حمایت می‌کنم
                       <ArrowRight className="ms-1 h-3 w-3 rtl:rotate-180" />
                     </Button>
                   </div>

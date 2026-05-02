@@ -4,7 +4,6 @@ import * as React from "react"
 import { Check, Clock, ArrowRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { useDictionary } from "@/lib/i18n/dictionary-context"
 import { BlurFade } from "@/components/ui/magic"
 import { SectionHeading } from "./section-heading"
 
@@ -27,7 +26,6 @@ const STATUS_STYLE = {
 }
 
 export function Roadmap({ items }) {
-  const dict = useDictionary()
   if (!items?.length) return null
 
   return (
@@ -36,8 +34,8 @@ export function Roadmap({ items }) {
         <SectionHeading
           align="center"
           eyebrow="Path"
-          title={dict.sections.roadmap.title}
-          subtitle={dict.sections.roadmap.subtitle}
+          title="نقشه‌ی راه"
+          subtitle="از کجا آغاز کردیم، کجا هستیم، و کجا می‌رویم."
         />
 
         <ol className="relative mt-14 space-y-6 ps-6 sm:ps-10">
@@ -69,7 +67,11 @@ export function Roadmap({ items }) {
                         )}
                       >
                         <Icon className="h-3 w-3" />
-                        {dict.sections.roadmap.status[r.status]}
+                        {r.status === "done"
+                          ? "انجام‌شده"
+                          : r.status === "active"
+                            ? "در حال انجام"
+                            : "پیش‌رو"}
                       </span>
                     </div>
                     <h3 className="mt-2 font-title text-base font-bold sm:text-lg">

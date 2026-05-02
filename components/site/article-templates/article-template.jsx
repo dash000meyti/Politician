@@ -4,21 +4,18 @@ import * as React from "react"
 import Image from "next/image"
 import { Calendar, Tag, User } from "lucide-react"
 
-import { useDictionary, useLocale } from "@/lib/i18n/dictionary-context"
 import { BlurFade } from "@/components/ui/magic"
 import { formatDate } from "../cards/article-card"
 
 export function NewsTemplate({ article }) {
-  const dict = useDictionary()
-  const locale = useLocale()
-  const date = formatDate(article.publishedAt, locale)
+  const date = formatDate(article.publishedAt)
 
   return (
     <article className="mx-auto max-w-3xl">
       <BlurFade inView delay={0.05}>
         <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
           <span className="inline-flex items-center gap-1 rounded-full border border-border/60 bg-muted px-2.5 py-1 font-medium uppercase tracking-wider">
-            {dict.content.types.news}
+            خبر
           </span>
           <span className="inline-flex items-center gap-1.5">
             <Calendar className="h-3 w-3" />

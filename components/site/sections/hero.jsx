@@ -3,34 +3,21 @@
 import * as React from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import { ArrowRight, Mail, ChevronDown } from "lucide-react"
+import { ArrowRight, Mail } from "lucide-react"
 
-import { useDictionary, useLocale } from "@/lib/i18n/dictionary-context"
-import { persona } from "@/lib/persona"
 import {
   Particles,
-  AuroraText,
-  TextAnimate,
   AnimatedShinyText,
   ShimmerButton,
   RippleButton,
   BlurFade,
   BorderBeam,
-  WordRotate,
+  TextAnimate,
 } from "@/components/ui/magic"
-import { localized } from "../site-link"
 import { PersonaNameMark } from "../persona-name-mark"
 
 export function Hero() {
-  const dict = useDictionary()
-  const locale = useLocale()
   const router = useRouter()
-  const personaInfo = persona[locale] ?? persona.fa
-
-  const rotatingWords =
-    locale === "fa"
-      ? ["اقتصاد سیاسی", "تمدن اسلامی", "استقلال", "اندیشه انقلابی"]
-      : ["political economy", "Islamic civilization", "independence", "revolutionary thought"]
 
   return (
     <section className="relative isolate overflow-hidden pt-12 pb-24 sm:pt-20 sm:pb-32 lg:pt-28">
@@ -54,17 +41,17 @@ export function Hero() {
             <div className="inline-flex w-fit items-center gap-2 rounded-full border border-border/60 bg-background/60 px-3 py-1 backdrop-blur">
               <span className="flex h-1.5 w-1.5 animate-pulse rounded-full bg-accent-2" />
               <AnimatedShinyText className="text-[11px] font-medium uppercase tracking-wider">
-                {dict.hero.eyebrow}
+                تحلیل اقتصاد سیاسی، اندیشه انقلابی و مسیر تمدن اسلامی
               </AnimatedShinyText>
             </div>
           </BlurFade>
 
           <BlurFade delay={0.1} inView>
-              <PersonaNameMark
-                variant="hero"
-                className="text-foreground"
-                aria-label={personaInfo.name}
-              />
+            <PersonaNameMark
+              variant="hero"
+              className="text-foreground"
+              aria-label="سید یاسر جبرائیلی"
+            />
           </BlurFade>
 
           <BlurFade delay={0.18} inView>
@@ -74,7 +61,10 @@ export function Hero() {
               animation="blurInUp"
               className="max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
             >
-              {personaInfo.shortBio}
+              پژوهشگر اندیشه سیاسی و اقتصاد سیاسی؛ دبیرکل حزب تمدن نوین اسلامی و
+              عضو هیئت علمی پژوهشگاه علوم انسانی و مطالعات فرهنگی. تمرکز او بر
+              تحلیل سیاست‌های اقتصادی، حکمرانی پولی و مسیر توسعه در چارچوب
+              انقلاب اسلامی است.
             </TextAnimate>
           </BlurFade>
 
@@ -83,20 +73,20 @@ export function Hero() {
               <ShimmerButton
                 className="shadow-2xl"
                 background="#7c5cff"
-                onClick={() => router.push(localized("/contact", locale))}
+                onClick={() => router.push("/contact")}
               >
                 <span className="flex items-center gap-2 px-2 text-sm font-medium text-white">
                   <Mail className="h-4 w-4" />
-                  {dict.hero.ctaPrimary}
+                  برای ارتباط بامن
                 </span>
               </ShimmerButton>
               <RippleButton
                 rippleColor="#7c5cff"
                 className="border-border/60"
-                onClick={() => router.push(localized("/content", locale))}
+                onClick={() => router.push("/content")}
               >
                 <span className="flex items-center gap-2 text-sm font-medium">
-                  {dict.hero.ctaSecondary}
+                  آخرین فعالیت‌ها
                   <ArrowRight className="h-4 w-4 rtl:rotate-180" />
                 </span>
               </RippleButton>
@@ -105,20 +95,17 @@ export function Hero() {
 
           <BlurFade delay={0.4} inView>
             <div className="mt-2 flex items-center gap-3 text-xs text-muted-foreground">
-              <span>{dict.actions.follow}:</span>
+              <span>دنبال کنید:</span>
               <div className="flex flex-wrap items-center gap-1.5">
-                {persona.social.slice(0, 5).map((s) => (
-                  <a
-                    key={s.id}
-                    href={s.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={s.label}
-                    className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 text-[10px] uppercase tracking-wider text-muted-foreground backdrop-blur transition-all hover:border-brand hover:text-foreground"
-                  >
-                    {s.id}
-                  </a>
-                ))}
+                <a
+                  href="https://jebraily.ir/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="وب‌گاه رسمی"
+                  className="rounded-full border border-border/60 bg-background/40 px-2.5 py-1 text-[10px] uppercase tracking-wider text-muted-foreground backdrop-blur transition-all hover:border-brand hover:text-foreground"
+                >
+                  website
+                </a>
               </div>
             </div>
           </BlurFade>
@@ -130,8 +117,8 @@ export function Hero() {
               <div className="absolute inset-0 -z-10 rounded-[3rem] bg-gradient-to-br from-brand/30 via-accent-1/20 to-accent-3/20 blur-2xl" />
               <div className="relative flex h-full w-full items-end overflow-hidden rounded-[2.5rem]">
                 <Image
-                  src={persona.hero.portrait}
-                  alt={persona.hero.portraitAlt[locale] ?? persona.hero.portraitAlt.en}
+                  src="/photo.png"
+                  alt="پرتره‌ی سید یاسر جبرائیلی"
                   width={1024}
                   height={1024}
                   priority
@@ -145,23 +132,6 @@ export function Hero() {
                   colorTo="#ff5e62"
                 />
               </div>
-              {/* <div className="absolute -end-2 top-12 flex flex-col items-end gap-1 rounded-2xl border border-border/60 bg-background/80 p-3 shadow-2xl backdrop-blur">
-                <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
-                  {locale === "fa" ? "هم‌اکنون" : "Now"}
-                </span>
-                <span className="font-title text-sm font-bold">
-                  {locale === "fa" ? "کمپین فعال" : "Live campaign"}
-                </span>
-                <span className="text-xs text-accent-2">
-                  ● {locale === "fa" ? "میثاق اشتغال" : "Employment pact"}
-                </span>
-              </div>
-              <div className="absolute -start-2 bottom-16 flex items-center gap-2 rounded-2xl border border-border/60 bg-background/80 p-3 shadow-2xl backdrop-blur">
-                <Sparkles className="h-4 w-4 text-brand" />
-                <span className="text-xs font-medium">
-                  {locale === "fa" ? "+۲۰ هزار حامی" : "20k+ supporters"}
-                </span>
-              </div> */}
             </div>
           </BlurFade>
         </div>

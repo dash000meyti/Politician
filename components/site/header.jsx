@@ -4,26 +4,19 @@ import * as React from "react"
 import Image from "next/image"
 
 import { cn } from "@/lib/utils"
-import { useDictionary, useLocale } from "@/lib/i18n/dictionary-context"
-import { persona } from "@/lib/persona"
 import { ThemeToggle } from "@/components/showcase/theme-toggle"
-import { LocaleSwitcher } from "./locale-switcher"
 import { MobileNav } from "./mobile-nav"
 import { SiteLink } from "./site-link"
 import { PersonaNameMark } from "./persona-name-mark"
 
 const NAV = [
-  { href: "/", labelKey: "home" },
-  { href: "/about", labelKey: "about" },
-  { href: "/content", labelKey: "content" },
-  { href: "/contact", labelKey: "contact" },
+  { href: "/", label: "صفحه اصلی" },
+  { href: "/about", label: "درباره من" },
+  { href: "/content", label: "مطالب" },
+  { href: "/contact", label: "ارتباط با من" },
 ]
 
 export function SiteHeader() {
-  const dict = useDictionary()
-  const locale = useLocale()
-  const personaInfo = persona[locale] ?? persona.fa
-
   const [scrolled, setScrolled] = React.useState(false)
 
   React.useEffect(() => {
@@ -59,10 +52,10 @@ export function SiteHeader() {
           <span className="hidden flex-col leading-none sm:flex">
             <PersonaNameMark
               variant="compact"
-              aria-label={personaInfo.name}
+              aria-label="سید یاسر جبرائیلی"
             />
             <span className="mt-0.5 font-text text-[10px] font-normal text-muted-foreground">
-              {personaInfo.role}
+              دبیرکل حزب تمدن نوین اسلامی
             </span>
           </span>
         </SiteLink>
@@ -75,15 +68,14 @@ export function SiteHeader() {
               className="rounded-full px-3 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               activeClassName="bg-muted text-foreground"
             >
-              {dict.nav[item.labelKey]}
+              {item.label}
             </SiteLink>
           ))}
         </nav>
 
         <div className="flex items-center gap-1.5">
-          <LocaleSwitcher />
           <ThemeToggle />
-          <MobileNav nav={NAV} dict={dict} className="md:hidden" />
+          <MobileNav nav={NAV} className="md:hidden" />
         </div>
       </div>
     </header>

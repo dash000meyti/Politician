@@ -5,13 +5,10 @@ import Image from "next/image"
 import { BookOpen } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { useDictionary } from "@/lib/i18n/dictionary-context"
 import { Badge } from "@/components/ui"
 import { SiteLink } from "../site-link"
 
 export function BookCard({ article, className }) {
-  const dict = useDictionary()
-
   return (
     <SiteLink
       href={`/content/book/${article.slug}`}
@@ -21,7 +18,7 @@ export function BookCard({ article, className }) {
       )}
     >
       <Badge variant="secondary" className="self-start">
-        {dict.content.types.book}
+        کتاب
       </Badge>
       <div className="relative my-4 mx-auto aspect-[3/4] w-32 overflow-hidden rounded-md shadow-2xl shadow-black/40 transition-transform duration-500 group-hover:rotate-1 group-hover:scale-105">
         <Image
@@ -47,7 +44,7 @@ export function BookCard({ article, className }) {
       </p>
       <div className="mt-4 inline-flex items-center justify-center gap-1.5 self-center rounded-full bg-foreground px-3 py-1.5 text-[11px] font-medium text-background transition-transform group-hover:scale-105">
         <BookOpen className="h-3 w-3" />
-        {dict.actions.readMore}
+        مطالعه‌ی بیشتر
       </div>
     </SiteLink>
   )

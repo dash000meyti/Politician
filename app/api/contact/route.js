@@ -33,7 +33,7 @@ export async function POST(request) {
     return NextResponse.json({ ok: false, error: "Invalid JSON" }, { status: 400 })
   }
 
-  const { name, email, subject, message, locale = "fa" } = body ?? {}
+  const { name, email, subject, message } = body ?? {}
 
   if (
     !name?.trim() ||
@@ -53,7 +53,7 @@ export async function POST(request) {
     email: String(email).trim().slice(0, 200),
     subject: String(subject).trim().slice(0, 300),
     body: String(message).trim().slice(0, 5000),
-    locale: ["fa", "en"].includes(locale) ? locale : "fa",
+    locale: "fa",
     createdAt: new Date().toISOString(),
     isRead: false,
   }

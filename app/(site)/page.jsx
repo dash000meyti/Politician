@@ -20,35 +20,35 @@ import {
   getRoadmap,
   getCollaborations,
 } from "@/lib/mock-data"
-import { isLocale } from "@/lib/i18n/config"
 import { personJsonLd } from "@/lib/seo"
 import Script from "next/script"
-import { notFound } from "next/navigation"
 
-export default async function HomePage({ params }) {
-  const { locale } = await params
-  if (!isLocale(locale)) notFound()
-
-  const pinned = getArticles({ locale, pinned: true, limit: 3 })
+export default async function HomePage() {
+  const pinned = {
+    news: getArticles({ type: "news", limit: 1 })[0] ?? null,
+    book: getArticles({ type: "book", limit: 1 })[0] ?? null,
+    event: getArticles({ type: "event", limit: 1 })[0] ?? null,
+    videos: getArticles({ type: "video", limit: 2 }),
+  }
   const latestByType = {
-    news: getArticles({ locale, type: "news", limit: 3 }),
-    video: getArticles({ locale, type: "video", limit: 3 }),
-    book: getArticles({ locale, type: "book", limit: 3 }),
-    event: getArticles({ locale, type: "event", limit: 3 }),
+    news: getArticles({ type: "news", limit: 3 }),
+    video: getArticles({ type: "video", limit: 3 }),
+    book: getArticles({ type: "book", limit: 3 }),
+    event: getArticles({ type: "event", limit: 3 }),
   }
 
-  const testimonials = getTestimonials(locale)
-  const campaigns = getCampaigns(locale)
-  const mission = getMission(locale)
-  const roadmap = getRoadmap(locale)
+  const testimonials = getTestimonials()
+  const campaigns = getCampaigns()
+  const mission = getMission()
+  const roadmap = getRoadmap()
   const collaborations = getCollaborations()
 
-  const jsonLd = personJsonLd(locale)
+  const jsonLd = personJsonLd()
 
   return (
     <>
       <Hero />
-      <PinnedContent articles={pinned} />
+      <PinnedContent items={pinned} />
       <BioSnapshot />
       <LatestByType data={latestByType} />
       <Mission items={mission} />
@@ -59,7 +59,7 @@ export default async function HomePage({ params }) {
       <Roadmap items={roadmap} />
       <SupportCta />
       <Closing />
-      <Script id={`home-jsonld-${locale}`} type="application/ld+json">
+      <Script id="home-jsonld" type="application/ld+json">
         {JSON.stringify(jsonLd)}
       </Script>
     </>

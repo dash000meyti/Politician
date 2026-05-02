@@ -11,7 +11,6 @@ import {
   Sparkles,
 } from "lucide-react"
 
-import { useDictionary } from "@/lib/i18n/dictionary-context"
 import { BlurFade, MagicCard } from "@/components/ui/magic"
 import { SectionHeading } from "./section-heading"
 
@@ -26,7 +25,6 @@ const ICON = {
 }
 
 export function Mission({ items }) {
-  const dict = useDictionary()
   if (!items?.length) return null
 
   return (
@@ -34,8 +32,8 @@ export function Mission({ items }) {
       <SectionHeading
         align="center"
         eyebrow="Mission"
-        title={dict.sections.mission.title}
-        subtitle={dict.sections.mission.subtitle}
+        title="اهداف و مأموریت"
+        subtitle="نقشه‌ای روشن از باورها و چیزی که برایش می‌جنگیم."
       />
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -1,10 +1,9 @@
-import { persona } from "@/lib/persona"
-
 export default function manifest() {
   return {
-    name: persona.fa.name,
-    short_name: persona.fa.shortName,
-    description: persona.fa.shortBio,
+    name: "سید یاسر جبرائیلی",
+    short_name: "یاسر جبرائیلی",
+    description:
+      "پژوهشگر اندیشه سیاسی و اقتصاد سیاسی؛ دبیرکل حزب تمدن نوین اسلامی و عضو هیئت علمی پژوهشگاه علوم انسانی و مطالعات فرهنگی. تمرکز او بر تحلیل سیاست‌های اقتصادی، حکمرانی پولی و مسیر توسعه در چارچوب انقلاب اسلامی است.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

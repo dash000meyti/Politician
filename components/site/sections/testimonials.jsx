@@ -5,7 +5,6 @@ import Image from "next/image"
 import { Quote } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { useDictionary } from "@/lib/i18n/dictionary-context"
 import { BlurFade, Marquee } from "@/components/ui/magic"
 import { SectionHeading } from "./section-heading"
 
@@ -40,7 +39,6 @@ function TestimonialCard({ t }) {
 }
 
 export function Testimonials({ items }) {
-  const dict = useDictionary()
   if (!items?.length) return null
 
   const half = Math.ceil(items.length / 2)
@@ -52,8 +50,8 @@ export function Testimonials({ items }) {
       <SectionHeading
         align="center"
         eyebrow="People"
-        title={dict.sections.testimonials.title}
-        subtitle={dict.sections.testimonials.subtitle}
+        title="نظر مخاطبین"
+        subtitle="چیزی که مردم می‌گویند، اعتبار ما را می‌سازد."
       />
 
       <BlurFade inView delay={0.2} className="mt-12">

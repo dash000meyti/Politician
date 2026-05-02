@@ -4,15 +4,12 @@ import * as React from "react"
 import Image from "next/image"
 import { BookOpen, Calendar, Building2 } from "lucide-react"
 
-import { useDictionary, useLocale } from "@/lib/i18n/dictionary-context"
 import { BlurFade, BorderBeam } from "@/components/ui/magic"
 import { Button } from "@/components/ui"
 import { formatDate } from "../cards/article-card"
 
 export function BookTemplate({ article }) {
-  const dict = useDictionary()
-  const locale = useLocale()
-  const date = formatDate(article.publishedAt, locale)
+  const date = formatDate(article.publishedAt)
 
   return (
     <article className="mx-auto max-w-5xl">
@@ -48,7 +45,7 @@ export function BookTemplate({ article }) {
                     rel="noopener noreferrer"
                   >
                     <BookOpen className="me-2 h-4 w-4" />
-                    {dict.actions.buy}
+                    تهیه
                   </a>
                 </Button>
               )}
@@ -59,7 +56,7 @@ export function BookTemplate({ article }) {
         <div className="lg:col-span-7">
           <BlurFade inView delay={0.05}>
             <span className="rounded-full bg-accent-3/15 px-2.5 py-1 text-xs font-medium uppercase tracking-wider text-accent-3">
-              {dict.content.types.book}
+              کتاب
             </span>
           </BlurFade>
 
@@ -84,7 +81,7 @@ export function BookTemplate({ article }) {
               {article.pages && (
                 <span className="inline-flex items-center gap-1.5">
                   <BookOpen className="h-3.5 w-3.5" />
-                  {article.pages} {locale === "fa" ? "صفحه" : "pages"}
+                  {article.pages} صفحه
                 </span>
               )}
             </div>
