@@ -2,7 +2,6 @@ import { ShowcasePage, ShowcaseSection, ShowcaseVariant } from "@/components/sho
 import * as Demos from "@/components/demo"
 
 const crumbs = [
-  { label: "Home", href: "/" },
   { label: "Demo", href: "/demo" },
   { label: "Components" },
 ]

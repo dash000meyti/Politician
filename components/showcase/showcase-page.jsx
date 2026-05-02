@@ -23,10 +23,10 @@ export function ShowcasePage({
   const hasSections = sections.length > 0
 
   return (
-    <SidebarProvider defaultOpen={hasSections}>
+    <SidebarProvider defaultOpen={hasSections} mobileBreakpoint={1024}>
       <ShowcaseSidebar sections={sections} />
       <SidebarInset className="bg-background min-h-screen">
-        <header className="border-border bg-background/80 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-40 border-b backdrop-blur">
+        <header className="bg-background/80 supports-backdrop-filter:bg-background/60 sticky top-0 z-40 backdrop-blur border border-b-2">
           <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
             <div className="flex min-w-0 items-center gap-2">
               {hasSections ? (
@@ -36,7 +36,6 @@ export function ShowcasePage({
                 />
               ) : null}
               <div className="flex min-w-0 flex-col gap-1">
-                {crumbs?.length ? <ShowcaseBreadcrumbs items={crumbs} /> : null}
                 <h1 className="text-foreground truncate text-lg font-semibold tracking-tight sm:text-xl">
                   {title}
                 </h1>
@@ -54,6 +53,13 @@ export function ShowcasePage({
             </div>
           </div>
         </header>
+        {crumbs?.length ? (
+          <div className="border-border border-b">
+            <div className="mx-auto max-w-7xl px-4 py-2 sm:px-6 lg:px-8">
+              <ShowcaseBreadcrumbs items={crumbs} />
+            </div>
+          </div>
+        ) : null}
 
         <main className="mx-auto w-full max-w-5xl space-y-12 px-4 py-8 sm:px-6 lg:px-8">
           {description ? (

@@ -2,6 +2,38 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@font-face {
+  font-family: "Divan NoEn Black";
+  src: url("/fonts/divan-noen-black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANSansX";
+  src: url("/fonts/iransansx-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANYekanX";
+  src: url("/fonts/iranyekanx-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Farhang2";
+  src: url("/fonts/farhang2-black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -10,9 +42,10 @@
   --font-sans: var(--font-vazirmatn), var(--font-geist-sans), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-vazirmatn), var(--font-geist-sans), system-ui, sans-serif;
-  --font-text: var(--font-vazirmatn), var(--font-geist-sans), system-ui, sans-serif;
-  --font-title: var(--font-vazirmatn), var(--font-geist-sans), system-ui, sans-serif;
-  --font-special: var(--font-lalezar), var(--font-caveat), var(--font-geist-sans), system-ui, sans-serif;
+  --font-text: "IRANYekanX", var(--font-vazirmatn), var(--font-geist-sans), system-ui, sans-serif;
+  --font-title: "Farhang2", var(--font-vazirmatn), var(--font-geist-sans), system-ui, sans-serif;
+  --font-special: "IRANSansX", var(--font-vazirmatn), var(--font-geist-sans), system-ui, sans-serif;
+  --font-one-time: "Divan NoEn Black", var(--font-text);
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
   --color-accent-1: var(--accent-1);
@@ -290,13 +323,14 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply font-sans;
+    @apply font-text;
   }
 }
 
 @layer utilities {
   .font-text {
     font-family: var(--font-text);
+    font-weight: 400;
   }
   .font-title {
     font-family: var(--font-title);
@@ -304,7 +338,12 @@
   }
   .font-special {
     font-family: var(--font-special);
+    font-weight: 700;
     letter-spacing: 0.01em;
+  }
+  .font-oneTime {
+    font-family: var(--font-one-time);
+    font-weight: 900;
   }
   .text-balance {
     text-wrap: balance;

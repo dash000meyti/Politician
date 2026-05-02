@@ -60,7 +60,7 @@ export function Hero() {
 
           <BlurFade delay={0.1} inView>
             <h1 className="font-title text-4xl font-bold leading-[1.05] tracking-tight text-balance sm:text-5xl lg:text-6xl">
-              {personaInfo.name}
+              <span className="font-oneTime">{personaInfo.name}</span>
               <br />
               <span className="inline-flex items-center gap-3 text-3xl sm:text-4xl lg:text-5xl">
                 <AuroraText
@@ -131,18 +131,19 @@ export function Hero() {
         </div>
 
         <div className="relative flex items-center justify-center lg:col-span-5">
+          
           <BlurFade delay={0.2} inView>
             <div className="relative flex aspect-[4/5] w-full max-w-md items-end justify-center">
-              <div className="absolute inset-0 -z-10 rounded-[3rem] bg-gradient-to-br from-brand/30 via-accent-1/20 to-accent-3/20 blur-2xl" />
-              <div className="absolute inset-x-12 bottom-8 -z-10 h-3/4 rounded-[2.5rem] bg-gradient-to-br from-brand to-accent-1 opacity-90" />
+              <div className="absolute inset-0 -z-10 rounded-[3rem] bg-gradient-to-br from-brand/30 via-accent-1/20 to-accent-3/20 blur-2xl " />
               <div className="relative flex h-full w-full items-end overflow-hidden rounded-[2.5rem]">
                 <Image
                   src={persona.hero.portrait}
                   alt={persona.hero.portraitAlt[locale] ?? persona.hero.portraitAlt.en}
-                  fill
+                  width={1024}
+                  height={1024}
                   priority
                   sizes="(max-width: 1024px) 80vw, 35vw"
-                  className="object-cover"
+                  className="h-full w-full object-cover object-left"
                 />
                 <BorderBeam
                   size={250}

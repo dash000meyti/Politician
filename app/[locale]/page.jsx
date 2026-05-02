@@ -22,6 +22,7 @@ import {
 } from "@/lib/mock-data"
 import { isLocale } from "@/lib/i18n/config"
 import { personJsonLd } from "@/lib/seo"
+import Script from "next/script"
 import { notFound } from "next/navigation"
 
 export default async function HomePage({ params }) {
@@ -58,10 +59,9 @@ export default async function HomePage({ params }) {
       <Roadmap items={roadmap} />
       <SupportCta />
       <Closing />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <Script id={`home-jsonld-${locale}`} type="application/ld+json">
+        {JSON.stringify(jsonLd)}
+      </Script>
     </>
   )
 }

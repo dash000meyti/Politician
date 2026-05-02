@@ -10,7 +10,6 @@ import {
 } from "@/components/demo"
 
 const crumbs = [
-  { label: "Home", href: "/" },
   { label: "Demo", href: "/demo" },
   { label: "Magic UI", href: "/demo/magic" },
   { label: "Device Mocks" },

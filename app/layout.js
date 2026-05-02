@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Vazirmatn, Lalezar, Caveat } from "next/font/google";
+import { Geist, Geist_Mono, Vazirmatn } from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui"
 import { Toaster } from "@/components/ui"
@@ -20,19 +20,6 @@ const vazirmatn = Vazirmatn({
   variable: "--font-vazirmatn",
   subsets: ["arabic", "latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
-  display: "swap",
-});
-
-const lalezar = Lalezar({
-  variable: "--font-lalezar",
-  subsets: ["arabic", "latin"],
-  weight: "400",
-  display: "swap",
-});
-
-const caveat = Caveat({
-  variable: "--font-caveat",
-  subsets: ["latin"],
   display: "swap",
 });
 
@@ -65,14 +52,12 @@ export default function RootLayout({ children }) {
         geistSans.variable,
         geistMono.variable,
         vazirmatn.variable,
-        lalezar.variable,
-        caveat.variable,
         "h-full antialiased",
       ].join(" ")}
     >
       <body className="min-h-full flex flex-col font-text">
         <AppProviders>
-          <DirectionProvider>
+          <DirectionProvider dir="rtl">
             <TooltipProvider>
               {children}
               <Toaster />

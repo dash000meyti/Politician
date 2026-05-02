@@ -56,7 +56,7 @@ export function SiteHeader() {
             />
           </span>
           <span className="hidden flex-col leading-none sm:flex">
-            <span>{personaInfo.shortName}</span>
+            <span className="font-oneTime">{personaInfo.shortName}</span>
             <span className="mt-0.5 font-text text-[10px] font-normal text-muted-foreground">
               {personaInfo.role}
             </span>

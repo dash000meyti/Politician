@@ -12,11 +12,13 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useDirection,
   useSidebar,
 } from "@/components/ui"
 
 export function ShowcaseSidebar({ sections }) {
   const [active, setActive] = useState(sections?.[0]?.id ?? null)
+  const direction = useDirection()
   const { isMobile, setOpenMobile } = useSidebar()
 
   useEffect(() => {
@@ -50,7 +52,7 @@ export function ShowcaseSidebar({ sections }) {
   }
 
   return (
-    <Sidebar collapsible="offcanvas">
+    <Sidebar side={direction === "rtl" ? "right" : "left"} collapsible="offcanvas">
       <SidebarHeader>
         <div className="flex items-center gap-2 px-2 py-1.5">
           <ListTree className="text-muted-foreground size-4" />

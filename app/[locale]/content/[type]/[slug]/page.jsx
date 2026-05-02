@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation"
 import { ChevronLeft } from "lucide-react"
 import Link from "next/link"
+import Script from "next/script"
 
 import { isLocale } from "@/lib/i18n/config"
 import { getDictionary } from "@/lib/i18n/get-dictionary"
@@ -107,10 +108,9 @@ export default async function ArticlePage({ params }) {
         </section>
       )}
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <Script id={`article-jsonld-${locale}-${type}-${slug}`} type="application/ld+json">
+        {JSON.stringify(jsonLd)}
+      </Script>
     </div>
   )
 }
