@@ -13,7 +13,7 @@ import { SocialIcon } from "./social-icon"
 const ITEMS = [
   { href: "/", icon: Home, label: "صفحه اصلی" },
   { href: "/content", icon: Layers, label: "مطالب" },
-  { href: "/about", icon: User2, label: "درباره من" },
+  { href: "/about", icon: User2, label: "بیوگرافی" },
   { href: "/contact", icon: Mail, label: "ارتباط با من" },
 ]
 

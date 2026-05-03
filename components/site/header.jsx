@@ -11,7 +11,7 @@ import { PersonaNameMark } from "./persona-name-mark"
 
 const NAV = [
   { href: "/", label: "صفحه اصلی" },
-  { href: "/about", label: "درباره من" },
+  { href: "/about", label: "بیوگرافی" },
   { href: "/content", label: "مطالب" },
   { href: "/contact", label: "ارتباط با من" },
 ]

@@ -6,7 +6,7 @@ import { SectionHeading } from "./section-heading"
 
 export function Social() {
   return (
-    <section className="relative overflow-hidden border-y border-border/60 bg-background px-4 py-12">
+    <section className="relative overflow-hidden border-y border-border/60 bg-background px-4 py-4">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
         <div className="flex flex-col justify-center">
           <SectionHeading
@@ -34,16 +34,16 @@ export function Social() {
           </BlurFade>
         </div>
 
-        <div className="relative flex h-80 items-center justify-center sm:h-96">
+        <div className="relative flex h-100 items-center justify-center">
           <Ripple
-            mainCircleSize={120}
-            mainCircleOpacity={0.16}
-            numCircles={6}
+            mainCircleSize={110}
+            mainCircleOpacity={0.40}
+            numCircles={5}
           />
-          <span className="absolute z-10 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-brand to-accent-1 text-xl font-bold text-white shadow-2xl">
-            ی
+          <span className="absolute z-10 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-brand to-accent-1 text-white shadow-2xl">
+            دنبال کنید
           </span>
-          <OrbitingCircles iconSize={36} radius={130} duration={20}>
+          <OrbitingCircles iconSize={40} radius={110} duration={20} path={false}>
             <a
               href="https://jebraily.ir/"
               target="_blank"

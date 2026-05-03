@@ -54,12 +54,11 @@ export default async function HomePage() {
       <Mission items={mission} />
       <Campaigns items={campaigns} />
       <Testimonials items={testimonials} />
-      <Social />
       <Collaborations items={collaborations} />
       <Roadmap items={roadmap} />
       <Closing />
       <SupportCta />
-      <SupportCta />
+      <Social />
       <Script id="home-jsonld" type="application/ld+json">
         {JSON.stringify(jsonLd)}
       </Script>

@@ -51,7 +51,7 @@ export function BioSnapshot() {
         <div className="flex flex-col justify-center lg:col-span-7">
           <SectionHeading
             eyebrow="از پژوهش و تدریس تا میدان سیاست‌گذاری اقتصادی."
-            title="درباره‌ی من"
+            title="درباره‌ی سید یاسر جبرائیلی"
           />
 
           <BlurFade inView delay={0.2}>

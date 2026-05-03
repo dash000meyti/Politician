@@ -11,7 +11,7 @@ export function SiteFooter() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="relative mt-24 border-t border-border/60 bg-muted/30">
+    <footer className="relative mt-4 border-t border-border/60 bg-muted/30">
       <div className="absolute inset-x-0 top-0 -translate-y-1/2">
         <div className="mx-auto h-px w-3/4 max-w-3xl bg-gradient-to-r from-transparent via-brand to-transparent opacity-60" />
       </div>
@@ -53,7 +53,7 @@ export function SiteFooter() {
             </li>
             <li>
               <SiteLink href="/about" className="text-muted-foreground hover:text-foreground">
-                درباره من
+                بیوگرافی
               </SiteLink>
             </li>
             <li>
