@@ -6,11 +6,10 @@ import { SectionHeading } from "./section-heading"
 
 export function Social() {
   return (
-    <section className="relative overflow-hidden border-y border-border/60 bg-background py-20 sm:py-28">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+    <section className="relative overflow-hidden border-y border-border/60 bg-background px-4 py-12">
+      <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
         <div className="flex flex-col justify-center">
           <SectionHeading
-            eyebrow="@"
             title="در شبکه‌های اجتماعی"
             subtitle="ما را در همه‌جا دنبال کنید."
           />

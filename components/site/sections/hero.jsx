@@ -20,7 +20,7 @@ export function Hero() {
   const router = useRouter()
 
   return (
-    <section className="relative isolate overflow-hidden pt-12 pb-24 sm:pt-20 sm:pb-32 lg:pt-28">
+    <section className="relative isolate overflow-hidden py-18">
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-background via-background to-muted/40" />
       <div className="absolute inset-0 -z-10 opacity-70 bg-grid-fade">
         <Particles

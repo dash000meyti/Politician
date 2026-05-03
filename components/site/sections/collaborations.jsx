@@ -10,10 +10,9 @@ export function Collaborations({ items }) {
   if (!items?.length) return null
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 py-12">
       <SectionHeading
         align="center"
-        eyebrow="Together"
         title="همکاری‌ها"
         subtitle="در کنار سازمان‌ها و نهادهایی که به آینده باور دارند."
       />

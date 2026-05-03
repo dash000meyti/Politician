@@ -20,7 +20,7 @@ export function PinnedContent({ items }) {
   const [v1, v2] = videos
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-10">
+    <section className="mx-auto max-w-7xl px-4 py-12">
       <SectionHeading
         title="محتوای ویژه"
         subtitle="گزیده‌ای از مهم‌ترین گفته‌ها، رویدادها و موضع‌گیری‌های اخیر."

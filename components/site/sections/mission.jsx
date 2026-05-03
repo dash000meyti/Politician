@@ -28,10 +28,9 @@ export function Mission({ items }) {
   if (!items?.length) return null
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 py-12">
       <SectionHeading
         align="center"
-        eyebrow="Mission"
         title="اهداف و مأموریت"
         subtitle="نقشه‌ای روشن از باورها و چیزی که برایش می‌جنگیم."
       />

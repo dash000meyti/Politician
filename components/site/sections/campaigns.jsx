@@ -33,10 +33,9 @@ export function Campaigns({ items }) {
   if (!items?.length) return null
 
   return (
-    <section className="relative overflow-hidden border-y border-border/60 bg-gradient-to-br from-muted/20 via-background to-muted/30 py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden border-y border-border/60 bg-gradient-to-br from-muted/20 via-background to-muted/30 px-4 py-12">
+      <div className="mx-auto max-w-7xl">
         <SectionHeading
-          eyebrow="Live"
           title="کمپین‌های فعال"
           subtitle="هر کمپین یک گام به سمت تغییری ملموس است."
         />

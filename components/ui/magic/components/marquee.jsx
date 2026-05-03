@@ -7,6 +7,8 @@ export function Marquee({
   children,
   vertical = false,
   repeat = 4,
+  /** CSS time value, e.g. `calc(var(--duration) * -0.5)` to phase-shift the loop */
+  animationDelay,
   ...props
 }) {
   return (
@@ -25,6 +27,11 @@ export function Marquee({
         .map((_, i) => (
           <div
             key={i}
+            style={
+              animationDelay != null && animationDelay !== ""
+                ? { animationDelay }
+                : undefined
+            }
             className={cn("flex shrink-0 justify-around gap-(--gap)", {
               "animate-marquee flex-row": !vertical,
               "animate-marquee-vertical flex-col": vertical,

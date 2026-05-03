@@ -10,7 +10,8 @@ import { SectionHeading } from "./section-heading"
 
 function TestimonialCard({ t }) {
   return (
-    <figure
+      <figure
+      dir="rtl"
       className={cn(
         "relative mx-2 flex w-72 shrink-0 flex-col gap-3 rounded-2xl border border-border/60 bg-background p-5 shadow-sm sm:w-80",
       )}
@@ -46,17 +47,17 @@ export function Testimonials({ items }) {
   const row2 = items.slice(half)
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 py-12">
       <SectionHeading
         align="center"
-        eyebrow="People"
         title="نظر مخاطبین"
         subtitle="چیزی که مردم می‌گویند، اعتبار ما را می‌سازد."
       />
 
       <BlurFade inView delay={0.2} className="mt-12">
         <div
-          className="relative isolate overflow-hidden"
+          dir="ltr"
+          className="relative isolate w-full overflow-hidden"
           style={{
             maskImage:
               "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
@@ -64,7 +65,7 @@ export function Testimonials({ items }) {
               "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
           }}
         >
-          <Marquee className="[--duration:60s]" pauseOnHover>
+          <Marquee className="[--duration:60s]" pauseOnHover repeat={6}>
             {row1.map((t) => (
               <TestimonialCard key={t.id} t={t} />
             ))}
@@ -73,6 +74,8 @@ export function Testimonials({ items }) {
             className="mt-3 [--duration:75s]"
             pauseOnHover
             reverse
+            repeat={6}
+            animationDelay="calc(var(--duration) * -0.5)"
           >
             {row2.map((t) => (
               <TestimonialCard key={t.id} t={t} />

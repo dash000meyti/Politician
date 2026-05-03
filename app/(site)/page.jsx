@@ -57,8 +57,9 @@ export default async function HomePage() {
       <Social />
       <Collaborations items={collaborations} />
       <Roadmap items={roadmap} />
-      <SupportCta />
       <Closing />
+      <SupportCta />
+      <SupportCta />
       <Script id="home-jsonld" type="application/ld+json">
         {JSON.stringify(jsonLd)}
       </Script>

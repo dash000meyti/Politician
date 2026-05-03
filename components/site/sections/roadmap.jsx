@@ -29,11 +29,10 @@ export function Roadmap({ items }) {
   if (!items?.length) return null
 
   return (
-    <section className="relative overflow-hidden border-y border-border/60 bg-muted/20 py-20 sm:py-28">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden border-y border-border/60 bg-muted/20 px-4 py-12">
+      <div className="mx-auto max-w-5xl">
         <SectionHeading
           align="center"
-          eyebrow="Path"
           title="نقشه‌ی راه"
           subtitle="از کجا آغاز کردیم، کجا هستیم، و کجا می‌رویم."
         />

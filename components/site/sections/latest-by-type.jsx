@@ -25,10 +25,9 @@ export function LatestByType({ data }) {
   const router = useRouter()
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 py-16">
       <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
         <SectionHeading
-          eyebrow="نمایش همه"
           title="آخرین محتوا"
           subtitle="تازه‌ترین اخبار، ویدیوها، کتاب‌ها و رویدادها در یک نگاه."
         />

@@ -20,7 +20,7 @@ export function BioSnapshot() {
   const router = useRouter()
 
   return (
-    <section className="relative overflow-hidden border-y border-border/60 bg-muted/30 py-20 sm:py-28">
+    <section className="relative overflow-hidden border-y border-border/60 bg-muted/30 px-4 py-12">
       <div className="absolute inset-0 -z-10 opacity-50 bg-grid-fade">
         <div
           className="absolute inset-0"
@@ -32,12 +32,12 @@ export function BioSnapshot() {
         />
       </div>
 
-      <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-12 px-4 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <BlurFade inView delay={0.1}>
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border/60 bg-gradient-to-br from-brand/20 to-accent-1/20">
               <Image
-                src="/photo.png"
+                src="/portrait.png"
                 alt="پرتره‌ی سید یاسر جبرائیلی"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"
