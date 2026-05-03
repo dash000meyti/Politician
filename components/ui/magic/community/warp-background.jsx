@@ -66,38 +66,42 @@ export const WarpBackground = ({
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296
   }
 
-  const generateBeams = (side) => {
-    const beams = []
-    const cellsPerSide = Math.floor(100 / beamSize)
-    const step = cellsPerSide / beamsPerSide
-    const sideSeed = createSeed(
-      side,
-      beamsPerSide,
-      beamSize,
-      beamDelayMin,
-      beamDelayMax,
-      beamDuration,
-      perspective
-    )
+  const { topBeams, rightBeams, bottomBeams, leftBeams } = useMemo(() => {
+    const generateBeams = (side) => {
+      const beams = []
+      const cellsPerSide = Math.floor(100 / beamSize)
+      const step = cellsPerSide / beamsPerSide
+      const sideSeed = createSeed(
+        side,
+        beamsPerSide,
+        beamSize,
+        beamDelayMin,
+        beamDelayMax,
+        beamDuration,
+        perspective
+      )
 
-    for (let i = 0; i < beamsPerSide; i++) {
-      const x = Math.floor(i * step)
-      const delaySeed = createSeed(sideSeed, i, "delay")
-      const hueSeed = createSeed(sideSeed, i, "hue")
-      const arSeed = createSeed(sideSeed, i, "ar")
-      const delay = randomFromSeed(delaySeed) * (beamDelayMax - beamDelayMin) + beamDelayMin
-      const hue = Math.floor(randomFromSeed(hueSeed) * 360)
-      const ar = Math.floor(randomFromSeed(arSeed) * 10) + 1
-      beams.push({ x, delay, hue, ar })
+      for (let i = 0; i < beamsPerSide; i++) {
+        const x = Math.floor(i * step)
+        const delaySeed = createSeed(sideSeed, i, "delay")
+        const hueSeed = createSeed(sideSeed, i, "hue")
+        const arSeed = createSeed(sideSeed, i, "ar")
+        const delay = randomFromSeed(delaySeed) * (beamDelayMax - beamDelayMin) + beamDelayMin
+        const hue = Math.floor(randomFromSeed(hueSeed) * 360)
+        const ar = Math.floor(randomFromSeed(arSeed) * 10) + 1
+        beams.push({ x, delay, hue, ar })
+      }
+
+      return beams
     }
 
-    return beams
-  }
-
-  const topBeams = useMemo(() => generateBeams("top"), [beamsPerSide, beamSize, beamDelayMax, beamDelayMin, beamDuration, perspective])
-  const rightBeams = useMemo(() => generateBeams("right"), [beamsPerSide, beamSize, beamDelayMax, beamDelayMin, beamDuration, perspective])
-  const bottomBeams = useMemo(() => generateBeams("bottom"), [beamsPerSide, beamSize, beamDelayMax, beamDelayMin, beamDuration, perspective])
-  const leftBeams = useMemo(() => generateBeams("left"), [beamsPerSide, beamSize, beamDelayMax, beamDelayMin, beamDuration, perspective])
+    return {
+      topBeams: generateBeams("top"),
+      rightBeams: generateBeams("right"),
+      bottomBeams: generateBeams("bottom"),
+      leftBeams: generateBeams("left"),
+    }
+  }, [beamsPerSide, beamSize, beamDelayMax, beamDelayMin, beamDuration, perspective])
 
   return (
     <div className={cn("relative rounded border p-20", className)} {...props}>

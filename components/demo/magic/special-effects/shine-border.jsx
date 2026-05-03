@@ -1,5 +1,4 @@
 "use client"
-import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui"
@@ -48,17 +47,7 @@ export function ShineBorderDemo() {
 
 export function ShineBorderDemoMonotone() {
   const { theme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  const monotoneShineColor = mounted
-    ? theme === "dark"
-      ? "white"
-      : "black"
-    : "black"
+  const monotoneShineColor = theme === "dark" ? "white" : "black"
 
   return (
     <Card className="relative w-full max-w-sm  overflow-hidden">
