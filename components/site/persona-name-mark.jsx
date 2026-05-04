@@ -6,7 +6,7 @@ const VARIANT_CLASS = {
   /** Header / toolbar: sits beside icon */
   compact: "h-7 w-auto max-w-[11rem] sm:h-8 sm:max-w-[13rem]",
   /** Hero headline scale */
-  hero: "h-14 w-auto max-w-[min(100%,26rem)] sm:h-20 sm:max-w-[32rem] lg:h-28 lg:max-w-[40rem]",
+  hero: "h-[4.75rem] w-auto max-w-[min(100%,28rem)] sm:h-20 sm:max-w-[32rem] lg:h-28 lg:max-w-[40rem]",
   /** Small inline (footer, cards, etc.) */
   inline: "h-5 w-auto max-w-[8rem]",
   /** Neutral default when only `className` controls size */

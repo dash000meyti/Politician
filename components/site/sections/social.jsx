@@ -23,11 +23,56 @@ export function Social() {
                   className="group inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-sm transition-all hover:-translate-y-0.5 hover:border-brand hover:shadow-md"
                 >
                   <SocialIcon
-                    name="website"
+                    name="x"
                     size={13}
                     className="text-muted-foreground group-hover:text-brand"
                   />
-                  <span className="text-xs font-medium">وب‌گاه رسمی</span>
+                  <span className="text-xs font-medium">X</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://jebraily.ir/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-sm transition-all hover:-translate-y-0.5 hover:border-brand hover:shadow-md"
+                >
+                  <SocialIcon
+                    name="linkedin"
+                    size={13}
+                    className="text-muted-foreground group-hover:text-brand"
+                  />
+                  <span className="text-xs font-medium">LinkedIn</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://jebraily.ir/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-sm transition-all hover:-translate-y-0.5 hover:border-brand hover:shadow-md"
+                >
+                  <SocialIcon
+                    name="eitaa"
+                    size={13}
+                    className="text-muted-foreground group-hover:text-brand"
+                  />
+                  <span className="text-xs font-medium">Eitaa</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://jebraily.ir/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-full border border-border/60 bg-background px-3 py-1.5 text-sm transition-all hover:-translate-y-0.5 hover:border-brand hover:shadow-md"
+                >
+                  <SocialIcon
+                    name="bale"
+                    size={13}
+                    className="text-muted-foreground group-hover:text-brand"
+                  />
+                  <span className="text-xs font-medium">Bale</span>
                 </a>
               </li>
             </ul>
@@ -40,18 +85,45 @@ export function Social() {
             mainCircleOpacity={0.40}
             numCircles={5}
           />
-          <span className="absolute z-10 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-brand to-accent-1 text-white shadow-2xl">
+          <span className="absolute z-10 flex h-20 w-20 items-center justify-center rounded-full bg-linear-to-br from-brand to-accent-1 text-white shadow-2xl">
             دنبال کنید
           </span>
-          <OrbitingCircles iconSize={40} radius={110} duration={20} path={false}>
+          <OrbitingCircles iconSize={40} radius={110} duration={10} path={false}>
             <a
               href="https://jebraily.ir/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="وب‌گاه رسمی"
+              aria-label="X"
               className="flex h-full w-full items-center justify-center rounded-full border border-border/60 bg-background shadow-md transition-transform hover:scale-110"
             >
-              <SocialIcon name="website" size={14} />
+              <SocialIcon name="x" size={14} />
+            </a>
+            <a
+              href="https://jebraily.ir/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="flex h-full w-full items-center justify-center rounded-full border border-border/60 bg-background shadow-md transition-transform hover:scale-110"
+            >
+              <SocialIcon name="linkedin" size={14} />
+            </a>
+            <a
+              href="https://jebraily.ir/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Eitaa"
+              className="flex h-full w-full items-center justify-center rounded-full border border-border/60 bg-background shadow-md transition-transform hover:scale-110"
+            >
+              <SocialIcon name="eitaa" size={14} />
+            </a>
+            <a
+              href="https://jebraily.ir/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Bale"
+              className="flex h-full w-full items-center justify-center rounded-full border border-border/60 bg-background shadow-md transition-transform hover:scale-110"
+            >
+              <SocialIcon name="bale" size={14} />
             </a>
           </OrbitingCircles>
         </div>

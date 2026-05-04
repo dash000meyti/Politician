@@ -6,7 +6,6 @@ import { Home, User2, Layers, Mail } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Dock, DockIcon } from "@/components/ui/magic"
 import { Tooltip, TooltipContent, TooltipTrigger, Separator } from "@/components/ui"
-import { ThemeToggle } from "@/components/showcase/theme-toggle"
 import { SiteLink } from "./site-link"
 import { SocialIcon } from "./social-icon"
 
@@ -15,6 +14,13 @@ const ITEMS = [
   { href: "/content", icon: Layers, label: "مطالب" },
   { href: "/about", icon: User2, label: "بیوگرافی" },
   { href: "/contact", icon: Mail, label: "ارتباط با من" },
+]
+
+const SOCIAL_ITEMS = [
+  { href: "https://jebraily.ir/", icon: "x", label: "X" },
+  { href: "https://jebraily.ir/", icon: "linkedin", label: "LinkedIn" },
+  { href: "https://jebraily.ir/", icon: "eitaa", label: "Eitaa" },
+  { href: "https://jebraily.ir/", icon: "bale", label: "Bale" },
 ]
 
 export function DockNav() {
@@ -54,28 +60,27 @@ export function DockNav() {
               </DockIcon>
             )
           })}
-          <Separator orientation="vertical" className="!h-6 mx-1" />
-          <DockIcon>
-            <ThemeToggle />
-          </DockIcon>
-          <DockIcon>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <a
-                  href="https://github.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-full w-full items-center justify-center rounded-full text-foreground/70 transition-colors hover:text-foreground"
-                  aria-label="GitHub"
-                >
-                  <SocialIcon name="github" size={18} />
-                </a>
-              </TooltipTrigger>
-              <TooltipContent side="top" sideOffset={6}>
-                GitHub
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
+          <Separator orientation="vertical" className="h-6! mx-1" />
+          {SOCIAL_ITEMS.map((item) => (
+            <DockIcon key={item.label}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-full w-full items-center justify-center rounded-full text-foreground/70 transition-colors hover:text-foreground"
+                    aria-label={item.label}
+                  >
+                    <SocialIcon name={item.icon} size={18} />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent side="top" sideOffset={6}>
+                  {item.label}
+                </TooltipContent>
+              </Tooltip>
+            </DockIcon>
+          ))}
         </Dock>
       </div>
     </div>
