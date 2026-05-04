@@ -150,7 +150,7 @@ export function Hero() {
 
         <div className="order-1 relative flex w-full items-center justify-center lg:order-2 lg:col-span-5">
           <BlurFade delay={0.2} inView>
-            <div className="relative aspect-[4/5] flex w-full min-w-[340px] items-end justify-center">
+            <div className="relative aspect-[4/5] flex w-full min-w-[300px] items-end justify-center">
               <div className="absolute inset-0 -z-10 rounded-[3rem] bg-gradient-to-br from-brand/30 via-accent-1/20 to-accent-3/20 blur-2xl" />
               <div className="relative flex h-full w-full items-end overflow-hidden rounded-[2.5rem]">
                 <Image
