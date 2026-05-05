@@ -2,6 +2,7 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 
+RUN npm set registry https://npm-registry.darkube.ir/
 COPY package.json package-lock.json ./
 RUN npm ci
 
@@ -16,6 +17,7 @@ ENV NODE_ENV=production
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
+RUN npm set registry https://npm-registry.darkube.ir/
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 
