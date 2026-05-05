@@ -12,8 +12,6 @@ import {
 } from "@/components/ui"
 import { Button } from "@/components/ui"
 import { addDays } from "date-fns"
-import { Vazirmatn } from "next/font/google"
-const vazirmatn = Vazirmatn({ subsets: ["arabic"] })
 
 export function CalendarDemo() {
   const [date, setDate] = React.useState(new Date())
@@ -33,7 +31,7 @@ export function CalendarDemoHijri() {
   const [date, setDate] = React.useState(new Date())
 
   return (
-    <div className={vazirmatn.className}>
+    <div>
       <CalendarPersian
         mode="single"
         defaultMonth={date}

@@ -1,26 +1,8 @@
-import { Geist, Geist_Mono, Vazirmatn } from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui"
 import { Toaster } from "@/components/ui"
 import { DirectionProvider } from '@/components/ui'
 import { AppProviders } from "@/components/providers"
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const vazirmatn = Vazirmatn({
-  variable: "--font-vazirmatn",
-  subsets: ["arabic", "latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-  display: "swap",
-});
 
 export const metadata = {
   metadataBase: new URL("https://jebraily.ir"),
@@ -58,9 +40,6 @@ export default function RootLayout({ children }) {
       dir="rtl"
       suppressHydrationWarning
       className={[
-        geistSans.variable,
-        geistMono.variable,
-        vazirmatn.variable,
         "h-full antialiased",
       ].join(" ")}
     >
